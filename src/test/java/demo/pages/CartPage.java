@@ -1,8 +1,10 @@
 package demo.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import webdriver.BaseForm;
 
+import webdriver.Browser;
 import webdriver.elements.Button;
 import webdriver.elements.Label;
 import webdriver.elements.TextBox;
@@ -14,23 +16,22 @@ public class CartPage extends BaseForm {
     private Button complete = new Button(By.name("data[btn-submit]"), "submitButton");
     private Label skuQanityError=new Label(By.xpath(".//*[@id='shop-sku-quantity-error']"),"skuQanityError");
     private Label totalPriceSum=new Label(By.xpath(".//*[@id='totalPriceWithDelivery']"),"totalPriceSum");
+    private  Label formError=new Label(By.xpath("//div[contains(@class,\"error-input\")]"),"cart form error");
+    private String locDeleteSomeProduct="//a[contains(text(),'%s')]/../../td[contains(@class,'shop-cart-tbl-close')]/a";
+    private String locCountSomeProduct="//a[contains(text(),'%s')]/../../td[contains(@class,'shop-cart-tbl-center skuCountCell')]/input";
 
     public CartPage(){
         super(By.xpath("//div[contains(@class,'shop-cart-title')]"),"Cart Page");
     }
 
-    public void setProductCount( String productId,String count) throws InterruptedException{
-        Thread.sleep(1000);
-        TextBox countProduct=new TextBox(By.xpath(".//tr[@data-sku='"+productId+"']/td[3]/input"), "countProduct");
-        countProduct.setText(count);
-        Thread.sleep(1000);
-    }
-	/*public void setProduct2Count(String count){
-		countProduct2.setText(count);
-	}
-	public void setProduct3Count(String count){
-		countProduct3.setText(count);
-	}*/
+
+   public void setProductCount(String productName, String count) throws InterruptedException {
+       TextBox txbProductCount=new TextBox(By.xpath(String.format(locCountSomeProduct,productName)),"product count input");
+       txbProductCount.setText(count);
+       Thread.sleep(1000);
+
+   }
+
 
     public void fillInFields(String nameText, String lastNameText, String emailText)
     {
@@ -51,10 +52,24 @@ public class CartPage extends BaseForm {
 
     }
     public boolean isSkuQanityErrorDisplayd(){
+
         return skuQanityError.isPresent();
     }
+    public boolean isFormErrorDisplayd(){
+        System.out.println(formError.isPresent());
+        formError.waitForIsElementPresent();
+        return  formError.isPresent();
+    }
     public String getTotalPrice() throws InterruptedException{
-        Thread.sleep(1000);
+
+        totalPriceSum.waitForIsElementPresent();
+
         return totalPriceSum.getText();
+    }
+    public void deleteSomeProduct(String productName){
+        Button btnDeleteSomeProduct=new Button(By.xpath(String.format(locDeleteSomeProduct,productName)),"delete product button");
+        btnDeleteSomeProduct.click();
+        Browser.checkAlert();
+
     }
 }

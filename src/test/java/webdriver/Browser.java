@@ -1,9 +1,11 @@
 package webdriver;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.naming.NamingException;
@@ -183,6 +185,20 @@ public final class Browser {
         return driver.getCurrentUrl();
     }
 
+    public static void checkAlert() {
+
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, 2);
+                wait.until(ExpectedConditions.alertIsPresent());
+                Alert alert = driver.switchTo().alert();
+                System.out.println(alert.getText());
+                alert.accept();
+            } catch (Exception e) {
+                //exception handling
+            }
+
+    }
+
 
     /**
      * Browsers enumeration
@@ -212,6 +228,8 @@ public final class Browser {
         public String toString() {
             return value;
         }
+
+
     }
 
 }

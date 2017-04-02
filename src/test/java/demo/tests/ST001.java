@@ -24,6 +24,14 @@ public class ST001 extends BaseTest {
 
         logStep();
         CartPage cartPage = new CartPage();
+        cartPage.clickSubmit();
+
+
+        assertTrue(cartPage.isFormErrorDisplayd());
+
+
+        logStep();
+
         cartPage.fillInFields("test", "test", "tt@tt.tt");
         cartPage.clickSubmit();
 

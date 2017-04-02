@@ -7,6 +7,7 @@ import webdriver.elements.*;
 public class ProductPage extends BaseForm {
     private Button btnAddToCart = new Button(By.id("skuadd"), "addToCartButton");
     private Button btnGoToCart = new Button(By.xpath("//a[contains(text(),'Ваша корзина')]"),"goToCart");
+    private Button btnGoToCatalog=new Button(By.id("shop-product-lnk-back"),"back to catalog button");
 
     public ProductPage(){
         super(By.xpath("//div[contains(@class,'page shop-product')]"),"Product Page");
@@ -21,6 +22,7 @@ public class ProductPage extends BaseForm {
     {
         btnGoToCart.click();
     }
+    public void goToCatalog(){btnGoToCatalog.click();}
 
     public String  getAddButtonText(){
         System.out.println(btnAddToCart.getText());

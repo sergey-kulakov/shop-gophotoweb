@@ -1,6 +1,9 @@
 package webdriver;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import webdriver.elements.Label;
 
@@ -89,6 +92,8 @@ public abstract class BaseForm extends BaseEntity {
             fatal(String.format(getLoc("loc.form.doesnt.appears"), title));
         }
     }
+
+
 
 
 }
