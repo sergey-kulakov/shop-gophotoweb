@@ -22,4 +22,12 @@ public class CheckBox extends BaseElement {
     protected String getElementType() {
         return getLoc("loc.lcheckbox");
     }
+
+   /* public void swichOn(){
+        if(!element.isSelected()){
+
+        element.click();
+
+
+    }}*/
 }

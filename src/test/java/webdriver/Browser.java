@@ -50,6 +50,10 @@ public final class Browser {
         return System.getProperty("urlLoginPage", props.getProperty("urlLoginPage"));
     }
 
+    public static String getAdminPageUrl() {
+        return System.getProperty("adminPageUrl", props.getProperty("adminPageUrl"));
+    }
+
     /**
      * Gets instance of Browser
      *
