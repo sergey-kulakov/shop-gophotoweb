@@ -58,10 +58,8 @@ public class ST001 extends BaseTest {
         logStep();
         CartPage cartPage = new CartPage();
         cartPage.clickSubmit();
-
-
-        assertTrue(cartPage.isFormErrorDisplayd());
-
+        assertTrue(cartPage.isFormErrorDisplayed());
+        logger.info("The order was not completed. Error is displayed.");
 
         logStep();
 
@@ -71,5 +69,6 @@ public class ST001 extends BaseTest {
         logStep();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.checkThanksForOrderMessage());
+        logger.info("The order was completed");
     }
 }

@@ -76,13 +76,15 @@ public class ST003 extends BaseTest {
         CartPage cartPage=new CartPage();
         cartPage.setProductCount("product1","1001");
         cartPage.clickSubmit();
-        assertTrue(cartPage.isSkuQanityErrorDisplayd());
+        assertTrue(cartPage.isSkuQanityErrorDisplayed());
         assertTrue(cartPage.isTextBoxSkuCountErrorDisplayed());
+        logger.info("Qantity Error Displayed");
 
         logStep();
         cartPage.setProductCount("product1","0");
         cartPage.clickSubmit();
         assertTrue(cartPage.isTextBoxSkuCountErrorDisplayed());
+        logger.info("Order was not completed");
 
         logStep();
         cartPage.setProductCount("product1","1");
@@ -95,5 +97,6 @@ public class ST003 extends BaseTest {
         logStep();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.checkThanksForOrderMessage());
+        logger.info("The order was completed");
     }
 }

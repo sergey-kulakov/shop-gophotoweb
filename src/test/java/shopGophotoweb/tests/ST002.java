@@ -67,18 +67,26 @@ public class ST002 extends BaseTest {
 
         logStep();
         CartPage cartPage = new CartPage();
+        logger.info("Expected result: total price = 3 500 p.");
+        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"3 500 p.");
 
         logStep();
         cartPage.deleteSomeProduct("product2");
+        logger.info("Expected result: total price = 1 500 p.");
+        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"1 500 p.");
 
         logStep();
         cartPage.setProductCount("product1","5");
+        logger.info("Expected result: total price = 5 500 p.");
+        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"5 500 p.");
 
         logStep();
         cartPage.setProductCount("product3","10");
+        logger.info("Expected result: total price = 10 000 p.");
+        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"10 000 p.");
 
         logStep();
@@ -88,6 +96,7 @@ public class ST002 extends BaseTest {
         logStep();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.checkThanksForOrderMessage());
+        logger.info("The order was completed");
 
 
     }

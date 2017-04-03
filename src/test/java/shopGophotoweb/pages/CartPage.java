@@ -35,7 +35,7 @@ public class CartPage extends BaseForm {
        TextBox txbProductCount=new TextBox(By.xpath(String.format(locCountSomeProduct,productName)),"product count input");
 
        txbProductCount.setText(count);
-       Thread.sleep(2000);
+       Thread.sleep(3000);
 
    }
 
@@ -58,7 +58,7 @@ public class CartPage extends BaseForm {
 
 
     }
-    public boolean isSkuQanityErrorDisplayd(){
+    public boolean isSkuQanityErrorDisplayed(){
 
         return lblSkuQanityError.isPresent();
     }
@@ -67,7 +67,7 @@ public class CartPage extends BaseForm {
         lblTextBoxSkuCountError.waitForIsElementPresent();
         return lblTextBoxSkuCountError.isPresent();
     }
-    public boolean isFormErrorDisplayd(){
+    public boolean isFormErrorDisplayed(){
         System.out.println(formError.isPresent());
         formError.waitForIsElementPresent();
         return  formError.isPresent();

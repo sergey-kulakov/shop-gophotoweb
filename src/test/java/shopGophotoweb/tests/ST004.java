@@ -60,6 +60,8 @@ public class ST004 extends BaseTest {
         logStep();
         CartPage cartPage=new CartPage();
         cartPage.fillInFields("test", "test", "tt@tt.tt");
+        logger.info("Expected result: total price = 1 000 p.");
+        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"1 000 p.");
 
         logStep();
@@ -68,24 +70,33 @@ public class ST004 extends BaseTest {
 
         logStep();
         cartPage.selectDeliveryMethod("Самовывоз");
+        logger.info("Expected result: total price = 1 100 p.");
+        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"1 010 p.");
 
         logStep();
         cartPage.selectDeliveryMethod("Курьер");
+        logger.info("Expected result: total price = 2 200 p.");
+        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"2 020 p.");
 
         logStep();
         cartPage.setProductCount("product1","9");
+        logger.info("Expected result: total price = 10 180.80 p.");
+        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"10 180.80 p.");
         cartPage.clickSubmit();
 
         logStep();
         cartPage.setProductCount("product1","10");
+        logger.info("Expected result: total price = 10 100 p.");
+        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"10 100 p.");
         cartPage.clickSubmit();
 
         logStep();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.checkThanksForOrderMessage());
+        logger.info("The order was completed");
     }
 }

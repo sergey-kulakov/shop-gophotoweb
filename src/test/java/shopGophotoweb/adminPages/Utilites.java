@@ -3,9 +3,7 @@ package shopGophotoweb.adminPages;
 import org.openqa.selenium.By;
 import webdriver.elements.Button;
 
-/**
- * Created by Sergey on 02.04.2017.
- */
+
 public class Utilites {
     static String locMenuItem="//ul[@class='clearfix']/li/a/span[contains(text(),'%s')]";
     static String locSidear="//ul[@class='nav navbar-nav']/li/a[contains(text(),'%s')]";

@@ -5,9 +5,7 @@ import webdriver.BaseForm;
 import webdriver.elements.Button;
 import webdriver.elements.TextBox;
 
-/**
- * Created by Sergey on 02.04.2017.
- */
+
 public class LoginPage extends BaseForm {
     private TextBox txbLogin=new TextBox(By.id("login-name-input"),"Login textbox");
     private TextBox txbPassword=new TextBox(By.xpath("//input[contains(@type,'password')]"),"Password textbox");
