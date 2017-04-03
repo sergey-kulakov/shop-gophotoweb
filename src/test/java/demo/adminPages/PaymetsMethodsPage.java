@@ -12,8 +12,9 @@ public class PaymetsMethodsPage extends BaseForm {
 
     public PaymetsMethodsPage(){super(By.xpath("//div[@class=\"payment\"]"),"Payments methods page");}
 
-   /* public void checkPaymentMethodVisible(String paymentMethodName){
+    public void checkPaymentMethodVisible(String paymentMethodName){
+        System.out.println(String.format(locCheckboxPaymetnMethod,paymentMethodName));
          CheckBox chkPaymentMethodVisibility=new CheckBox(By.xpath(String.format(locCheckboxPaymetnMethod,paymentMethodName)),"Payment method visibility checkbox");
          chkPaymentMethodVisibility.swichOn();
-    }*/
+    }
 }

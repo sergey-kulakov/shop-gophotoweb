@@ -23,11 +23,15 @@ public class CheckBox extends BaseElement {
         return getLoc("loc.lcheckbox");
     }
 
-   /* public void swichOn(){
-        if(!element.isSelected()){
+   public void swichOn(){
+//      boolean atribute=element.isEnabled();
 
-        element.click();
+     //  System.out.println(atribute);
+
+       waitForIsElementPresent();
+
+       element.click();
 
 
-    }}*/
+    }
 }

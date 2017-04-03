@@ -1,9 +1,7 @@
 package demo.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import webdriver.BaseForm;
-
 import webdriver.Browser;
 import webdriver.elements.Button;
 import webdriver.elements.Label;
@@ -20,7 +18,8 @@ public class CartPage extends BaseForm {
     private  Label formError=new Label(By.xpath("//div[contains(@class,\"error-input\")]"),"cart form error");
     private String locDeleteSomeProduct="//a[contains(text(),'%s')]/../../td[contains(@class,'shop-cart-tbl-close')]/a";
     private String locCountSomeProduct="//a[contains(text(),'%s')]/../../td[contains(@class,'shop-cart-tbl-center skuCountCell')]/input";
-    private Label lblPaymentError=new Label(By.xpath("//span[contains(text(),'Выберите способ оплаты')]"),"Payment error");
+    private Label lblPaymentError=new Label(By.id("shop-payment-error"),"Payment error");
+    private Label lblDeliveryError=new Label(By.id("shop-delivery-error"),"Delivery error");
     String locDeliveryPaymentMethod="//label[contains(text(),'%s')]/preceding-sibling::input";
 
     public CartPage(){
@@ -84,9 +83,14 @@ public class CartPage extends BaseForm {
         lblPaymentError.waitForIsElementPresent();
         return lblPaymentError.isPresent();
     }
-    public void selectDeliveryMethod(String deliveryMethodName){
+    public boolean isDeliveryErrorDisplayd(){
+        lblDeliveryError.waitForIsElementPresent();
+        return lblDeliveryError.isPresent();
+    }
+    public void selectDeliveryMethod(String deliveryMethodName) throws InterruptedException {
         Button btnDeliveryMethod=new Button(By.xpath(String.format(locDeliveryPaymentMethod,deliveryMethodName)),"Dilivery methods radiobatton");
         btnDeliveryMethod.click();
+        Thread.sleep(1000);
 
     }
 }

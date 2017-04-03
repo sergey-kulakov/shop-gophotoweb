@@ -4,6 +4,7 @@ import demo.adminPages.*;
 import demo.pages.CartPage;
 import demo.pages.CatalogPage;
 import demo.pages.ProductPage;
+import demo.pages.SuccessPage;
 import org.testng.annotations.BeforeMethod;
 import webdriver.BaseTest;
 import webdriver.Browser;
@@ -12,7 +13,7 @@ import static org.testng.Assert.assertTrue;
 
 
 public class ST004 extends BaseTest {
-    /*@BeforeMethod
+    @BeforeMethod
     public void setCoutnOfProduct(){
 
         logStep();
@@ -31,8 +32,13 @@ public class ST004 extends BaseTest {
         SettingsPage settingsPage=new SettingsPage();
         settingsPage.goToPaymentsMethods();
 
+        logStep();
+        PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
+        paymetsMethodsPage.checkPaymentMethodVisible("Мой вид оплаты");
 
-    }*/
+
+
+    }
     @Override
     public void runTest() throws InterruptedException {
 
@@ -53,9 +59,14 @@ public class ST004 extends BaseTest {
         logStep();
         cartPage.clickSubmit();
         assertTrue(cartPage.isPaymentErrorDisplayd());
+
         logStep();
         cartPage.selectDeliveryMethod("Самовывоз");
         assertEquals(cartPage.getTotalPrice(),"1 010 p.");
         cartPage.clickSubmit();
+
+        logStep();
+        SuccessPage successPage=new SuccessPage();
+        assertTrue(successPage.checkThanksForOrderMessage());
     }
 }
