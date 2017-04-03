@@ -1,4 +1,4 @@
-package demo.pages;
+package shopGophotoweb.pages;
 
 import org.openqa.selenium.By;
 import webdriver.BaseForm;

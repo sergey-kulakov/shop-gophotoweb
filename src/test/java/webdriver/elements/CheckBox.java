@@ -1,6 +1,8 @@
 package webdriver.elements;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 
 /**
  * Created by Sergey on 18.03.2017.
@@ -20,18 +22,24 @@ public class CheckBox extends BaseElement {
     }
 
     protected String getElementType() {
-        return getLoc("loc.lcheckbox");
+        return getLoc("loc.checkbox");
     }
 
-   public void swichOn(){
-//      boolean atribute=element.isEnabled();
+   public void check(){
 
-     //  System.out.println(atribute);
+       String atribute =getElement().findElement(By.xpath("input")).getAttribute("checked");
+    //   System.out.println(atribute);
+       if(atribute==null){
+       element.findElement(By.xpath("label")).click();
+       }
+      }
 
-       waitForIsElementPresent();
+    public void uncheck(){
 
-       element.click();
-
-
+        String atribute =getElement().findElement(By.xpath("input")).getAttribute("checked");
+        //   System.out.println(atribute);
+        if(atribute!=null){
+            element.findElement(By.xpath("label")).click();
+        }
     }
 }

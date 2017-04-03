@@ -1,10 +1,10 @@
-package demo.tests;
+package shopGophotoweb.tests;
 
-import demo.adminPages.*;
-import demo.pages.CartPage;
-import demo.pages.CatalogPage;
-import demo.pages.ProductPage;
-import demo.pages.SuccessPage;
+import shopGophotoweb.adminPages.*;
+import shopGophotoweb.pages.CartPage;
+import shopGophotoweb.pages.CatalogPage;
+import shopGophotoweb.pages.ProductPage;
+import shopGophotoweb.pages.SuccessPage;
 import org.testng.annotations.BeforeMethod;
 import webdriver.BaseTest;
 import webdriver.Browser;
@@ -14,7 +14,7 @@ import static org.testng.Assert.assertTrue;
 
 public class ST004 extends BaseTest {
     @BeforeMethod
-    public void setCoutnOfProduct(){
+    public void setPreconditions(){
 
         logStep();
         browser.navigate(Browser.getAdminPageUrl());
@@ -30,11 +30,17 @@ public class ST004 extends BaseTest {
 
         logStep();
         SettingsPage settingsPage=new SettingsPage();
-        settingsPage.goToPaymentsMethods();
+        Utilites.goToSidebarItem("Методы оплаты");
 
         logStep();
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
         paymetsMethodsPage.checkPaymentMethodVisible("Мой вид оплаты");
+
+        logStep();
+        Utilites.goToSidebarItem("Методы доставки");
+        DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
+        deliveryMethodsPage.checkDeliveryMethodVisible("Курьер");
+        deliveryMethodsPage.checkDeliveryMethodVisible("Самовывоз");
 
 
 
@@ -58,11 +64,24 @@ public class ST004 extends BaseTest {
 
         logStep();
         cartPage.clickSubmit();
-        assertTrue(cartPage.isPaymentErrorDisplayd());
+        assertTrue(cartPage.isPaymentErrorDisplayed());
 
         logStep();
         cartPage.selectDeliveryMethod("Самовывоз");
         assertEquals(cartPage.getTotalPrice(),"1 010 p.");
+
+        logStep();
+        cartPage.selectDeliveryMethod("Курьер");
+        assertEquals(cartPage.getTotalPrice(),"2 020 p.");
+
+        logStep();
+        cartPage.setProductCount("product1","9");
+        assertEquals(cartPage.getTotalPrice(),"10 180.80 p.");
+        cartPage.clickSubmit();
+
+        logStep();
+        cartPage.setProductCount("product1","10");
+        assertEquals(cartPage.getTotalPrice(),"10 100 p.");
         cartPage.clickSubmit();
 
         logStep();

@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Demo Test Plan" verbose="1">
+<suite name="Test suite" verbose="1">
 	
-	<test name="Demo Test" preserve-order="true">
+	<test name="Test Shop" preserve-order="true">
 		<classes>
-			<!-- Параметр для ДАННОГО теста -->
-			<parameter name="brand" value="Samsung"/>
-			<parameter name="maxPrice" value="1000"/>
-			<parameter name="dateFrom" value="2013"/>
-			<parameter name="sizeFrom" value="39"/>
-			<parameter name="sizeTo" value="42"/>
- 			<class name="demo.tests.SearchTvTest" />
-        </classes>
+ 			<class name="shopGophotoweb.tests.ST001" />
+			<class name="shopGophotoweb.tests.ST002" />
+			<class name="shopGophotoweb.tests.ST003" />
+			<class name="shopGophotoweb.tests.ST004" />
+			<class name="shopGophotoweb.tests.ST005" />
+		</classes>
 	</test>
 
 </suite>

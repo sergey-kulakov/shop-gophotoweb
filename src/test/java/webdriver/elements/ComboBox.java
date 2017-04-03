@@ -28,7 +28,7 @@ public class ComboBox extends BaseElement {
 
     public void selectByText(String text){
 
-      waitForIsElementPresent();
+        waitForIsElementPresent();
         new Select(element).selectByVisibleText(text);
     }
 

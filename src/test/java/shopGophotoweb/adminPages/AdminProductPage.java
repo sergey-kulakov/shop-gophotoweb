@@ -1,4 +1,4 @@
-package demo.adminPages;
+package shopGophotoweb.adminPages;
 
 import org.openqa.selenium.By;
 import webdriver.BaseForm;

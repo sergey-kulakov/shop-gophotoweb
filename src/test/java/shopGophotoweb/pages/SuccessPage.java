@@ -1,4 +1,4 @@
-package demo.pages;
+package shopGophotoweb.pages;
 
 import org.openqa.selenium.By;
 import webdriver.BaseForm;
@@ -17,15 +17,17 @@ public class SuccessPage extends BaseForm {
 
 
     public boolean checkThanksForOrderMessage(){
+        lblThanksForOrderMessage.waitForIsElementPresent();
         return lblThanksForOrderMessage.isPresent();
     }
 
     public boolean checkThanksForPreOrderMessage(){
+        lblThanksForPreOrderMessage.waitForIsElementPresent();
         return lblThanksForPreOrderMessage.isPresent();
     }
 
     public String getOrdrerNumber(){
-//	String textMessage=thanksForOrderMessage.toString(); //не преобразует, вот что выводит elements.TextBox@3a1d593e
+
         String textMessage=lblThanksForOrderMessage.getText();
         System.out.println("Сообщение о заказе "+textMessage);
         String orderNumber=textMessage.substring(textMessage.length()-6, textMessage.length());
