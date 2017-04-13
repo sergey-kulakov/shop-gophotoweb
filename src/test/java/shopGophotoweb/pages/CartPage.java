@@ -24,7 +24,8 @@ public class CartPage extends BaseForm {
     private Label lblPromocode=new Label(By.id("shop-promo-link"),"Promo code link");
     private TextBox txbPromocode=new TextBox(By.id("shop-promo-code"),"Promo code textbox");
     private Button btnApplyPromocode=new Button(By.id("shop-apply-promo"),"Apply promo code button");
-    String locDeliveryPaymentMethod="//label[contains(text(),'%s')]/preceding-sibling::input";
+    private String locDeliveryPaymentMethod="//label[contains(text(),'%s')]/preceding-sibling::input";
+
 
     public CartPage(){
         super(By.xpath("//div[contains(@class,'shop-cart-title')]"),"Cart Page");
@@ -96,12 +97,14 @@ public class CartPage extends BaseForm {
         lblPromoCodeError.waitForIsElementPresent();
         return lblPromoCodeError.isPresent();
     }
-    public void selectDeliveryMethod(String deliveryMethodName) throws InterruptedException {
+    public void selectDeliveryOrPaymentMethod(String deliveryMethodName) throws InterruptedException {
         Button btnDeliveryMethod=new Button(By.xpath(String.format(locDeliveryPaymentMethod,deliveryMethodName)),"Dilivery methods radiobatton");
         btnDeliveryMethod.click();
         Thread.sleep(1000);
 
     }
+
+
     public void applyPromoCode(String promocod) throws InterruptedException {
         if(lblPromocode.isPresent()){
         lblPromocode.click();

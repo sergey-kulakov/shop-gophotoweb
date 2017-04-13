@@ -16,9 +16,9 @@ public class PreOrderPage extends BaseForm {
         super(By.className("pre_order_form"),"PreOrderPage");
     }
 
-    public void fillPreOrderForm(){
-        txbName.setText("Name");
-        txbEmail.setText("test@test.test");
+    public void fillPreOrderForm(String name, String email){
+        txbName.setText(name);
+        txbEmail.setText(email);
     }
     public void clickCompleteButton(){
         btnCompletePreorder.click();

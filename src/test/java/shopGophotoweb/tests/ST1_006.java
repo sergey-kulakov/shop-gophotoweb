@@ -46,7 +46,7 @@ public class ST1_006 extends BaseTest{
         assertTrue(preOrderPage.isPreOrderFormErrorDisplayd());
 
         logStep();
-        preOrderPage.fillPreOrderForm();
+        preOrderPage.fillPreOrderForm("name","test@test.test");
         preOrderPage.clickCompleteButton();
         PreOrderSuccessPage preOrderSuccessPage=new PreOrderSuccessPage();
         assertTrue(preOrderSuccessPage.isThanksForPreOrderMessageDisplayed());
