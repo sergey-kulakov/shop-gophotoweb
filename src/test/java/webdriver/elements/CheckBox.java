@@ -1,12 +1,11 @@
 package webdriver.elements;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebElement;
+import webdriver.Browser;
 
-/**
- * Created by Sergey on 18.03.2017.
- */
+import java.util.List;
+
+
 public class CheckBox extends BaseElement {
     public CheckBox(final By locator, final String name) {
         super(locator, name);
@@ -41,5 +40,14 @@ public class CheckBox extends BaseElement {
         if(atribute!=null){
             element.findElement(By.xpath("label")).click();
         }
+    }
+    public void unCheckAllMethods(){
+
+        List<CheckBox> deliveryMethods= getElement().findElements(By.xpath("//a[contains(text(),'%s')]/../../div[contains(@class,'display')]"));
+        for(CheckBox deliveryMethod:deliveryMethods){
+            deliveryMethod.uncheck();
+        }
+        CheckBox chkDeliveryMethodVisibility=new CheckBox(By.xpath(String.format(locCheckboxDeliveryMethod,deliveryMethodName)),"Delivery method visibility checkbox");
+        chkDeliveryMethodVisibility.uncheck();
     }
 }

@@ -3,7 +3,12 @@ package shopGophotoweb.adminPages;
 
 import org.openqa.selenium.By;
 import webdriver.BaseForm;
+import webdriver.Browser;
 import webdriver.elements.CheckBox;
+
+import java.util.List;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.findElements;
 
 public class DeliveryMethodsPage extends BaseForm {
 
@@ -18,4 +23,6 @@ public class DeliveryMethodsPage extends BaseForm {
         CheckBox chkDeliveryMethodVisibility=new CheckBox(By.xpath(String.format(locCheckboxDeliveryMethod,deliveryMethodName)),"Delivery method visibility checkbox");
         chkDeliveryMethodVisibility.uncheck();
     }
+
+
 }
