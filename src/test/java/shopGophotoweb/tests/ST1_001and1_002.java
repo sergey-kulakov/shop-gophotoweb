@@ -1,7 +1,6 @@
 package shopGophotoweb.tests;
 
 import shopGophotoweb.adminPages.*;
-import shopGophotoweb.adminPages.AdminMainPage;
 import shopGophotoweb.pages.CartPage;
 import shopGophotoweb.pages.CatalogPage;
 import shopGophotoweb.pages.ProductPage;
@@ -10,14 +9,12 @@ import org.testng.annotations.BeforeMethod;
 import webdriver.BaseTest;
 import webdriver.Browser;
 
-import static org.testng.Assert.assertTrue;
-import static org.testng.AssertJUnit.assertFalse;
+import static org.testng.Assert.*;
 
 
-public class ST003 extends BaseTest {
-
+public class ST1_001and1_002 extends BaseTest {
     @BeforeMethod
-    public void setpreconditions(){
+    public void setPreconditions(){
 
         logStep();
         browser.navigate(Browser.getAdminPageUrl());
@@ -27,17 +24,9 @@ public class ST003 extends BaseTest {
         logStep();
         AdminMainPage adminMainPage = new AdminMainPage();
         adminMainPage.goToShop();
-
-        logStep();
-        AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToProductPage("product1");
-
-        logStep();
-        AdminProductPage adminProductPage=new AdminProductPage();
-        adminProductPage.setProductCount("1000");
-
         logStep();
         Utilites.goToMenuName("МАГАЗИН");
+        AdminProductsPage adminProductsPage=new AdminProductsPage();
         adminProductsPage.goToSettingsPage();
 
         logStep();
@@ -53,16 +42,10 @@ public class ST003 extends BaseTest {
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckDeliveryMethodVisible("Курьер");
         deliveryMethodsPage.unCheckDeliveryMethodVisible("Самовывоз");
-
-
-
-
-
-
     }
+
     @Override
     public void runTest() throws InterruptedException {
-
         logStep();
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product1");
@@ -73,30 +56,19 @@ public class ST003 extends BaseTest {
         productPage.goToCart();
 
         logStep();
-        CartPage cartPage=new CartPage();
-        cartPage.setProductCount("product1","1001");
+        CartPage cartPage = new CartPage();
         cartPage.clickSubmit();
-        assertTrue(cartPage.isSkuQanityErrorDisplayed());
-        assertTrue(cartPage.isTextBoxSkuCountErrorDisplayed());
-        logger.info("Qantity Error Displayed");
+        assertTrue(cartPage.isFormErrorDisplayed());
+        logger.info("The order was not completed. Error is displayed.");
 
         logStep();
-        cartPage.setProductCount("product1","0");
-        cartPage.clickSubmit();
-        assertTrue(cartPage.isTextBoxSkuCountErrorDisplayed());
-        logger.info("Order was not completed");
 
-        logStep();
-        cartPage.setProductCount("product1","1");
-        cartPage.clickSubmit();
-
-        logStep();
         cartPage.fillInFields("test", "test", "tt@tt.tt");
         cartPage.clickSubmit();
 
         logStep();
         SuccessPage successPage=new SuccessPage();
-        assertTrue(successPage.checkThanksForOrderMessage());
+        assertTrue(successPage.isThanksForOrderMessageDisplayed());
         logger.info("The order was completed");
     }
 }

@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Test suite" verbose="1">
 	
-	<test name="Test Shop" preserve-order="true">
+	<test name="Test without payments" preserve-order="true">
 		<classes>
- 			<class name="shopGophotoweb.tests.ST001" />
-			<class name="shopGophotoweb.tests.ST002" />
-			<class name="shopGophotoweb.tests.ST003" />
-			<class name="shopGophotoweb.tests.ST004" />
-			<class name="shopGophotoweb.tests.ST005" />
+ 			<class name="shopGophotoweb.tests.ST1_001and1_002" />
+			<class name="shopGophotoweb.tests.ST1_003" />
+			<class name="shopGophotoweb.tests.ST1_004" />
+			<class name="shopGophotoweb.tests.ST1_005" />
+			<class name="shopGophotoweb.tests.ST1_006" />
+		</classes>
+	</test>
+	<test name="Test with payments b delivery methods" preserve-order="true">
+		<classes>
+			<class name="shopGophotoweb.tests.ST3_002" />
+			<class name="shopGophotoweb.tests.ST7_003" />
+		</classes>
+	</test>
+	<test name="Test promocode" preserve-order="true">
+		<classes>
+			<class name="shopGophotoweb.tests.ST7_003" />
 		</classes>
 	</test>
 

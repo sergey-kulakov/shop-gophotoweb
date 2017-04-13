@@ -7,22 +7,19 @@ import webdriver.elements.Label;
 
 public class SuccessPage extends BaseForm {
     private Label lblThanksForOrderMessage=new Label(By.xpath("//p[contains(text(),'Спасибо за покупку!')]"), "thanksForOrderMessage");
-    private Label lblThanksForPreOrderMessage=new Label(By.xpath(".//p[contains(text(),'Благодарим вас за оформление заказа!')]"), "thanksForPreOrderMessage");
+
 
     public SuccessPage(){
         super(By.className("shop-order-title"),"Success Page");
     }
 
 
-    public boolean checkThanksForOrderMessage(){
+    public boolean isThanksForOrderMessageDisplayed(){
         lblThanksForOrderMessage.waitForIsElementPresent();
         return lblThanksForOrderMessage.isPresent();
     }
 
-    public boolean checkThanksForPreOrderMessage(){
-        lblThanksForPreOrderMessage.waitForIsElementPresent();
-        return lblThanksForPreOrderMessage.isPresent();
-    }
+
 
     public String getOrdrerNumber(){
 

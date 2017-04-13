@@ -12,7 +12,7 @@ import webdriver.Browser;
 import static org.testng.Assert.assertTrue;
 
 
-public class ST005 extends BaseTest {
+public class ST3_002 extends BaseTest {
     @BeforeMethod
     public void setPreconditions(){
 
@@ -52,70 +52,51 @@ public class ST005 extends BaseTest {
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product1");
 
-        ProductPage product1Page=new ProductPage();
-        product1Page.addProductToCart();
-        product1Page.goToCatalog();
-
         logStep();
-        catalogPage.goToProductPage("product3");
-        ProductPage product3Page=new ProductPage();
-        product3Page.addProductToCart();
-        product3Page.goToCart();
+        ProductPage productPage=new ProductPage();
+        productPage.addProductToCart();
+        productPage.goToCart();
 
         logStep();
         CartPage cartPage=new CartPage();
         cartPage.fillInFields("test", "test", "tt@tt.tt");
-
-        logStep();
-        cartPage.selectDeliveryMethod("Курьер");
-        logger.info("Expected result: total price = 2 535.10 p.");
+        logger.info("Expected result: total price = 1 000 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"2 535.10 p.");
-
-        logStep();
-        cartPage.setProductCount("product1","3");
-        logger.info("Expected result: total price = 10 100 p.4 575.30 p.");
-        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"4 575.30 p.");
-
-        logStep();
-        cartPage.setProductCount("product3","4");
-        logger.info("Expected result: total price = 6 120.60 p.");
-        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"6 120.60 p.");
-
-        logStep();
-        cartPage.applyPromoCode("3");
-        assertTrue(cartPage.isPromocodeErrorDisplayed());
-        logger.info("Promocode error displayed");
-
-        logStep();
-        cartPage.setProductCount("product1","5");
-        logger.info("Expected result: total price = 8 160.80 p.");
-        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"8 160.80 p.");
-
-        logStep();
-        cartPage.applyPromoCode("3");
-        assertTrue(cartPage.isPromocodeErrorDisplayed());
-        logger.info("Promocode error displayed");
-
-        logStep();
-        cartPage.setProductCount("product1","6");
-        logger.info("Expected result: total price = 9 180.90 p.");
-        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"9 180.90 p.");
-
-        logStep();
-        cartPage.applyPromoCode("3");
-        logger.info("Expected result: total price = 8 675.90 p.");
-        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"8 675.90 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 000 p.");
 
         logStep();
         cartPage.clickSubmit();
+        assertTrue(cartPage.isPaymentErrorDisplayed());
+
+        logStep();
+        cartPage.selectDeliveryMethod("Самовывоз");
+        logger.info("Expected result: total price = 1 100 p.");
+        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
+        assertEquals(cartPage.getTotalPrice(),"1 010 p.");
+
+        logStep();
+        cartPage.selectDeliveryMethod("Курьер");
+        logger.info("Expected result: total price = 2 200 p.");
+        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
+        assertEquals(cartPage.getTotalPrice(),"2 020 p.");
+
+        logStep();
+        cartPage.setProductCount("product1","9");
+        logger.info("Expected result: total price = 10 180.80 p.");
+        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
+        assertEquals(cartPage.getTotalPrice(),"10 180.80 p.");
+        cartPage.clickSubmit();
+
+        logStep();
+        cartPage.setProductCount("product1","10");
+        logger.info("Expected result: total price = 10 100 p.");
+        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
+        assertEquals(cartPage.getTotalPrice(),"10 100 p.");
+        cartPage.clickSubmit();
+
+        logStep();
         SuccessPage successPage=new SuccessPage();
-        assertTrue(successPage.checkThanksForOrderMessage());
+        assertTrue(successPage.isThanksForOrderMessageDisplayed());
         logger.info("The order was completed");
     }
 }
