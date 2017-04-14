@@ -6,7 +6,7 @@ import shopGophotoweb.adminPages.*;
 import shopGophotoweb.pages.CartPage;
 import shopGophotoweb.pages.CatalogPage;
 import shopGophotoweb.pages.ProductPage;
-import shopGophotoweb.pages.SuccessPage;
+import shopGophotoweb.pages.YandexMoneyPage;
 import webdriver.BaseTest;
 import webdriver.Browser;
 
@@ -35,13 +35,13 @@ public class ST2_002 extends BaseTest{
 
         logStep();
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
-        paymetsMethodsPage.checkPaymentMethodVisible("Мой вид оплаты");
+        paymetsMethodsPage.unCheckAllMethods();
+        paymetsMethodsPage.checkPaymentMethodVisible("Через систему Яндекс-Деньги");
 
         logStep();
         Utilites.goToSidebarItem("Методы доставки");
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
-        deliveryMethodsPage.unCheckDeliveryMethodVisible("Курьер");
-        deliveryMethodsPage.unCheckDeliveryMethodVisible("Самовывоз");
+        deliveryMethodsPage.unCheckAllMethods();
     }
 
     @Override
@@ -49,8 +49,6 @@ public class ST2_002 extends BaseTest{
         logStep();
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product1");
-
-        logStep();
         ProductPage productPage=new ProductPage();
         productPage.addProductToCart();
         productPage.goToCart();
@@ -64,11 +62,18 @@ public class ST2_002 extends BaseTest{
         assertTrue(cartPage.isPaymentErrorDisplayed());
 
         logStep();
-        cartPage.selectDeliveryOrPaymentMethod("МОЙ ВИД ОПЛАТЫ");
+        cartPage.selectDeliveryOrPaymentMethod("ЧЕРЕЗ СИСТЕМУ ЯНДЕКС-ДЕНЬГИ");
+        assertEquals(cartPage.getTotalPrice(),"1 030 p.");
 
         logStep();
         cartPage.clickSubmit();
-        SuccessPage successPage=new SuccessPage();
-        assertTrue(successPage.isThanksForOrderMessageDisplayed());
+        YandexMoneyPage yandexMoneyPage=new YandexMoneyPage();
+
+        logStep();
+        Browser.getInstance().getDriver().navigate().back();
+
+        logStep();
+        cartPage.deleteSomeProduct("product1");
+
     }
 }

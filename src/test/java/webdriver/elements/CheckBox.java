@@ -1,9 +1,6 @@
 package webdriver.elements;
 
 import org.openqa.selenium.By;
-import webdriver.Browser;
-
-import java.util.List;
 
 
 public class CheckBox extends BaseElement {
@@ -41,13 +38,7 @@ public class CheckBox extends BaseElement {
             element.findElement(By.xpath("label")).click();
         }
     }
-    public void unCheckAllMethods(){
 
-        List<CheckBox> deliveryMethods= getElement().findElements(By.xpath("//a[contains(text(),'%s')]/../../div[contains(@class,'display')]"));
-        for(CheckBox deliveryMethod:deliveryMethods){
-            deliveryMethod.uncheck();
-        }
-        CheckBox chkDeliveryMethodVisibility=new CheckBox(By.xpath(String.format(locCheckboxDeliveryMethod,deliveryMethodName)),"Delivery method visibility checkbox");
-        chkDeliveryMethodVisibility.uncheck();
+     //   CheckBox chkDeliveryMethodVisibility=new CheckBox(By.xpath(String.format(locCheckboxDeliveryMethod,deliveryMethodName)),"Delivery method visibility checkbox");
+     //   chkDeliveryMethodVisibility.uncheck();
     }
-}

@@ -3,16 +3,13 @@ package shopGophotoweb.adminPages;
 
 import org.openqa.selenium.By;
 import webdriver.BaseForm;
-import webdriver.Browser;
 import webdriver.elements.CheckBox;
-
-import java.util.List;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.findElements;
+import webdriver.elements.ElemetsList;
 
 public class DeliveryMethodsPage extends BaseForm {
 
-    String locCheckboxDeliveryMethod="//a[contains(text(),'%s')]/../../div[contains(@class,'display')]";
+    private String locCheckboxDeliveryMethod="//a[contains(text(),'%s')]/../../div[contains(@class,'display')]";
+    private ElemetsList lstAllMethods=new ElemetsList(By.xpath("//a[contains(text(),'')]/../../div[contains(@class,'display')]"),"List of methods checkboxes");
     public DeliveryMethodsPage(){super(By.xpath("//div[contains(@class,'button-add')]"),"Delivery methods page");}
 
     public void checkDeliveryMethodVisible(String deliveryMethodName){
@@ -24,5 +21,8 @@ public class DeliveryMethodsPage extends BaseForm {
         chkDeliveryMethodVisibility.uncheck();
     }
 
+    public void unCheckAllMethods(){
+        lstAllMethods.unCheckAllMethods();
+    }
 
 }
