@@ -44,7 +44,7 @@ public class ST1_004 extends BaseTest {
 
         logStep();
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
-        paymetsMethodsPage.unCheckPaymentMethodVisible("Мой вид оплаты");
+        paymetsMethodsPage.unCheckAllMethods();
 
         logStep();
         Utilites.goToSidebarItem("Методы доставки");
