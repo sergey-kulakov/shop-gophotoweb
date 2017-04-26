@@ -35,13 +35,13 @@ public class ST2_001 extends BaseTest {
 
         logStep();
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
-        paymetsMethodsPage.checkPaymentMethodVisible("Мой вид оплаты");
+        paymetsMethodsPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
 
         logStep();
         Utilites.goToSidebarItem("Методы доставки");
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
-        deliveryMethodsPage.unCheckDeliveryMethodVisible("Курьер");
-        deliveryMethodsPage.unCheckDeliveryMethodVisible("Самовывоз");
+        deliveryMethodsPage.unCheckDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
+        deliveryMethodsPage.unCheckDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Самовывоз);
     }
 
     @Override
@@ -64,7 +64,7 @@ public class ST2_001 extends BaseTest {
         assertTrue(cartPage.isPaymentErrorDisplayed());
 
         logStep();
-        cartPage.selectDeliveryOrPaymentMethod("МОЙ ВИД ОПЛАТЫ");
+        cartPage.selectPaymentMethod(CartPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
 
         logStep();
         cartPage.clickSubmit();

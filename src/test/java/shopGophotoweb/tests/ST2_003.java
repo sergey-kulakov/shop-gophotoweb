@@ -42,7 +42,7 @@ public class ST2_003 extends BaseTest {
         logStep();
         Utilites.goToSidebarItem("Методы доставки");
         DeliveryMethodsPage deliveryMethodsPage = new DeliveryMethodsPage();
-        deliveryMethodsPage.checkDeliveryMethodVisible("Самовывоз");
+        deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Самовывоз);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class ST2_003 extends BaseTest {
 
 
         logStep();
-        cartPage.selectDeliveryOrPaymentMethod("Самовывоз");
+        cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Самовывоз);
         assertEquals(cartPage.getTotalPrice(),"1 000 p.");
 
         logStep();

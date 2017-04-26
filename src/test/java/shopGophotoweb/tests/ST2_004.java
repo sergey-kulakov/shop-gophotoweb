@@ -1,5 +1,6 @@
 package shopGophotoweb.tests;
 
+
 import org.testng.annotations.BeforeMethod;
 import shopGophotoweb.adminPages.*;
 import shopGophotoweb.pages.CartPage;
@@ -11,89 +12,69 @@ import webdriver.Browser;
 
 import static org.testng.Assert.assertTrue;
 
-
-public class ST1_004 extends BaseTest {
-
+public class ST2_004 extends BaseTest {
     @BeforeMethod
-    public void setPreconditions(){
+    public void setPreconditions() {
 
         logStep();
         browser.navigate(Browser.getAdminPageUrl());
-        LoginPage loginPage=new LoginPage();
+        LoginPage loginPage = new LoginPage();
         loginPage.login();
 
         logStep();
         AdminMainPage adminMainPage = new AdminMainPage();
         adminMainPage.goToShop();
-
-        logStep();
-        AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToProductPage("product1");
-
-        logStep();
-        AdminProductPage adminProductPage=new AdminProductPage();
-        adminProductPage.setProductCount("1000");
-
         logStep();
         Utilites.goToMenuName("МАГАЗИН");
+        AdminProductsPage adminProductsPage = new AdminProductsPage();
         adminProductsPage.goToSettingsPage();
 
         logStep();
-        SettingsPage settingsPage=new SettingsPage();
+        SettingsPage settingsPage = new SettingsPage();
         Utilites.goToSidebarItem("Методы оплаты");
 
         logStep();
-        PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
-        paymetsMethodsPage.unCheckPaymentMethodVisible("Мой вид оплаты");
+        PaymetsMethodsPage paymetsMethodsPage = new PaymetsMethodsPage();
+        paymetsMethodsPage.unCheckAllMethods();
+
 
         logStep();
         Utilites.goToSidebarItem("Методы доставки");
-        DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
+        DeliveryMethodsPage deliveryMethodsPage = new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckAllMethods();
-
-
-
-
-
-
+        deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
     }
+
     @Override
     public void runTest() throws InterruptedException {
 
         logStep();
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product1");
-
-        logStep();
         ProductPage productPage=new ProductPage();
         productPage.addProductToCart();
         productPage.goToCart();
 
         logStep();
         CartPage cartPage=new CartPage();
-        cartPage.setProductCount("product1","1001");
-        cartPage.clickSubmit();
-        assertTrue(cartPage.isSkuQanityErrorDisplayed());
-        assertTrue(cartPage.isTextBoxSkuCountErrorDisplayed());
-        logger.info("Qantity Error Displayed");
+        cartPage.fillInFields("name","lastName","123@123.123");
+
 
         logStep();
-        cartPage.setProductCount("product1","0");
-        cartPage.clickSubmit();
-        assertTrue(cartPage.isTextBoxSkuCountErrorDisplayed());
-        logger.info("Order was not completed");
+        cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
+        assertEquals(cartPage.getTotalPrice(),"2 000 p.");
 
         logStep();
-        cartPage.setProductCount("product1","1");
-        cartPage.clickSubmit();
+        cartPage.setProductCount("product1","9");
+        assertEquals(cartPage.getTotalPrice(),"10 080 p.");
 
         logStep();
-        cartPage.fillInFields("test", "test", "tt@tt.tt");
-        cartPage.clickSubmit();
+        cartPage.setProductCount("product1","10");
+        assertEquals(cartPage.getTotalPrice(),"10 000 p.");
 
         logStep();
+        cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
-        logger.info("The order was completed");
     }
 }

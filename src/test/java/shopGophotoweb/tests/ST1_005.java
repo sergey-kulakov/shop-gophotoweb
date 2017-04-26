@@ -40,8 +40,7 @@ public class ST1_005 extends BaseTest {
         logStep();
         Utilites.goToSidebarItem("Методы доставки");
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
-        deliveryMethodsPage.unCheckDeliveryMethodVisible("Курьер");
-        deliveryMethodsPage.unCheckDeliveryMethodVisible("Самовывоз");
+        deliveryMethodsPage.unCheckAllMethods();
     }
     @Override
     public void runTest() throws InterruptedException {

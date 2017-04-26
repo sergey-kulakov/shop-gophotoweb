@@ -10,13 +10,14 @@ public class DeliveryMethodsPage extends BaseForm {
 
     private String locCheckboxDeliveryMethod="//a[contains(text(),'%s')]/../../div[contains(@class,'display')]";
     private ElemetsList lstAllMethods=new ElemetsList(By.xpath("//a[contains(text(),'')]/../../div[contains(@class,'display')]"),"List of methods checkboxes");
+    public enum DeliveryMethods{Курьер,Самовывоз}
     public DeliveryMethodsPage(){super(By.xpath("//div[contains(@class,'button-add')]"),"Delivery methods page");}
 
-    public void checkDeliveryMethodVisible(String deliveryMethodName){
+    public void checkDeliveryMethodVisible(DeliveryMethods deliveryMethodName){
         CheckBox chkDeliveryMethodVisibility=new CheckBox(By.xpath(String.format(locCheckboxDeliveryMethod,deliveryMethodName)),"Delivery method visibility checkbox");
         chkDeliveryMethodVisibility.check();
     }
-    public void unCheckDeliveryMethodVisible(String deliveryMethodName){
+    public void unCheckDeliveryMethodVisible(DeliveryMethods deliveryMethodName){
         CheckBox chkDeliveryMethodVisibility=new CheckBox(By.xpath(String.format(locCheckboxDeliveryMethod,deliveryMethodName)),"Delivery method visibility checkbox");
         chkDeliveryMethodVisibility.uncheck();
     }

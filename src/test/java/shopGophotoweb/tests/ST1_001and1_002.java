@@ -40,8 +40,7 @@ public class ST1_001and1_002 extends BaseTest {
         logStep();
         Utilites.goToSidebarItem("Методы доставки");
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
-        deliveryMethodsPage.unCheckDeliveryMethodVisible("Курьер");
-        deliveryMethodsPage.unCheckDeliveryMethodVisible("Самовывоз");
+        deliveryMethodsPage.unCheckAllMethods();
     }
 
     @Override

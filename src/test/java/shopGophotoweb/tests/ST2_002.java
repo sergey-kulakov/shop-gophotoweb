@@ -3,6 +3,7 @@ package shopGophotoweb.tests;
 
 import org.testng.annotations.BeforeMethod;
 import shopGophotoweb.adminPages.*;
+import shopGophotoweb.adminPages.PaymetsMethodsPage.PaymentMethods;
 import shopGophotoweb.pages.CartPage;
 import shopGophotoweb.pages.CatalogPage;
 import shopGophotoweb.pages.ProductPage;
@@ -36,7 +37,7 @@ public class ST2_002 extends BaseTest{
         logStep();
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
         paymetsMethodsPage.unCheckAllMethods();
-        paymetsMethodsPage.checkPaymentMethodVisible("Через систему Яндекс-Деньги");
+        paymetsMethodsPage.checkPaymentMethodVisible(PaymentMethods.ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3);
 
         logStep();
         Utilites.goToSidebarItem("Методы доставки");
@@ -62,7 +63,7 @@ public class ST2_002 extends BaseTest{
         assertTrue(cartPage.isPaymentErrorDisplayed());
 
         logStep();
-        cartPage.selectDeliveryOrPaymentMethod("ЧЕРЕЗ СИСТЕМУ ЯНДЕКС-ДЕНЬГИ");
+        cartPage.selectPaymentMethod(CartPage.PaymentMethods.ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3);
         assertEquals(cartPage.getTotalPrice(),"1 030 p.");
 
         logStep();

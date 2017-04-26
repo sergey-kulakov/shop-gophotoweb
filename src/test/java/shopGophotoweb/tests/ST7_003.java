@@ -34,13 +34,13 @@ public class ST7_003 extends BaseTest {
 
         logStep();
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
-        paymetsMethodsPage.checkPaymentMethodVisible("Мой вид оплаты");
+        paymetsMethodsPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
 
         logStep();
         Utilites.goToSidebarItem("Методы доставки");
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
-        deliveryMethodsPage.checkDeliveryMethodVisible("Курьер");
-        deliveryMethodsPage.checkDeliveryMethodVisible("Самовывоз");
+        deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
+        deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Самовывоз);
 
 
 
@@ -67,7 +67,7 @@ public class ST7_003 extends BaseTest {
         cartPage.fillInFields("test", "test", "tt@tt.tt");
 
         logStep();
-        cartPage.selectDeliveryOrPaymentMethod("Курьер");
+        cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
         logger.info("Expected result: total price = 2 535.10 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"2 535.10 p.");

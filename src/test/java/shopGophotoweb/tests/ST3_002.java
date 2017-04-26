@@ -34,13 +34,13 @@ public class ST3_002 extends BaseTest {
 
         logStep();
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
-        paymetsMethodsPage.checkPaymentMethodVisible("Мой вид оплаты");
+        paymetsMethodsPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
 
         logStep();
         Utilites.goToSidebarItem("Методы доставки");
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
-        deliveryMethodsPage.checkDeliveryMethodVisible("Курьер");
-        deliveryMethodsPage.checkDeliveryMethodVisible("Самовывоз");
+        deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
+        deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Самовывоз);
 
 
 
@@ -69,13 +69,13 @@ public class ST3_002 extends BaseTest {
         assertTrue(cartPage.isPaymentErrorDisplayed());
 
         logStep();
-        cartPage.selectDeliveryOrPaymentMethod("Самовывоз");
+        cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Самовывоз);
         logger.info("Expected result: total price = 1 100 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"1 010 p.");
 
         logStep();
-        cartPage.selectDeliveryOrPaymentMethod("Курьер");
+        cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
         logger.info("Expected result: total price = 2 200 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"2 020 p.");

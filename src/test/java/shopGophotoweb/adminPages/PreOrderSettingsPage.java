@@ -14,6 +14,7 @@ public class PreOrderSettingsPage extends BaseForm{
     }
     public void activatePreOrder(){
         chkAcrivatePreOrder.check();
+        submit();
     }
     public void deActivatePreOrder(){
         chkAcrivatePreOrder.uncheck();

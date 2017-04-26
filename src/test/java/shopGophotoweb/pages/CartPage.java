@@ -25,7 +25,8 @@ public class CartPage extends BaseForm {
     private TextBox txbPromocode=new TextBox(By.id("shop-promo-code"),"Promo code textbox");
     private Button btnApplyPromocode=new Button(By.id("shop-apply-promo"),"Apply promo code button");
     private String locDeliveryPaymentMethod="//label[contains(text(),'%s')]/preceding-sibling::input";
-
+    public enum DeliveryMethods{Курьер,Самовывоз}
+    public enum PaymentMethods{МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1,ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3}
 
     public CartPage(){
         super(By.xpath("//div[contains(@class,'shop-cart-title')]"),"Cart Page");
@@ -97,12 +98,19 @@ public class CartPage extends BaseForm {
         lblPromoCodeError.waitForIsElementPresent();
         return lblPromoCodeError.isPresent();
     }
-    public void selectDeliveryOrPaymentMethod(String deliveryMethodName) throws InterruptedException {
+    public void selectDeliveryMethod(DeliveryMethods deliveryMethodName) throws InterruptedException {
         Button btnDeliveryMethod=new Button(By.xpath(String.format(locDeliveryPaymentMethod,deliveryMethodName)),"Dilivery methods radiobatton");
         btnDeliveryMethod.click();
         Thread.sleep(1000);
 
     }
+    public void selectPaymentMethod(PaymentMethods paymentMethodName) throws InterruptedException {
+        Button btnDeliveryMethod=new Button(By.xpath(String.format(locDeliveryPaymentMethod,paymentMethodName)),"Payment methods radiobatton");
+        btnDeliveryMethod.click();
+        Thread.sleep(1000);
+
+    }
+
 
 
     public void applyPromoCode(String promocod) throws InterruptedException {
