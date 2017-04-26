@@ -20,6 +20,7 @@
 	</test>
 	<test name="Test with payments and delivery methods" preserve-order="true">
 		<classes>
+			<class name="shopGophotoweb.tests.ST3_001" />
 			<class name="shopGophotoweb.tests.ST3_002" />
 		</classes>
 	</test>
