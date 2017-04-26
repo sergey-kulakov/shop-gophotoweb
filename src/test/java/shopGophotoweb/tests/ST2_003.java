@@ -1,24 +1,25 @@
 package shopGophotoweb.tests;
 
+
+import org.testng.annotations.BeforeMethod;
 import shopGophotoweb.adminPages.*;
 import shopGophotoweb.pages.CartPage;
 import shopGophotoweb.pages.CatalogPage;
 import shopGophotoweb.pages.ProductPage;
 import shopGophotoweb.pages.SuccessPage;
-import org.testng.annotations.BeforeMethod;
 import webdriver.BaseTest;
 import webdriver.Browser;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertTrue;
 
+public class ST2_003 extends BaseTest {
 
-public class ST1_001and1_002 extends BaseTest {
     @BeforeMethod
-    public void setPreconditions(){
+    public void setPreconditions() {
 
         logStep();
         browser.navigate(Browser.getAdminPageUrl());
-        LoginPage loginPage=new LoginPage();
+        LoginPage loginPage = new LoginPage();
         loginPage.login();
 
         logStep();
@@ -26,49 +27,50 @@ public class ST1_001and1_002 extends BaseTest {
         adminMainPage.goToShop();
         logStep();
         Utilites.goToMenuName("МАГАЗИН");
-        AdminProductsPage adminProductsPage=new AdminProductsPage();
+        AdminProductsPage adminProductsPage = new AdminProductsPage();
         adminProductsPage.goToSettingsPage();
 
         logStep();
-        SettingsPage settingsPage=new SettingsPage();
+        SettingsPage settingsPage = new SettingsPage();
         Utilites.goToSidebarItem("Методы оплаты");
 
         logStep();
-        PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
+        PaymetsMethodsPage paymetsMethodsPage = new PaymetsMethodsPage();
         paymetsMethodsPage.unCheckAllMethods();
+
 
         logStep();
         Utilites.goToSidebarItem("Методы доставки");
-        DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
-        deliveryMethodsPage.unCheckDeliveryMethodVisible("Курьер");
-        deliveryMethodsPage.unCheckDeliveryMethodVisible("Самовывоз");
+        DeliveryMethodsPage deliveryMethodsPage = new DeliveryMethodsPage();
+        deliveryMethodsPage.checkDeliveryMethodVisible("Самовывоз");
     }
 
     @Override
     public void runTest() throws InterruptedException {
+
         logStep();
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product1");
-
-        logStep();
         ProductPage productPage=new ProductPage();
         productPage.addProductToCart();
         productPage.goToCart();
 
         logStep();
-        CartPage cartPage = new CartPage();
-        cartPage.clickSubmit();
-        assertTrue(cartPage.isFormErrorDisplayed());
-        logger.info("The order was not completed. Error is displayed.");
+        CartPage cartPage=new CartPage();
+        cartPage.fillInFields("name","lastName","123@123.123");
+
 
         logStep();
-
-        cartPage.fillInFields("test", "test", "tt@tt.tt");
-        cartPage.clickSubmit();
+        cartPage.selectDeliveryOrPaymentMethod("Самовывоз");
+        assertEquals(cartPage.getTotalPrice(),"1 000 p.");
 
         logStep();
+        cartPage.setProductCount("product1","10");
+        assertEquals(cartPage.getTotalPrice(),"10 000 p.");
+
+        logStep();
+        cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
-        logger.info("The order was completed");
     }
 }
