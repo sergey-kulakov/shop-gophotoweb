@@ -25,7 +25,7 @@ public class CartPage extends BaseForm {
     private TextBox txbPromocode=new TextBox(By.id("shop-promo-code"),"Promo code textbox");
     private Button btnApplyPromocode=new Button(By.id("shop-apply-promo"),"Apply promo code button");
     private String locDeliveryPaymentMethod="//label[contains(text(),'%s')]/preceding-sibling::input";
-    public enum DeliveryMethods{Курьер,Самовывоз}
+    public enum DeliveryMethods{Курьер,Самовывоз,Почта}
     public enum PaymentMethods{МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1,ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3}
 
     public CartPage(){
@@ -109,6 +109,14 @@ public class CartPage extends BaseForm {
         btnDeliveryMethod.click();
         Thread.sleep(1000);
 
+    }
+    public boolean isDeliveryMethodDisplayed(DeliveryMethods deliveryMethodName) throws InterruptedException {
+        Button btnDeliveryMethod=new Button(By.xpath(String.format(locDeliveryPaymentMethod,deliveryMethodName)),"Dilivery methods radiobatton");
+        return btnDeliveryMethod.isPresent();
+    }
+    public boolean isPaymentMethodDisplayed(DeliveryMethods deliveryMethodName) throws InterruptedException {
+        Button btnDeliveryMethod=new Button(By.xpath(String.format(locDeliveryPaymentMethod,deliveryMethodName)),"Payment methods radiobatton");
+        return btnDeliveryMethod.isPresent();
     }
 
 
