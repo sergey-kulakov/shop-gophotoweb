@@ -28,6 +28,8 @@
 	</test>
 	<test name="Test promocode" preserve-order="true">
 		<classes>
+			<class name="shopGophotoweb.tests.ST7_001" />
+			<class name="shopGophotoweb.tests.ST7_002" />
 			<class name="shopGophotoweb.tests.ST7_003" />
 		</classes>
 	</test>
