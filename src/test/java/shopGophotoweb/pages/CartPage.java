@@ -8,9 +8,9 @@ import webdriver.elements.Label;
 import webdriver.elements.TextBox;
 
 public class CartPage extends BaseForm {
-    private TextBox txbName = new TextBox(By.name("data[fields][2702645]"), "Name in order form");
-    private TextBox txbLastame  = new TextBox(By.name("data[fields][2702648]"), "Lastname in order form");
-    private TextBox txbEmail = new TextBox(By.name("data[fields][2702651]"), "Email in order form");
+    private TextBox txbName = new TextBox(By.xpath("//label[contains(text(),'Имя')]/preceding-sibling::input"), "Name in order form");
+    private TextBox txbLastame  = new TextBox(By.xpath("//label[contains(text(),'Фамилия')]/preceding-sibling::input"), "Lastname in order form");
+    private TextBox txbEmail = new TextBox(By.xpath("//label[contains(text(),'Email')]/preceding-sibling::input"), "Email in order form");
     private Button btnSubmit = new Button(By.name("data[btn-submit]"), "Submit button");
     private Label lblSkuQanityError=new Label(By.xpath(".//*[@id='shop-sku-quantity-error']"),"skuQanityError");
     private Label lblTextBoxSkuCountError=new Label(By.xpath("//input[contains(@class,'textbox skuCount error-field')]"));
@@ -37,7 +37,7 @@ public class CartPage extends BaseForm {
        TextBox txbProductCount=new TextBox(By.xpath(String.format(locCountSomeProduct,productName)),"product count input");
 
        txbProductCount.setText(count);
-       Thread.sleep(3000);
+       Thread.sleep(5000);
 
    }
 
