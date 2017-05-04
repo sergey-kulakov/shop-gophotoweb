@@ -51,6 +51,7 @@ public class CartPage extends BaseForm {
     }
     public void clickSubmit()
     {
+        btnSubmit.waitForIsElementPresent();
         btnSubmit.click();
 
     }
@@ -76,6 +77,7 @@ public class CartPage extends BaseForm {
     }
     public String getTotalPrice() throws InterruptedException{
         Thread.sleep(2000);
+
 
         totalPriceSum.waitForIsElementPresent();
 

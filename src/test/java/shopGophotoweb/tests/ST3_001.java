@@ -87,11 +87,14 @@ public class ST3_001 extends BaseTest {
         logger.info("Expected result: total price = 10 100 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"10 100 p.");
+
         cartPage.clickSubmit();
 
         logStep();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
         logger.info("The order was completed");
+
+
     }
 }
