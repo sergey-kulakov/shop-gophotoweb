@@ -1,19 +1,16 @@
 package shopGophotoweb.tests;
 
 
-import org.testng.annotations.BeforeMethod;
-import shopGophotoweb.adminPages.*;
 import shopGophotoweb.pages.CartPage;
 import shopGophotoweb.pages.CatalogPage;
 import shopGophotoweb.pages.ProductPage;
 import shopGophotoweb.pages.SuccessPage;
 import webdriver.BaseTest;
-import webdriver.Browser;
 
 import static org.testng.Assert.assertTrue;
 
 public class ST3_001 extends BaseTest {
-    @BeforeMethod
+    /*@BeforeMethod
     public void setPreconditions(){
 
         logStep();
@@ -46,7 +43,7 @@ public class ST3_001 extends BaseTest {
 
 
 
-    }
+    }*/
     @Override
     public void runTest() throws InterruptedException {
 

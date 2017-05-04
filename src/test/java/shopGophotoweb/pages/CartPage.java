@@ -37,7 +37,7 @@ public class CartPage extends BaseForm {
        TextBox txbProductCount=new TextBox(By.xpath(String.format(locCountSomeProduct,productName)),"product count input");
 
        txbProductCount.setText(count);
-       Thread.sleep(5000);
+       Thread.sleep(3000);
 
    }
 
@@ -75,6 +75,7 @@ public class CartPage extends BaseForm {
         return  formError.isPresent();
     }
     public String getTotalPrice() throws InterruptedException{
+        Thread.sleep(2000);
 
         totalPriceSum.waitForIsElementPresent();
 
