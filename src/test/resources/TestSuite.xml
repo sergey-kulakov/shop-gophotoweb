@@ -31,6 +31,8 @@
 			<class name="shopGophotoweb.tests.ST7_001" />
 			<class name="shopGophotoweb.tests.ST7_002" />
 			<class name="shopGophotoweb.tests.ST7_003" />
+			<class name="shopGophotoweb.tests.ST7_004" />
+			<class name="shopGophotoweb.tests.ST7_005" />
 		</classes>
 	</test>
 
