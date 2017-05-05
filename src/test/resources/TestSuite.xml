@@ -33,6 +33,8 @@
 			<class name="shopGophotoweb.tests.ST7_003" />
 			<class name="shopGophotoweb.tests.ST7_004" />
 			<class name="shopGophotoweb.tests.ST7_005" />
+			<class name="shopGophotoweb.tests.ST7_006" />
+			<class name="shopGophotoweb.tests.ST7_007" />
 		</classes>
 	</test>
 

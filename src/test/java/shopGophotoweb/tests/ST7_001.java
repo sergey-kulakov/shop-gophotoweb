@@ -1,11 +1,11 @@
 package shopGophotoweb.tests;
 
+import org.testng.annotations.BeforeTest;
 import shopGophotoweb.adminPages.*;
 import shopGophotoweb.pages.CartPage;
 import shopGophotoweb.pages.CatalogPage;
 import shopGophotoweb.pages.ProductPage;
 import shopGophotoweb.pages.SuccessPage;
-import org.testng.annotations.BeforeMethod;
 import webdriver.BaseTest;
 import webdriver.Browser;
 
@@ -13,7 +13,7 @@ import static org.testng.Assert.assertTrue;
 
 
 public class ST7_001 extends BaseTest {
-    @BeforeMethod
+    @BeforeTest
     public void setPreconditions(){
 
         logStep();
@@ -41,7 +41,7 @@ public class ST7_001 extends BaseTest {
         Utilites.goToSidebarItem("Методы доставки");
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
-        deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Самовывоз);
+
 
 
 

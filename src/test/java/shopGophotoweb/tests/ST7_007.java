@@ -9,7 +9,7 @@ import webdriver.BaseTest;
 import static org.testng.Assert.assertTrue;
 
 
-public class ST7_004 extends BaseTest {
+public class ST7_007 extends BaseTest {
 
     @Override
     public void runTest() throws InterruptedException {
@@ -45,10 +45,10 @@ public class ST7_004 extends BaseTest {
         assertEquals(cartPage.getTotalPrice(),"8 100.20 p.");
 
         logStep();
-        cartPage.applyPromoCode("4");
-        logger.info("Expected result: total price = 5 575.20 p.");
+        cartPage.applyPromoCode("7");
+        logger.info("Expected result: total price = 7 090.20 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"5 575.20 p.");
+        assertEquals(cartPage.getTotalPrice(),"7 090.20 p.");
 
         logStep();
         cartPage.clickSubmit();

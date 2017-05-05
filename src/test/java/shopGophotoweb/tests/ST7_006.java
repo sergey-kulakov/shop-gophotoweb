@@ -1,46 +1,16 @@
 package shopGophotoweb.tests;
 
-import shopGophotoweb.adminPages.*;
 import shopGophotoweb.pages.CartPage;
 import shopGophotoweb.pages.CatalogPage;
 import shopGophotoweb.pages.ProductPage;
 import shopGophotoweb.pages.SuccessPage;
-import org.testng.annotations.BeforeMethod;
 import webdriver.BaseTest;
-import webdriver.Browser;
 
 import static org.testng.Assert.assertTrue;
 
 
 public class ST7_006 extends BaseTest {
-    @BeforeMethod
-    public void setPreconditions(){
 
-        logStep();
-        browser.navigate(Browser.getAdminPageUrl());
-        LoginPage loginPage=new LoginPage();
-        loginPage.login();
-
-        logStep();
-        AdminMainPage adminMainPage = new AdminMainPage();
-        adminMainPage.goToShop();
-
-        AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
-
-        logStep();
-        SettingsPage settingsPage=new SettingsPage();
-        Utilites.goToSidebarItem("Методы оплаты");
-
-        logStep();
-        PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
-        paymetsMethodsPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
-
-        logStep();
-        Utilites.goToSidebarItem("Методы доставки");
-        DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
-        deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
-    }
     @Override
     public void runTest() throws InterruptedException {
 
@@ -76,9 +46,9 @@ public class ST7_006 extends BaseTest {
 
         logStep();
         cartPage.applyPromoCode("6");
-        logger.info("Expected result: total price = 7 292.20 p.");
+        logger.info("Expected result: total price = 5 272.20 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"7 292.20 p.");
+        assertEquals(cartPage.getTotalPrice(),"5 272.20 p.");
 
         logStep();
         cartPage.clickSubmit();
