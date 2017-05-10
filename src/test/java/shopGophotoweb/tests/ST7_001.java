@@ -1,5 +1,7 @@
 package shopGophotoweb.tests;
 
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import shopGophotoweb.adminPages.*;
 import shopGophotoweb.pages.CartPage;
@@ -13,7 +15,7 @@ import static org.testng.Assert.assertTrue;
 
 
 public class ST7_001 extends BaseTest {
-    @BeforeTest
+    @BeforeMethod
     public void setPreconditions(){
 
         logStep();
