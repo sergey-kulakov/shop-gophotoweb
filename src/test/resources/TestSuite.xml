@@ -40,6 +40,8 @@
 			<class name="shopGophotoweb.tests.ST7_010" />
 			<class name="shopGophotoweb.tests.ST7_011" />
 			<class name="shopGophotoweb.tests.ST7_012" />
+			<class name="shopGophotoweb.tests.ST7_013" />
+			<class name="shopGophotoweb.tests.ST7_014" />
 		</classes>
 	</test>
 
