@@ -23,6 +23,7 @@ public class SuccessPage extends BaseForm {
 
     public String getOrdrerNumber(){
 
+        lblThanksForOrderMessage.waitForIsElementPresent();
         String textMessage=lblThanksForOrderMessage.getText();
         System.out.println("Сообщение о заказе "+textMessage);
         String orderNumber=textMessage.substring(textMessage.length()-6, textMessage.length());

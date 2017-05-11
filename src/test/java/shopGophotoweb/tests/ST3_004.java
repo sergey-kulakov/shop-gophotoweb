@@ -90,6 +90,18 @@ public class ST3_004 extends BaseTest {
         logStep();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
+        String orderNumber=successPage.getOrdrerNumber();
         logger.info("The order was completed");
+
+        logStep();
+        browser.navigate(Browser.getAdminPageUrl());
+        AdminMainPage adminMainPage = new AdminMainPage();
+        adminMainPage.goToShop();
+        logStep();
+        Utilites.goToMenuName("МАГАЗИН");
+        AdminProductsPage adminProductsPage=new AdminProductsPage();
+        adminProductsPage.goToOrdersPage();
+        OrdersPage ordersPage=new OrdersPage();
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 500 p.");
     }
 }

@@ -1,10 +1,12 @@
 package shopGophotoweb.tests;
 
+import shopGophotoweb.adminPages.*;
 import shopGophotoweb.pages.CartPage;
 import shopGophotoweb.pages.CatalogPage;
 import shopGophotoweb.pages.ProductPage;
 import shopGophotoweb.pages.SuccessPage;
 import webdriver.BaseTest;
+import webdriver.Browser;
 
 import static org.testng.Assert.assertTrue;
 
@@ -54,6 +56,20 @@ public class ST7_006 extends BaseTest {
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
+        String orderNumber=successPage.getOrdrerNumber();
         logger.info("The order was completed");
+
+        logStep();
+        browser.navigate(Browser.getAdminPageUrl());
+        LoginPage loginPage=new LoginPage();
+        loginPage.login();
+        AdminMainPage adminMainPage = new AdminMainPage();
+        adminMainPage.goToShop();
+        logStep();
+        Utilites.goToMenuName("МАГАЗИН");
+        AdminProductsPage adminProductsPage=new AdminProductsPage();
+        adminProductsPage.goToOrdersPage();
+        OrdersPage ordersPage=new OrdersPage();
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"5 272.20 p.");
     }
 }

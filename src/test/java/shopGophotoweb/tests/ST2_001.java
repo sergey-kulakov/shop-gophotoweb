@@ -65,10 +65,23 @@ public class ST2_001 extends BaseTest {
 
         logStep();
         cartPage.selectPaymentMethod(CartPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
+        assertEquals(cartPage.getTotalPrice(),"1 010 p.");
 
         logStep();
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
+        String orderNumber=successPage.getOrdrerNumber();
+
+        logStep();
+        browser.navigate(Browser.getAdminPageUrl());
+        AdminMainPage adminMainPage = new AdminMainPage();
+        adminMainPage.goToShop();
+        logStep();
+        Utilites.goToMenuName("МАГАЗИН");
+        AdminProductsPage adminProductsPage=new AdminProductsPage();
+        adminProductsPage.goToOrdersPage();
+        OrdersPage ordersPage=new OrdersPage();
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 010 p.");
     }
 }

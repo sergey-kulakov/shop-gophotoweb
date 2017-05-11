@@ -1,8 +1,6 @@
 package shopGophotoweb.tests;
 
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 import shopGophotoweb.adminPages.*;
 import shopGophotoweb.pages.CartPage;
 import shopGophotoweb.pages.CatalogPage;
@@ -85,6 +83,18 @@ public class ST7_001 extends BaseTest {
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
+        String orderNumber=successPage.getOrdrerNumber();
         logger.info("The order was completed");
+
+        logStep();
+        browser.navigate(Browser.getAdminPageUrl());
+        AdminMainPage adminMainPage = new AdminMainPage();
+        adminMainPage.goToShop();
+        logStep();
+        Utilites.goToMenuName("МАГАЗИН");
+        AdminProductsPage adminProductsPage=new AdminProductsPage();
+        adminProductsPage.goToOrdersPage();
+        OrdersPage ordersPage=new OrdersPage();
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"5 090.40 p.");
     }
 }

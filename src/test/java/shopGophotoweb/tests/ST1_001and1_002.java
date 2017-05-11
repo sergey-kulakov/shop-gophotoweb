@@ -64,11 +64,25 @@ public class ST1_001and1_002 extends BaseTest {
         logStep();
 
         cartPage.fillInFields("test", "test", "tt@tt.tt");
+        assertEquals(cartPage.getTotalPrice(),"1 000 p.");
         cartPage.clickSubmit();
 
         logStep();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
+        String orderNumber=successPage.getOrdrerNumber();
         logger.info("The order was completed");
+
+        logStep();
+        browser.navigate(Browser.getAdminPageUrl());
+        AdminMainPage adminMainPage = new AdminMainPage();
+        adminMainPage.goToShop();
+        logStep();
+        Utilites.goToMenuName("МАГАЗИН");
+        AdminProductsPage adminProductsPage=new AdminProductsPage();
+        adminProductsPage.goToOrdersPage();
+        OrdersPage ordersPage=new OrdersPage();
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 000 p.");
+
     }
 }
