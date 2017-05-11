@@ -35,11 +35,13 @@ public class ST7_008 extends BaseTest {
 
         logStep();
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
+        paymetsMethodsPage.unCheckAllMethods();
         paymetsMethodsPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
 
         logStep();
         Utilites.goToSidebarItem("Методы доставки");
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
+        deliveryMethodsPage.unCheckAllMethods();
         deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
 
 
