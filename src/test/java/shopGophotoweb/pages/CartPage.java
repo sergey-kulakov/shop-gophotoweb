@@ -25,6 +25,7 @@ public class CartPage extends BaseForm {
     private TextBox txbPromocode=new TextBox(By.id("shop-promo-code"),"Promo code textbox");
     private Button btnApplyPromocode=new Button(By.id("shop-apply-promo"),"Apply promo code button");
     private String locDeliveryPaymentMethod="//label[contains(text(),'%s')]/preceding-sibling::input";
+    private  Label lblEmptyCart=new Label(By.xpath("//td[contains(text(),'Корзина пуста')]"),"Cart is empty message");
     public enum DeliveryMethods{Курьер,Самовывоз,Почта}
     public enum PaymentMethods{МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1,ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3}
 
@@ -122,6 +123,10 @@ public class CartPage extends BaseForm {
         return btnDeliveryMethod.isPresent();
     }
 
+    public boolean isEmptyCartMessageDisplayed(){
+        lblEmptyCart.waitForIsElementPresent();
+        return lblEmptyCart.isPresent();
+    }
 
 
     public void applyPromoCode(String promocod) throws InterruptedException {

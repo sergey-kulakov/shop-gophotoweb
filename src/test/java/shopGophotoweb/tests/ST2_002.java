@@ -75,6 +75,7 @@ public class ST2_002 extends BaseTest{
 
         logStep();
         cartPage.deleteSomeProduct("product1");
+        assertTrue(cartPage.isEmptyCartMessageDisplayed());
 
     }
 }
