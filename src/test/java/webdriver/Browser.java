@@ -168,6 +168,28 @@ public final class Browser {
         driver.navigate().to(url);
     }
 
+    public void switchTo(String handle){
+        driver.switchTo().window(handle);
+    }
+
+    public static void switchWindow() throws InterruptedException{
+
+        String currentWindow = driver.getWindowHandle();
+
+        System.out.println("Current window handler is : " + currentWindow);
+
+        for (String handle : driver.getWindowHandles()) {
+            if(!handle.equalsIgnoreCase(currentWindow)){
+                driver.switchTo().window(handle);
+                Thread.sleep(2000,0);
+                System.out.println("Switched to window handler : " + handle);
+                break;
+            }
+        }
+
+        System.out.println("Active Window URL is : " + driver.getCurrentUrl());
+    }
+
     /**
      * get RemoteWebDriver
      *

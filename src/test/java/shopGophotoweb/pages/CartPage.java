@@ -28,6 +28,8 @@ public class CartPage extends BaseForm {
     private  Label lblEmptyCart=new Label(By.xpath("//td[contains(text(),'Корзина пуста')]"),"Cart is empty message");
     public enum DeliveryMethods{Курьер,Самовывоз,Почта}
     public enum PaymentMethods{МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1,ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3}
+    private Label lblPaymentMethodUnavailable=new Label(By.xpath("//span[contains(text(),'Выбранный способ доставки в данный момент не доступен')]"),"Error payment method unavailable");
+    private Label lblTotalOrderSumChanged=new Label(By.xpath("//span[contains(text(),'Стоимость заказа изменилась')]"),"Error total order sum was changed");
 
     public CartPage(){
         super(By.xpath("//div[contains(@class,'shop-cart-title')]"),"Cart Page");
@@ -128,6 +130,15 @@ public class CartPage extends BaseForm {
         return lblEmptyCart.isPresent();
     }
 
+    public boolean isErrorPaymentMethodUnavailableDislayed(){
+        lblPaymentMethodUnavailable.waitForIsElementPresent();
+        return lblPaymentMethodUnavailable.isPresent();
+    }
+
+    public boolean isErrorTotalOrderSumChangedDisplayed(){
+        lblTotalOrderSumChanged.waitForIsElementPresent();
+        return lblTotalOrderSumChanged.isPresent();
+    }
 
     public void applyPromoCode(String promocod) throws InterruptedException {
         if(lblPromocode.isPresent()){
