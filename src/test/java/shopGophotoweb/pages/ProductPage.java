@@ -12,7 +12,7 @@ public class ProductPage extends BaseForm {
     private  Button btnPreOrder=new Button(By.xpath("//a[contains(text(),\"Оформить заказ\")]"),"PreOrder button");
 
     public ProductPage(){
-        super(By.xpath("//div[contains(@class,'page shop-product')]"),"Product Page");
+        super(By.xpath("//input[contains(@value,'Создать копию товара')]"),"Product Page");
     }
 
 
