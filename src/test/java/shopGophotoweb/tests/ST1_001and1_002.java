@@ -49,7 +49,7 @@ public class ST1_001and1_002 extends BaseTest {
         logStep();
         ProductPage productPage=new ProductPage();
         productPage.addProductToCart();
-        Menu.goToShopCatalog();
+        Menu.goToCart();
 
         logStep();
         CartPage cartPage = new CartPage();
