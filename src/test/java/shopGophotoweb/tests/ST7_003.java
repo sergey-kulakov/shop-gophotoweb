@@ -1,10 +1,7 @@
 package shopGophotoweb.tests;
 
 import shopGophotoweb.adminPages.*;
-import shopGophotoweb.pages.CartPage;
-import shopGophotoweb.pages.CatalogPage;
-import shopGophotoweb.pages.ProductPage;
-import shopGophotoweb.pages.SuccessPage;
+import shopGophotoweb.pages.*;
 import webdriver.BaseTest;
 import webdriver.Browser;
 
@@ -22,13 +19,13 @@ public class ST7_003 extends BaseTest {
 
         ProductPage product1Page=new ProductPage();
         product1Page.addProductToCart();
-        product1Page.goToCatalog();
+        Menu.goToShopCatalog();
 
         logStep();
         catalogPage.goToProductPage("product3");
         ProductPage product3Page=new ProductPage();
         product3Page.addProductToCart();
-        product3Page.goToCart();
+        Menu.goToCart();
 
         logStep();
         CartPage cartPage=new CartPage();

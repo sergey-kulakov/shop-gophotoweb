@@ -2,6 +2,7 @@ package shopGophotoweb.tests;
 
 import shopGophotoweb.pages.CartPage;
 import shopGophotoweb.pages.CatalogPage;
+import shopGophotoweb.pages.Menu;
 import shopGophotoweb.pages.ProductPage;
 import webdriver.BaseTest;
 
@@ -18,7 +19,7 @@ public class ST7_019 extends BaseTest {
         catalogPage.goToProductPage("product1");
         ProductPage product1Page=new ProductPage();
         product1Page.addProductToCart();
-        product1Page.goToCart();
+        Menu.goToCart();
 
         logStep();
         CartPage cartPage=new CartPage();

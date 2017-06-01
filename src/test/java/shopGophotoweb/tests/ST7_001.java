@@ -2,10 +2,7 @@ package shopGophotoweb.tests;
 
 import org.testng.annotations.BeforeMethod;
 import shopGophotoweb.adminPages.*;
-import shopGophotoweb.pages.CartPage;
-import shopGophotoweb.pages.CatalogPage;
-import shopGophotoweb.pages.ProductPage;
-import shopGophotoweb.pages.SuccessPage;
+import shopGophotoweb.pages.*;
 import webdriver.BaseTest;
 import webdriver.Browser;
 
@@ -55,7 +52,7 @@ public class ST7_001 extends BaseTest {
 
         ProductPage product1Page=new ProductPage();
         product1Page.addProductToCart();
-        product1Page.goToCart();
+        Menu.goToCart();
 
         logStep();
         CartPage cartPage=new CartPage();
