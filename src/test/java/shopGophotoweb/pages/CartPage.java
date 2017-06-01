@@ -66,6 +66,7 @@ public class CartPage extends BaseForm {
     }
     public boolean isSkuQanityErrorDisplayed(){
 
+        lblSkuQanityError.waitForIsElementPresent();
         return lblSkuQanityError.isPresent();
     }
 
