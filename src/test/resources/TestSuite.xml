@@ -19,14 +19,22 @@
 		</classes>
 	</test>
 	<test name="Test with payments and delivery methods" preserve-order="true">
+	<classes>
+		<class name="shopGophotoweb.tests.ST3_001" />
+		<class name="shopGophotoweb.tests.ST3_002" />
+		<class name="shopGophotoweb.tests.ST3_003" />
+		<class name="shopGophotoweb.tests.ST3_004" />
+	</classes>
+</test>
+	<test name="Test with payments and delivery methods" preserve-order="true">
 		<classes>
-			<class name="shopGophotoweb.tests.ST3_001" />
-			<class name="shopGophotoweb.tests.ST3_002" />
-			<class name="shopGophotoweb.tests.ST3_003" />
-			<class name="shopGophotoweb.tests.ST3_004" />
+			<class name="shopGophotoweb.tests.ST4_001" />
+			<class name="shopGophotoweb.tests.ST4_002" />
+			<class name="shopGophotoweb.tests.ST4_003" />
+			<class name="shopGophotoweb.tests.ST4_004" />
 		</classes>
 	</test>
-	<test name="Test promocode" preserve-order="true">
+	<test name="Test dinamical hide of delivery and payment methods" preserve-order="true">
 		<classes>
 			<class name="shopGophotoweb.tests.ST7_001" />
 			<class name="shopGophotoweb.tests.ST7_002" />

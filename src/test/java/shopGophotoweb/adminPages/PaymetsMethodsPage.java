@@ -16,7 +16,7 @@ public class PaymetsMethodsPage extends BaseForm {
          CheckBox chkPaymentMethodVisibility=new CheckBox(By.xpath(String.format(locCheckboxPaymetnMethod,paymentMethodName)),"Payment method visibility checkbox");
          chkPaymentMethodVisibility.check();
     }
-    public void unCheckPaymentMethodVisible(String paymentMethodName){
+    public void unCheckPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods paymentMethodName){
         CheckBox chkPaymentMethodVisibility=new CheckBox(By.xpath(String.format(locCheckboxPaymetnMethod,paymentMethodName)),"Payment method visibility checkbox");
         chkPaymentMethodVisibility.uncheck();
     }
