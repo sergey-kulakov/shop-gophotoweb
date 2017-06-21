@@ -32,6 +32,7 @@
 			<class name="shopGophotoweb.tests.ST4_002" />
 			<class name="shopGophotoweb.tests.ST4_003" />
 			<class name="shopGophotoweb.tests.ST4_004" />
+			<class name="shopGophotoweb.tests.ST4_005" />
 		</classes>
 	</test>
 	<test name="Test dinamical hide of delivery and payment methods" preserve-order="true">
