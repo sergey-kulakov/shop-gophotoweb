@@ -136,6 +136,10 @@ public class CartPage extends BaseForm {
         lblPaymentMethodUnavailable.waitForIsElementPresent();
         return lblPaymentMethodUnavailable.isPresent();
     }
+    public boolean isErrorDeliveryMethodUnavailableDislayed(){
+        lblDeliveryMethodUnavailable.waitForIsElementPresent();
+        return lblDeliveryMethodUnavailable.isPresent();
+    }
 
     public boolean isErrorTotalOrderSumChangedDisplayed(){
         lblTotalOrderSumChanged.waitForIsElementPresent();
