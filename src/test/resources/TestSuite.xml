@@ -35,6 +35,7 @@
 			<class name="shopGophotoweb.tests.ST4_005" />
 			<class name="shopGophotoweb.tests.ST4_006" />
 			<class name="shopGophotoweb.tests.ST4_007" />
+			<class name="shopGophotoweb.tests.ST4_008" />
 		</classes>
 	</test>
 	<test name="Test promocodes" preserve-order="true">
