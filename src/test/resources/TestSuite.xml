@@ -38,6 +38,11 @@
 			<class name="shopGophotoweb.tests.ST4_008" />
 		</classes>
 	</test>
+	<test name="Test dinamical change of total amount" preserve-order="true">
+		<classes>
+			<class name="shopGophotoweb.tests.ST5_001" />
+		</classes>
+	</test>
 	<test name="Test promocodes" preserve-order="true">
 		<classes>
 			<class name="shopGophotoweb.tests.ST7_001" />
