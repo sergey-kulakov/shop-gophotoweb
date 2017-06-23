@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Test suite" verbose="1">
 	
-	<test name="Test without payments" preserve-order="true">
+	<test name="Test without payments">
 		<classes>
  			<class name="shopGophotoweb.tests.ST1_001and1_002" />
 			<class name="shopGophotoweb.tests.ST1_003" />
@@ -10,7 +10,7 @@
 			<class name="shopGophotoweb.tests.ST1_006" />
 		</classes>
 	</test>
-	<test name="Test with payments or delivery methods" preserve-order="true">
+	<test name="Test with payments or delivery methods">
 		<classes>
 			<class name="shopGophotoweb.tests.ST2_001" />
 			<class name="shopGophotoweb.tests.ST2_002" />
@@ -18,7 +18,7 @@
 			<class name="shopGophotoweb.tests.ST2_004" />
 		</classes>
 	</test>
-	<test name="Test with payments and delivery methods" preserve-order="true">
+	<test name="Test with payments and delivery methods">
 	<classes>
 		<class name="shopGophotoweb.tests.ST3_001" />
 		<class name="shopGophotoweb.tests.ST3_002" />
@@ -26,7 +26,7 @@
 		<class name="shopGophotoweb.tests.ST3_004" />
 	</classes>
 </test>
-	<test name="Test dinamical hide of delivery and payment methods" preserve-order="true">
+	<test name="Test dinamical hide of delivery and payment methods">
 		<classes>
 			<class name="shopGophotoweb.tests.ST4_001" />
 			<class name="shopGophotoweb.tests.ST4_002" />
@@ -38,13 +38,14 @@
 			<class name="shopGophotoweb.tests.ST4_008" />
 		</classes>
 	</test>
-	<test name="Test dinamical change of total amount" preserve-order="true">
+	<test name="Test dinamical change of total amount">
 		<classes>
 			<class name="shopGophotoweb.tests.ST5_001" />
 			<class name="shopGophotoweb.tests.ST5_002" />
+			<class name="shopGophotoweb.tests.ST5_003" />
 		</classes>
 	</test>
-	<test name="Test promocodes" preserve-order="true">
+	<test name="Test promocodes">
 		<classes>
 			<class name="shopGophotoweb.tests.ST7_001" />
 			<class name="shopGophotoweb.tests.ST7_002" />
