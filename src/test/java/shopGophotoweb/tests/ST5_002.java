@@ -8,7 +8,7 @@ import webdriver.Browser;
 
 import static org.testng.Assert.assertTrue;
 
-public class ST5_001 extends BaseTest {
+public class ST5_002 extends BaseTest {
     @BeforeMethod
     public void setPreconditions() throws InterruptedException {
 
@@ -66,23 +66,17 @@ public class ST5_001 extends BaseTest {
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"2 020 p.");
 
-        //переключаемся в админку и меняем стоимость доставки
+        //переключаемся в админку и меняем стоимость товара
         logStep(4);
         Browser.switchWindow();
         browser.navigate(Browser.getAdminPageUrl());
         AdminMainPage adminMainPage=new AdminMainPage();
         adminMainPage.goToShop();
         AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
+        adminProductsPage.goToProductPage("product1");
 
-
-        Utilites.goToSidebarItem("Методы доставки");
-        DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
-        deliveryMethodsPage.goToDeliveryMethod(DeliveryMethodsPage.DeliveryMethods.Курьер);
-        DeliveryMethodPage deliveryMethodPage=new DeliveryMethodPage();
-        deliveryMethodPage.setDeliveryTax("0");
-        deliveryMethodPage.setAdditionalDeliveryTax("0");
-        deliveryMethodPage.clickSave();
+        AdminProductPage adminProductPage=new AdminProductPage();
+        adminProductPage.setPrice("900");
 
         //переключаемся на сайт
         logStep(5);
@@ -90,28 +84,27 @@ public class ST5_001 extends BaseTest {
         cartPage.clickSubmit();
 
         assertTrue(cartPage.isErrorTotalOrderSumChangedDisplayed());
-        logger.info("Expected result: total price = 1 010 p.");
+        logger.info("Expected result: total price = 1 919 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"1 010 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 919 p.");
 
+        logStep(6);
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         successPage.isThanksForOrderMessageDisplayed();
         String orderNumber=successPage.getOrdrerNumber();
         logger.info("The order was completed");
+
         browser.navigate(Browser.getAdminPageUrl());
         adminMainPage.goToShop();
-        logStep();
         Utilites.goToMenuName("МАГАЗИН");
         adminProductsPage.goToOrdersPage();
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 010 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 919 p.");
 
         logStep("Postconditions");
         Browser.switchWindow();
-        deliveryMethodPage.setDeliveryTax("1000");
-        deliveryMethodPage.setAdditionalDeliveryTax("10");
-        deliveryMethodPage.clickSave();
+        adminProductPage.setPrice("1000");
 
 
     }}
