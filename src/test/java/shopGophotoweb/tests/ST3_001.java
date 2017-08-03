@@ -72,9 +72,9 @@ public class ST3_001 extends BaseTest {
 
         logStep();
         cartPage.setProductCount("product1","0");
-        logger.info("Expected result: total price = 999.90 p.");
+        logger.info("Expected result: total price = 1 000 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"999.90 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 000 p.");
 
         logStep();
         cartPage.clickSubmit();
