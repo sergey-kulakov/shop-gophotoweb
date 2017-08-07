@@ -5,24 +5,13 @@
 	<test name="Test with payments and delivery methods" preserve-order="true">
 		<classes>
 
+			<class name="shopGophotoweb.tests.ST1_004" />
 			<class name="shopGophotoweb.tests.ST2_004" />
 			<class name="shopGophotoweb.tests.ST3_001" />
-			<class name="shopGophotoweb.tests.ST4_001" />
-			<class name="shopGophotoweb.tests.ST4_006" />
+			<class name="shopGophotoweb.tests.ST4_005" />
 			<class name="shopGophotoweb.tests.ST4_008" />
-			<class name="shopGophotoweb.tests.ST5_001" />
-			<class name="shopGophotoweb.tests.ST5_002" />
-			<class name="shopGophotoweb.tests.ST5_003" />
 			<class name="shopGophotoweb.tests.ST7_001" />
-			<class name="shopGophotoweb.tests.ST7_002" />
-			<class name="shopGophotoweb.tests.ST7_003" />
-			<class name="shopGophotoweb.tests.ST7_004" />
-			<class name="shopGophotoweb.tests.ST7_005" />
-			<class name="shopGophotoweb.tests.ST7_006" />
-			<class name="shopGophotoweb.tests.ST7_007" />
-			<class name="shopGophotoweb.tests.ST7_008" />
-			<class name="shopGophotoweb.tests.ST7_009" />
-			<class name="shopGophotoweb.tests.ST7_010" />
+
 		</classes>
 	</test>
 

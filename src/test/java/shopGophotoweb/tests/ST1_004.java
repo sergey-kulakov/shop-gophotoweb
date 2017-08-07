@@ -77,12 +77,13 @@ public class ST1_004 extends BaseTest {
         logStep();
         cartPage.setProductCount("product1","0");
         cartPage.clickSubmit();
-        assertTrue(cartPage.isTextBoxSkuCountErrorDisplayed());
-        logger.info("Order was not completed");
+        logger.info("Expected result: total price = 1 000 p.");
+        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
+        assertEquals(cartPage.getTotalPrice(),"1 000 p.");
 
-        logStep();
-        cartPage.setProductCount("product1","1");
+
         cartPage.clickSubmit();
+        assertTrue(cartPage.isFormErrorDisplayed());
 
         logStep();
         cartPage.fillInFields("test", "test", "tt@tt.tt");
