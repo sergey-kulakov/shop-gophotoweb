@@ -1,12 +1,12 @@
 package shopGophotoweb.tests;
 
+import org.testng.annotations.BeforeMethod;
 import shopGophotoweb.adminPages.*;
 import shopGophotoweb.pages.*;
-import org.testng.annotations.BeforeMethod;
 import webdriver.BaseTest;
 import webdriver.Browser;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertTrue;
 
 
 public class ST1_001and1_002 extends BaseTest {
