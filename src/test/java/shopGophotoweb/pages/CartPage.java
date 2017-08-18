@@ -122,8 +122,8 @@ public class CartPage extends BaseForm {
         Button btnDeliveryMethod=new Button(By.xpath(String.format(locDeliveryPaymentMethod,deliveryMethodName)),"Dilivery methods radiobatton");
         return btnDeliveryMethod.isPresent();
     }
-    public boolean isPaymentMethodDisplayed(DeliveryMethods deliveryMethodName) throws InterruptedException {
-        Button btnDeliveryMethod=new Button(By.xpath(String.format(locDeliveryPaymentMethod,deliveryMethodName)),"Payment methods radiobatton");
+    public boolean isPaymentMethodDisplayed(PaymentMethods paymentMethods) throws InterruptedException {
+        Button btnDeliveryMethod=new Button(By.xpath(String.format(locDeliveryPaymentMethod,paymentMethods)),"Payment methods radiobatton");
         return btnDeliveryMethod.isPresent();
     }
 
