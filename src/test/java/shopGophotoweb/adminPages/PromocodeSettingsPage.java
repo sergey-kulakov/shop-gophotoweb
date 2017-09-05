@@ -8,12 +8,18 @@ import webdriver.elements.TextBox;
 
 public class PromocodeSettingsPage extends BaseForm{
     private TextBox txbAmoutMoreThen=new TextBox(By.xpath("//input[contains(@name,'[amount_more_then]')]"),"Amount more then textbox");
+    private TextBox txbDiscount=new TextBox(By.xpath("//input[contains(@name,'[discount_amount]')]"),"Discount_amount textbox");
     private Button btnSubmit=new Button(By.xpath("//input[@value='Сохранить']"),"Submit button");
     public PromocodeSettingsPage(){super(By.xpath("//input[@value='Создать копию промо-кода']"),"Promocode settings page");}
 
     public void setAmoutMoreThen(String sum){
         txbAmoutMoreThen.waitForIsElementPresent();
         txbAmoutMoreThen.setText(sum);
+        btnSubmit.click();
+    }
+    public void setDiscount(String disc){
+        txbDiscount.waitForIsElementPresent();
+        txbDiscount.setText(disc);
         btnSubmit.click();
     }
 }
