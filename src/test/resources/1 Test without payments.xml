@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test without payments" verbose="1">
+
+	<test name="ST1_001and1_002">
+		<classes>
+			<class name="shopGophotoweb.tests.ST1_001and1_002" />
+		</classes>
+	</test>
+	<test name="ST1_003">
+		<classes>
+			<class name="shopGophotoweb.tests.ST1_003" />
+		</classes>
+	</test>
+	<test name="ST1_004">
+		<classes>
+			<class name="shopGophotoweb.tests.ST1_004" />
+		</classes>
+	</test>
+	<test name="ST1_005">
+		<classes>
+			<class name="shopGophotoweb.tests.ST1_005" />
+		</classes>
+	</test>
+	<test name="ST1_006">
+		<classes>
+			<class name="shopGophotoweb.tests.ST1_006" />
+		</classes>
+	</test>
+	</suite>
+

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test with payments or delivery methods">
+
+
+    <test name="ST7_001">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_001" />
+         </classes>
+    </test>
+    <test name="ST7_002">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_002" />
+        </classes>
+    </test>
+    <test name="ST7_003">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_003" />
+        </classes>
+    </test>
+    <test name="ST7_004">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_004" />
+        </classes>
+    </test>
+    <test name="ST7_005">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_005" />
+        </classes>
+    </test>
+    <test name="ST7_006">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_006" />
+        </classes>
+    </test>
+    <test name="ST7_007">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_007" />
+        </classes>
+    </test>
+    <test name="ST7_008">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_008" />
+        </classes>
+    </test>
+    <test name="ST7_009">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_009" />
+        </classes>
+    </test>
+    <test name="ST7_010">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_010" />
+        </classes>
+    </test>
+    <test name="ST7_011">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_011" />
+        </classes>
+    </test>
+    <test name="ST7_012">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_012" />
+        </classes>
+    </test>
+    <test name="ST7_013">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_013" />
+        </classes>
+    </test>
+    <test name="ST7_014">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_014" />
+        </classes>
+    </test>
+    <test name="ST7_015">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_015" />
+        </classes>
+    </test>
+    <test name="ST7_016">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_016" />
+        </classes>
+    </test>
+    <test name="ST7_017">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_017" />
+        </classes>
+    </test>
+    <test name="ST7_0018">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_018" />
+        </classes>
+    </test>
+    <test name="ST7_019">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_019" />
+        </classes>
+    </test>
+    <test name="ST7_020">
+        <classes>
+            <class name="shopGophotoweb.tests.ST7_020" />
+        </classes>
+    </test>
+
+</suite>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test with payments or delivery methods">
+
+
+    <test name="ST4_001">
+        <classes>
+            <class name="shopGophotoweb.tests.ST4_001" />
+        </classes>
+    </test>
+    <test name="ST4_002">
+        <classes>
+            <class name="shopGophotoweb.tests.ST4_002" />
+        </classes>
+    </test>
+    <test name="ST4_003">
+        <classes>
+            <class name="shopGophotoweb.tests.ST4_003" />
+        </classes>
+    </test>
+    <test name="ST4_004">
+        <classes>
+            <class name="shopGophotoweb.tests.ST4_004" />
+        </classes>
+    </test>
+    <test name="ST4_005">
+        <classes>
+            <class name="shopGophotoweb.tests.ST4_005" />
+        </classes>
+    </test>
+    <test name="ST4_006">
+        <classes>
+            <class name="shopGophotoweb.tests.ST4_006" />
+        </classes>
+    </test>
+    <test name="ST4_007">
+        <classes>
+            <class name="shopGophotoweb.tests.ST4_007" />
+        </classes>
+    </test>
+    <test name="ST4_008">
+        <classes>
+            <class name="shopGophotoweb.tests.ST4_008" />
+        </classes>
+    </test>
+
+
+</suite>

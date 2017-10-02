@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test with payments or delivery methods">
+
+
+    <test name="ST6_001">
+        <classes>
+            <class name="shopGophotoweb.tests.ST6_001" />
+                    </classes>
+    </test>
+    <test name="ST6_002">
+        <classes>
+            <class name="shopGophotoweb.tests.ST6_002" />
+        </classes>
+    </test>
+
+
+</suite>

@@ -1,7 +1,6 @@
 package shopGophotoweb.tests;
 
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 import shopGophotoweb.adminPages.*;
 import shopGophotoweb.pages.*;
 import webdriver.BaseTest;
@@ -10,7 +9,7 @@ import webdriver.Browser;
 import static org.testng.Assert.assertTrue;
 
 public class ST5_001 extends BaseTest {
-    @BeforeSuite
+    /*@BeforeSuite
     public void fixPreconditions()
     {
 
@@ -37,7 +36,7 @@ public class ST5_001 extends BaseTest {
         deliveryMethodPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3);
         deliveryMethodPage.clickSave();
         Utilites.logout();
-    }
+    }*/
 
     @BeforeMethod
     public void setPreconditions() throws InterruptedException {

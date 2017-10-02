@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test with payments or delivery methods">
+
+
+    <test name="ST5_001">
+        <classes>
+            <class name="shopGophotoweb.tests.ST5_001" />
+        </classes>
+    </test>
+    <test name="ST5_002">
+        <classes>
+            <class name="shopGophotoweb.tests.ST5_002" />
+        </classes>
+    </test>
+    <test name="ST5_003">
+        <classes>
+            <class name="shopGophotoweb.tests.ST5_003" />
+        </classes>
+    </test>
+    <test name="ST5_004">
+        <classes>
+            <class name="shopGophotoweb.tests.ST5_004" />
+        </classes>
+    </test>
+    <test name="ST5_005">
+        <classes>
+            <class name="shopGophotoweb.tests.ST5_005" />
+        </classes>
+    </test>
+
+
+</suite>
