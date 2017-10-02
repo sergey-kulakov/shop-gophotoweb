@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <suite name="All tests" verbose="1">
 
+    <listeners>
+        <listener class-name="webdriver.RetryListener"/>
+    </listeners>
     <test name="ST1_001and1_002">
         <classes>
+
             <class name="shopGophotoweb.tests.ST1_001and1_002" />
         </classes>
     </test>

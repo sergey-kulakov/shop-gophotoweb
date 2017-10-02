@@ -19,7 +19,7 @@ public abstract class BaseTest extends BaseEntity {
      *
      * @throws Throwable Throwable
      */
-    @Test
+    @Test(retryAnalyzer = Retry.class)
     public void xTest() throws Throwable {
         Class<? extends BaseTest> currentClass = this.getClass();
 

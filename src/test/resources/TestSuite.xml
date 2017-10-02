@@ -2,6 +2,9 @@
 <suite name="Test suite" verbose="10">
 	
 	<test name="Test without payments">
+		<listeners>
+			<listener class-name="webdriver.RetryListener"/>
+		</listeners>
 		<classes>
  			<class name="shopGophotoweb.tests.ST1_001and1_002" />
 			<class name="shopGophotoweb.tests.ST1_003" />
