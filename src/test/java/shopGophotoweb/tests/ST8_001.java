@@ -50,32 +50,56 @@ public class ST8_001 extends BaseTest {
     @Override
     public void runTest() throws InterruptedException {
 
-        logStep();
+        logStep(1);
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product8");
-
         ProductPage productPage=new ProductPage();
-
         assertEquals(productPage.getLblOldPrice(),"от  0 p.");
         assertEquals(productPage.getLblDiscount(),"1 550 p.");
+
+        logStep(2);
         productPage.addProductToCart();
         assertTrue(productPage.isLblUnselectedItemErrorDisplayed());
 
-        Menu.goToCart();
+        logStep(3);
+        productPage.setSelectValueLocator("Синий");
+        assertEquals(productPage.getLblPrice(),"1 000 p.");
 
-        logStep();
+        logStep(4);
+        productPage.addProductToCart();
+
+        logStep(5);
+        productPage.setSelectValueLocator("Красный");
+        assertEquals(productPage.getLblOldPrice(),"2 000 p.");
+        assertEquals(productPage.getLblDiscount(),"1 550 p.");
+
+        logStep(6);
+        productPage.addProductToCart();
+
+        logStep(7);
+        productPage.setSelectValueLocator("Серый");
+        assertEquals(productPage.getAddButtonText(),"ОФОРМИТЬ ЗАКАЗ");
+
+        logStep(8);
+        productPage.setSelectValueLocator("Оранжевый");
+        assertEquals(productPage.getLblPrice(),"0 p.");
+
+        logStep(9);
+        productPage.addProductToCart();
+
+
+        logStep(10);
+        Menu.goToCart();
         CartPage cartPage=new CartPage();
+        logger.info("Expected result: total price = 3 605.70 p.");
+        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
+        assertEquals(cartPage.getTotalPrice(),"3 605.70 p.");
+
+        logStep(11);
         cartPage.fillInFields("test", "test", "tt@tt.tt");
 
-        logStep();
-        cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
-        logger.info("Expected result: total price = 2 020 p.");
-        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"2 020 p.");
 
-
-
-        logStep();
+        logStep(12);
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
@@ -91,6 +115,6 @@ public class ST8_001 extends BaseTest {
         AdminProductsPage adminProductsPage=new AdminProductsPage();
         adminProductsPage.goToOrdersPage();
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"5 090.40 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"3 605.70 p.");
     }
 }
