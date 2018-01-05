@@ -6,7 +6,7 @@ import webdriver.elements.*;
 
 public class ProductPage extends BaseForm {
     private Button btnAddToCart = new Button(By.id("skuadd"), "addToCartButton");
-    private  Button btnOutOfStock=new Button(By.xpath(".//a[contains(text(),'Нет в наличии')]"),"Out of stock button");
+    private  Button btnOutOfStock=new Button(By.xpath("//a[contains(text(),'Нет в наличии')]"),"Out of stock button");
     private  Button btnPreOrder=new Button(By.xpath("//a[contains(text(),\"Оформить заказ\")]"),"PreOrder button");
     private Label lblDiscount=new Label(By.xpath("//span[@class='product-price-discount']"),"Discount label");
     private  Label lblOldPrice=new Label(By.xpath("//div[@class='price']/span[contains(@class,'product-price-old')]"),"Old price");
@@ -14,6 +14,7 @@ public class ProductPage extends BaseForm {
     private  Label lblUnselectedItemError=new Label(By.xpath("//div[@class='error'][@data-prefix='Выберите']"),"Unselected item error");
     //private  ElemetsList listOptions=new ElemetsList(By.xpath("//select[@class=\"options\"]"),"List options");
     private  String selectValueLocator="//select[@class='options']/option[@value='%s']";
+    private  String disabledValueLocator="//select[@class='options']/option[@value='%s']";
 
     public ProductPage(){
         super(By.xpath("//div[contains(@class,'page shop-product')]"),"Product Page");
@@ -60,5 +61,10 @@ public class ProductPage extends BaseForm {
         Label selectValue =new Label(By.xpath(String.format(selectValueLocator,value)),"Value of select");
         selectValue.waitForIsElementPresent();
         selectValue.click();
+    }
+    public void isSelectOptionPresent(String optonValue){
+        Label selectValue =new Label(By.xpath(String.format(selectValueLocator,optonValue)),"Value of select");
+       // return selectValue.isPresent();
+        assertEquals(selectValue.getClass().toString(),"disable");
     }
 }

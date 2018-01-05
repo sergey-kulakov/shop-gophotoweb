@@ -6,78 +6,29 @@
 			<listener class-name="webdriver.RetryListener"/>
 		</listeners>
 		<classes>
- 			<class name="shopGophotoweb.tests.ST1_001and1_002" />
-			<class name="shopGophotoweb.tests.ST1_003" />
-			<class name="shopGophotoweb.tests.ST1_004" />
 			<class name="shopGophotoweb.tests.ST1_005" />
-			<class name="shopGophotoweb.tests.ST1_006" />
 		</classes>
 	</test>
-	<test name="Test with payments or delivery methods">
-		<classes>
-			<class name="shopGophotoweb.tests.ST2_001" />
-			<class name="shopGophotoweb.tests.ST2_002" />
-			<class name="shopGophotoweb.tests.ST2_003" />
-			<class name="shopGophotoweb.tests.ST2_004" />
-		</classes>
-	</test>
-	<test name="Test with payments and delivery methods">
-	<classes>
-		<class name="shopGophotoweb.tests.ST3_001" />
-		<class name="shopGophotoweb.tests.ST3_002" />
-		<class name="shopGophotoweb.tests.ST3_003" />
-		<class name="shopGophotoweb.tests.ST3_004" />
-	</classes>
-</test>
-	<test name="Test dinamical hide of delivery and payment methods">
-		<classes>
-			<class name="shopGophotoweb.tests.ST4_001" />
-			<class name="shopGophotoweb.tests.ST4_002" />
-			<class name="shopGophotoweb.tests.ST4_003" />
-			<class name="shopGophotoweb.tests.ST4_004" />
-			<class name="shopGophotoweb.tests.ST4_005" />
-			<class name="shopGophotoweb.tests.ST4_006" />
-			<class name="shopGophotoweb.tests.ST4_007" />
-			<class name="shopGophotoweb.tests.ST4_008" />
-		</classes>
-	</test>
-	<test name="Test dinamical change of total amount">
-		<classes>
-			<class name="shopGophotoweb.tests.ST5_001" />
-			<class name="shopGophotoweb.tests.ST5_002" />
-			<class name="shopGophotoweb.tests.ST5_003" />
-			<class name="shopGophotoweb.tests.ST5_004" />
-			<class name="shopGophotoweb.tests.ST5_005" />
-		</classes>
-	</test>
+
 	<test name="Oter tests">
 		<classes>
 			<class name="shopGophotoweb.tests.ST6_001" />
-			<class name="shopGophotoweb.tests.ST6_002" />
 		</classes>
 	</test>
 	<test name="Test promocodes">
 		<classes>
-			<class name="shopGophotoweb.tests.ST7_001" />
-			<class name="shopGophotoweb.tests.ST7_002" />
 			<class name="shopGophotoweb.tests.ST7_003" />
 			<class name="shopGophotoweb.tests.ST7_004" />
 			<class name="shopGophotoweb.tests.ST7_005" />
 			<class name="shopGophotoweb.tests.ST7_006" />
 			<class name="shopGophotoweb.tests.ST7_007" />
-			<class name="shopGophotoweb.tests.ST7_008" />
-			<class name="shopGophotoweb.tests.ST7_009" />
 			<class name="shopGophotoweb.tests.ST7_010" />
 			<class name="shopGophotoweb.tests.ST7_011" />
 			<class name="shopGophotoweb.tests.ST7_012" />
 			<class name="shopGophotoweb.tests.ST7_013" />
 			<class name="shopGophotoweb.tests.ST7_014" />
-			<class name="shopGophotoweb.tests.ST7_015" />
-			<class name="shopGophotoweb.tests.ST7_016" />
 			<class name="shopGophotoweb.tests.ST7_017" />
-			<class name="shopGophotoweb.tests.ST7_018" />
-			<class name="shopGophotoweb.tests.ST7_019" />
-			<class name="shopGophotoweb.tests.ST7_020" />
+
 		</classes>
 	</test>
 
