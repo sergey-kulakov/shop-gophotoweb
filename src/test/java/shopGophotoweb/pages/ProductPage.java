@@ -15,6 +15,7 @@ public class ProductPage extends BaseForm {
     //private  ElemetsList listOptions=new ElemetsList(By.xpath("//select[@class=\"options\"]"),"List options");
     private  String selectValueLocator="//select[@class='options']/option[@value='%s']";
     private  String disabledValueLocator="//select[@class='options']/option[@value='%s']";
+    private Button btnGoToCatalogBreadecrumbs=new Button(By.xpath("//nav[@class=\"shop-bread-crumbs\"]/a[contains(text(),'магазин')]"),"shop bread crumbs");
 
     public ProductPage(){
         super(By.xpath("//div[contains(@class,'page shop-product')]"),"Product Page");
@@ -66,5 +67,9 @@ public class ProductPage extends BaseForm {
         Label selectValue =new Label(By.xpath(String.format(selectValueLocator,optonValue)),"Value of select");
        // return selectValue.isPresent();
         assertEquals(selectValue.getClass().toString(),"disable");
+    }
+    public void goToCatalogByBreadecrumbs(){
+        btnGoToCatalogBreadecrumbs.waitForIsElementPresent();
+        btnGoToCatalogBreadecrumbs.click();
     }
 }

@@ -47,14 +47,13 @@ public class ST1_005 extends BaseTest {
 
         ProductPage product1Page=new ProductPage();
         product1Page.addProductToCart();
-        Menu.goToShopCatalog();
+       product1Page.goToCatalogByBreadecrumbs();
 
         logStep();
         catalogPage.goToProductPage("product2");
         ProductPage product2Page=new ProductPage();
         product2Page.addProductToCart();
-        Menu.goToShopCatalog();
-
+        product2Page.goToCatalogByBreadecrumbs();
         logStep();
         catalogPage.goToProductPage("product3");
         ProductPage product3Page=new ProductPage();

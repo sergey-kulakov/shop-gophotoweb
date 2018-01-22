@@ -18,7 +18,7 @@ public class ST7_017 extends BaseTest {
         catalogPage.goToProductPage("product1");
         ProductPage product1Page=new ProductPage();
         product1Page.addProductToCart();
-        Menu.goToShopCatalog();
+        product1Page.goToCatalogByBreadecrumbs();
 
         logStep();
         catalogPage.goToProductPage("product3");
