@@ -6,22 +6,9 @@
 			<listener class-name="webdriver.RetryListener"/>
 		</listeners>
 		<classes>
-			<class name="shopGophotoweb.tests.ST1_005" />
-			<class name="shopGophotoweb.tests.ST1_006" />
-			<class name="shopGophotoweb.tests.ST2_004" />
-			<class name="shopGophotoweb.tests.ST3_002" />
-			<class name="shopGophotoweb.tests.ST4_003" />
-			<class name="shopGophotoweb.tests.ST5_004" />
-			<class name="shopGophotoweb.tests.ST5_005" />
-			<class name="shopGophotoweb.tests.ST6_001" />
-			<class name="shopGophotoweb.tests.ST7_001" />
-			<class name="shopGophotoweb.tests.ST7_002" />
-			<class name="shopGophotoweb.tests.ST7_003" />
-			<class name="shopGophotoweb.tests.ST7_008" />
-			<class name="shopGophotoweb.tests.ST7_009" />
-			<class name="shopGophotoweb.tests.ST7_010" />
-			<class name="shopGophotoweb.tests.ST7_016" />
-			<class name="shopGophotoweb.tests.ST7_017" />
+			<class name="shopGophotoweb.tests.ST1_003" />
+			<class name="shopGophotoweb.tests.ST2_003" />
+			<class name="shopGophotoweb.tests.ST5_002" />
 		</classes>
 	</test>
 

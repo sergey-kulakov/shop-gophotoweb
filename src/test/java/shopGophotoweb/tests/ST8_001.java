@@ -54,8 +54,8 @@ public class ST8_001 extends BaseTest {
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product8");
         ProductPage productPage=new ProductPage();
-        assertEquals(productPage.getLblOldPrice(),"от  0 p.");
-        assertEquals(productPage.getLblDiscount(),"1 550 p.");
+        assertEquals(productPage.getLblPrice(),"от  0 p.");
+
 
         logStep(2);
         productPage.addProductToCart();
@@ -91,6 +91,7 @@ public class ST8_001 extends BaseTest {
         logStep(10);
         Menu.goToCart();
         CartPage cartPage=new CartPage();
+   //     cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
         logger.info("Expected result: total price = 3 605.70 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"3 605.70 p.");

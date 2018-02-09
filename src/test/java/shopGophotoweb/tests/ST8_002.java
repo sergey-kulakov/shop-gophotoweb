@@ -56,8 +56,8 @@ public class ST8_002 extends BaseTest {
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product9");
         ProductPage productPage=new ProductPage();
-        assertEquals(productPage.getLblOldPrice(),"от  1 000 p.");
-        assertEquals(productPage.getLblDiscount(),"1 500 p.");
+        assertEquals(productPage.getLblPrice(),"от  1 000 p.");
+
 
         logStep(2);
         productPage.addProductToCart();

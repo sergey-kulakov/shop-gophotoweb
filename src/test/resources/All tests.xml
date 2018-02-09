@@ -71,6 +71,11 @@
             <class name="shopGophotoweb.tests.ST3_004" />
         </classes>
     </test>
+    <test name="ST3_005">
+        <classes>
+            <class name="shopGophotoweb.tests.ST3_004" />
+        </classes>
+    </test>
     <test name="ST4_001">
         <classes>
             <class name="shopGophotoweb.tests.ST4_001" />

@@ -6,7 +6,7 @@ import webdriver.elements.Button;
 
 
 public class CatalogPage extends BaseForm {
-String productLocator="//div[contains(text(),'%s')]";
+String productLocator="//div[.='%s']";
 
     public CatalogPage(){
         super(By.className("shop-products"),"Catalog Page");
