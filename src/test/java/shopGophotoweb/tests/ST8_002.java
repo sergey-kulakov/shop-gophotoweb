@@ -1,9 +1,7 @@
 package shopGophotoweb.tests;
 
-import shopGophotoweb.adminPages.AdminMainPage;
-import shopGophotoweb.adminPages.AdminProductsPage;
-import shopGophotoweb.adminPages.OrdersPage;
-import shopGophotoweb.adminPages.Utilites;
+import org.testng.annotations.BeforeMethod;
+import shopGophotoweb.adminPages.*;
 import shopGophotoweb.pages.*;
 import webdriver.BaseTest;
 import webdriver.Browser;
@@ -12,7 +10,7 @@ import static org.testng.Assert.assertTrue;
 
 
 public class ST8_002 extends BaseTest {
-    /*@BeforeMethod
+    @BeforeMethod
     public void setPreconditions(){
 
         logStep();
@@ -48,7 +46,7 @@ public class ST8_002 extends BaseTest {
 
 
 
-    }*/
+    }
     @Override
     public void runTest() throws InterruptedException {
 
@@ -69,7 +67,7 @@ public class ST8_002 extends BaseTest {
 
         logStep(4);
         productPage.addProductToCart();
-     //   assertTrue(productPage.isLblUnselectedItemErrorDisplayed());
+        assertTrue(productPage.isLblUnselectedItemErrorDisplayed());
 
         logStep(5);
         productPage.setSelectValueLocator("m");
@@ -78,34 +76,47 @@ public class ST8_002 extends BaseTest {
 
         logStep(6);
         productPage.addProductToCart();
-  //      assertTrue(productPage.isLblUnselectedItemErrorDisplayed());
+  //      assertTrue дописать про счетчик корзины в меню
 
         logStep(7);
-
-        productPage.isSelectOptionPresent("Красный");
-
-        assertEquals(productPage.getAddButtonText(),"ОФОРМИТЬ ЗАКАЗ");
+        assertTrue(productPage.isSelectOptionPresent("Белый"));
+        assertTrue(productPage.isSelectOptionPresent("Красный"));
 
         logStep(8);
-        productPage.setSelectValueLocator("Оранжевый");
-        assertEquals(productPage.getLblPrice(),"0 p.");
+        productPage.setSelectValueLocator("Красный");
+        assertEquals(productPage.getAddButtonText(),"ОФОРМИТЬ ЗАКАЗ");
+
 
         logStep(9);
-        productPage.addProductToCart();
-
+        productPage.setSelectValueLocator("Выберите Размер");
+        assertEquals(productPage.getLblPrice(),"5 000 p.");
 
         logStep(10);
-        Menu.goToCart();
-        CartPage cartPage=new CartPage();
-        logger.info("Expected result: total price = 3 605.70 p.");
-        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"3 605.70 p.");
+        productPage.setSelectValueLocator("s");
+        assertEquals(productPage.getLblPrice(),"5 000 p.");
 
         logStep(11);
+        productPage.addProductToCart();
+
+        logStep(12);
+        assertTrue(productPage.isSelectOptionPresent("Белый"));
+        assertTrue(productPage.isSelectOptionPresent("Красный"));
+        assertTrue(productPage.isSelectOptionPresent("Желтый"));
+
+        logStep(13);
+        Menu.goToCart();
+        CartPage cartPage=new CartPage();
+        logger.info("Expected result: total price = 7 585.10 p.");
+        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
+        assertEquals(cartPage.getTotalPrice(),"7 585.10 p.");
+
+        logStep(14);
         cartPage.fillInFields("test", "test", "tt@tt.tt");
 
 
-        logStep(12);
+
+
+        logStep(15);
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
@@ -121,6 +132,6 @@ public class ST8_002 extends BaseTest {
         AdminProductsPage adminProductsPage=new AdminProductsPage();
         adminProductsPage.goToOrdersPage();
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"3 605.70 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"7 585.10 p.");
     }
 }

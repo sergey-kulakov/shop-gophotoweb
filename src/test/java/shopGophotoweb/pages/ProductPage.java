@@ -13,8 +13,7 @@ public class ProductPage extends BaseForm {
     private Label lblPrice=new Label(By.xpath("//div[@class='price']/span[contains(@class,'product-price-min')]"),"Price label");
     private  Label lblUnselectedItemError=new Label(By.xpath("//div[@class='error'][@data-prefix='Выберите']"),"Unselected item error");
     //private  ElemetsList listOptions=new ElemetsList(By.xpath("//select[@class=\"options\"]"),"List options");
-    private  String selectValueLocator="//select[@class='options']/option[@value='%s']";
-    private  String disabledValueLocator="//select[@class='options']/option[@value='%s']";
+    private  String selectValueLocator="//select[@class='options']/option[.='%s'][not(@disabled)]";
     private Button btnGoToCatalogBreadecrumbs=new Button(By.xpath("//nav[@class=\"shop-bread-crumbs\"]/a[contains(text(),'магазин')]"),"shop bread crumbs");
 
     public ProductPage(){
@@ -63,10 +62,10 @@ public class ProductPage extends BaseForm {
         selectValue.waitForIsElementPresent();
         selectValue.click();
     }
-    public void isSelectOptionPresent(String optonValue){
+    public boolean isSelectOptionPresent(String optonValue){
         Label selectValue =new Label(By.xpath(String.format(selectValueLocator,optonValue)),"Value of select");
-       // return selectValue.isPresent();
-        assertEquals(selectValue.getClass().toString(),"disable");
+        return selectValue.isPresent();
+
     }
     public void goToCatalogByBreadecrumbs(){
         btnGoToCatalogBreadecrumbs.waitForIsElementPresent();

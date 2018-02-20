@@ -251,5 +251,15 @@
             <class name="shopGophotoweb.tests.ST7_020" />
         </classes>
     </test>
+    <test name="ST8_001">
+        <classes>
+            <class name="shopGophotoweb.tests.ST8_001" />
+        </classes>
+    </test>
+    <test name="ST8_002">
+        <classes>
+            <class name="shopGophotoweb.tests.ST8_002" />
+        </classes>
+    </test>
 </suite>
 
