@@ -81,7 +81,7 @@ public class ST7_003 extends BaseTest {
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
-        String orderNumber=successPage.getOrdrerNumber();
+        String orderNumber=successPage.getOrderNumber();
         logger.info("The order was completed");
 
         logStep();

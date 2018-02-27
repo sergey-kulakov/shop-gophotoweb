@@ -8,7 +8,7 @@ import webdriver.elements.Label;
 
 public class AdminProductsPage extends BaseForm {
     String locProduct="//a[.='%s']";
-    private Button btnSettings=new Button(By.xpath("//ul[@class='nav navbar-nav']/li/a[contains(text(),'Настройки')]"), "Settings button");
+    private Button btnCatalog=new Button(By.xpath("//a[contains(text(),'Каталог')]"), "Catalog button");
     private Button btnOrders=new Button(By.xpath("//ul[@class='nav navbar-nav']/li/a[contains(text(),'Заказы')]"), "Settings button");
     private Button btnPromocodes=new Button(By.xpath("//a[.='Промо-коды']"),"Promocodes button");
 
@@ -19,7 +19,7 @@ public class AdminProductsPage extends BaseForm {
         lblProduct.click();
     }
     public void goToSettingsPage(){
-        btnSettings.click();
+        btnCatalog.click();
     }
     public void goToOrdersPage(){
         btnOrders.waitForIsElementPresent();

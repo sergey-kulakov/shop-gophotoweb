@@ -13,29 +13,31 @@ public class ST2_001 extends BaseTest {
     @BeforeMethod
     public void setPreconditions(){
 
-        logStep();
+        logStep(1);
         browser.navigate(Browser.getAdminPageUrl());
         LoginPage loginPage=new LoginPage();
         loginPage.login();
 
-        logStep();
+        logStep(2);
         AdminMainPage adminMainPage = new AdminMainPage();
         adminMainPage.goToShop();
-        logStep();
+
+        logStep(3);
         Utilites.goToMenuName("МАГАЗИН");
         AdminProductsPage adminProductsPage=new AdminProductsPage();
         adminProductsPage.goToSettingsPage();
 
-        logStep();
+        logStep(4);
         SettingsPage settingsPage=new SettingsPage();
-        Utilites.goToSidebarItem("Методы оплаты");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Каталог);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
 
         logStep();
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
         paymetsMethodsPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
 
         logStep();
-        Utilites.goToSidebarItem("Методы доставки");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
         deliveryMethodsPage.unCheckDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Самовывоз);
@@ -68,7 +70,7 @@ public class ST2_001 extends BaseTest {
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
-        String orderNumber=successPage.getOrdrerNumber();
+        String orderNumber=successPage.getOrderNumber();
 
         logStep();
         browser.navigate(Browser.getAdminPageUrl());

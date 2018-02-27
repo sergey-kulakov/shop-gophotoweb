@@ -26,7 +26,7 @@ public class ST4_008 extends BaseTest {
 
         logStep();
         SettingsPage settingsPage=new SettingsPage();
-        Utilites.goToSidebarItem("Методы оплаты");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
 
         logStep();
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
@@ -35,7 +35,7 @@ public class ST4_008 extends BaseTest {
         paymetsMethodsPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
 
         logStep();
-        Utilites.goToSidebarItem("Методы доставки");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckAllMethods();
         deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
@@ -76,7 +76,7 @@ public class ST4_008 extends BaseTest {
         AdminProductsPage adminProductsPage=new AdminProductsPage();
         adminProductsPage.goToSettingsPage();
 
-        Utilites.goToSidebarItem("Методы доставки");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
 
@@ -101,7 +101,7 @@ public class ST4_008 extends BaseTest {
         logStep(6);
         SuccessPage successPage=new SuccessPage();
         successPage.isThanksForOrderMessageDisplayed();
-        String orderNumber=successPage.getOrdrerNumber();
+        String orderNumber=successPage.getOrderNumber();
         logger.info("The order was completed");
 
         logStep();

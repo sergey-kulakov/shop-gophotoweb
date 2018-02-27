@@ -14,37 +14,34 @@ public class ST1_004 extends BaseTest {
     @BeforeMethod
     public void setPreconditions(){
 
-        logStep();
+        logStep(1);
         browser.navigate(Browser.getAdminPageUrl());
         LoginPage loginPage=new LoginPage();
         loginPage.login();
 
-        logStep();
+        logStep(2);
         AdminMainPage adminMainPage = new AdminMainPage();
         adminMainPage.goToShop();
 
-        logStep();
+        logStep(3);
         AdminProductsPage adminProductsPage=new AdminProductsPage();
         adminProductsPage.goToProductPage("product1");
 
-        logStep();
+        logStep(4);
         AdminProductPage adminProductPage=new AdminProductPage();
         adminProductPage.setProductCount("1000");
 
-        logStep();
+        logStep(5);
         Utilites.goToMenuName("МАГАЗИН");
-        adminProductsPage.goToSettingsPage();
-
-        logStep();
-        SettingsPage settingsPage=new SettingsPage();
-        Utilites.goToSidebarItem("Методы оплаты");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
 
         logStep();
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
         paymetsMethodsPage.unCheckAllMethods();
 
         logStep();
-        Utilites.goToSidebarItem("Методы доставки");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckAllMethods();
 
@@ -57,16 +54,16 @@ public class ST1_004 extends BaseTest {
     @Override
     public void runTest() throws InterruptedException {
 
-        logStep();
+        logStep(1);
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product1");
 
-        logStep();
+        logStep(2);
         ProductPage productPage=new ProductPage();
         productPage.addProductToCart();
         Menu.goToCart();
 
-        logStep();
+        logStep(3);
         CartPage cartPage=new CartPage();
         cartPage.setProductCount("product1","1001");
         cartPage.clickSubmit();
@@ -74,7 +71,7 @@ public class ST1_004 extends BaseTest {
         assertTrue(cartPage.isTextBoxSkuCountErrorDisplayed());
         logger.info("Qantity Error Displayed");
 
-        logStep();
+        logStep(4);
         cartPage.setProductCount("product1","0");
         cartPage.clickSubmit();
         logger.info("Expected result: total price = 1 000 p.");
@@ -85,11 +82,11 @@ public class ST1_004 extends BaseTest {
         cartPage.clickSubmit();
         assertTrue(cartPage.isFormErrorDisplayed());
 
-        logStep();
+        logStep(5);
         cartPage.fillInFields("test", "test", "tt@tt.tt");
         cartPage.clickSubmit();
 
-        logStep();
+        logStep(6);
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
         logger.info("The order was completed");

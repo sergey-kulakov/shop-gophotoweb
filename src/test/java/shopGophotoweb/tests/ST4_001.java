@@ -26,14 +26,14 @@ public class ST4_001 extends BaseTest {
 
         logStep();
         SettingsPage settingsPage=new SettingsPage();
-        Utilites.goToSidebarItem("Методы оплаты");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
 
         logStep();
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
         paymetsMethodsPage.unCheckAllMethods();
 
         logStep();
-        Utilites.goToSidebarItem("Методы доставки");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckAllMethods();
         deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
@@ -75,7 +75,7 @@ public class ST4_001 extends BaseTest {
         adminProductsPage.goToSettingsPage();
 
         logStep();
-        Utilites.goToSidebarItem("Методы доставки");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
 
@@ -115,7 +115,7 @@ public class ST4_001 extends BaseTest {
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         successPage.isThanksForOrderMessageDisplayed();
-        String orderNumber=successPage.getOrdrerNumber();
+        String orderNumber=successPage.getOrderNumber();
         logger.info("The order was completed");
 
         logStep();

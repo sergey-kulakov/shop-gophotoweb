@@ -21,7 +21,7 @@ public class SuccessPage extends BaseForm {
 
 
 
-    public String getOrdrerNumber(){
+    public String getOrderNumber(){
 
         lblThanksForOrderMessage.waitForIsElementPresent();
         String textMessage=lblThanksForOrderMessage.getText();

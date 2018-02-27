@@ -26,7 +26,7 @@ public class ST5_001 extends BaseTest {
         adminProductsPage.goToSettingsPage();
 
 
-        Utilites.goToSidebarItem("Методы доставки");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.goToDeliveryMethod(DeliveryMethodsPage.DeliveryMethods.Курьер);
         DeliveryMethodPage deliveryMethodPage=new DeliveryMethodPage();
@@ -55,7 +55,7 @@ public class ST5_001 extends BaseTest {
 
         logStep();
         SettingsPage settingsPage=new SettingsPage();
-        Utilites.goToSidebarItem("Методы оплаты");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
 
         logStep();
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
@@ -63,7 +63,7 @@ public class ST5_001 extends BaseTest {
         paymetsMethodsPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
 
         logStep();
-        Utilites.goToSidebarItem("Методы доставки");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckAllMethods();
         deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
@@ -106,7 +106,7 @@ public class ST5_001 extends BaseTest {
             adminProductsPage.goToSettingsPage();
 
 
-            Utilites.goToSidebarItem("Методы доставки");
+            Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
             DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
             deliveryMethodsPage.goToDeliveryMethod(DeliveryMethodsPage.DeliveryMethods.Курьер);
             DeliveryMethodPage deliveryMethodPage=new DeliveryMethodPage();
@@ -127,7 +127,7 @@ public class ST5_001 extends BaseTest {
             cartPage.clickSubmit();
             SuccessPage successPage=new SuccessPage();
             successPage.isThanksForOrderMessageDisplayed();
-            String orderNumber=successPage.getOrdrerNumber();
+            String orderNumber=successPage.getOrderNumber();
             logger.info("The order was completed");
             browser.navigate(Browser.getAdminPageUrl());
             adminMainPage.goToShop();

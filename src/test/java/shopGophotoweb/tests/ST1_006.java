@@ -12,40 +12,38 @@ import static org.testng.Assert.assertTrue;
 public class ST1_006 extends BaseTest{
     @BeforeMethod
     public void setPreconditions(){
-        logStep();
+        logStep(1);
         browser.navigate(Browser.getAdminPageUrl());
         LoginPage loginPage=new LoginPage();
         loginPage.login();
 
-        logStep();
+        logStep(2);
         AdminMainPage adminMainPage = new AdminMainPage();
         adminMainPage.goToShop();
-        logStep();
+
+        logStep(3);
         Utilites.goToMenuName("МАГАЗИН");
         AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
-
-        logStep();
-        SettingsPage settingsPage=new SettingsPage();
-        settingsPage.goToPreorder();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Оформление);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.предзаказа);
         PreOrderSettingsPage preOrderPage=new PreOrderSettingsPage();
         preOrderPage.activatePreOrder();
     }
 
     @Override
     public void runTest(){
-        logStep();
+        logStep(1);
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product4");
         ProductPage productPage=new ProductPage();
         productPage.goToPreOrder();
 
-        logStep();
+        logStep(2);
         PreOrderPage preOrderPage=new PreOrderPage();
         preOrderPage.clickCompleteButton();
         assertTrue(preOrderPage.isPreOrderFormErrorDisplayd());
 
-        logStep();
+        logStep(2);
         preOrderPage.fillPreOrderForm("name","test@test.test");
         preOrderPage.clickCompleteButton();
         PreOrderSuccessPage preOrderSuccessPage=new PreOrderSuccessPage();

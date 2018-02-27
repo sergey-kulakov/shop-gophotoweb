@@ -26,7 +26,7 @@ public class ST4_002 extends BaseTest {
 
         logStep();
         SettingsPage settingsPage=new SettingsPage();
-        Utilites.goToSidebarItem("Методы оплаты");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
 
         logStep();
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
@@ -35,7 +35,7 @@ public class ST4_002 extends BaseTest {
         paymetsMethodsPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3);
 
         logStep();
-        Utilites.goToSidebarItem("Методы доставки");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckAllMethods();
 
@@ -85,7 +85,7 @@ public class ST4_002 extends BaseTest {
         adminMainPage.goToShop();
         AdminProductsPage adminProductsPage=new AdminProductsPage();
         adminProductsPage.goToSettingsPage();
-        Utilites.goToSidebarItem("Методы оплаты");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
         PaymetsMethodsPage paymentMethods= new PaymetsMethodsPage();
         paymentMethods.unCheckPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3);
 
@@ -105,7 +105,7 @@ public class ST4_002 extends BaseTest {
         //Uncheck second payment method
         logStep(9);
         Browser.switchWindow();
-        Utilites.goToSidebarItem("Методы оплаты");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
         paymentMethods.unCheckPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
 
        //Switch to site
@@ -122,7 +122,7 @@ public class ST4_002 extends BaseTest {
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         successPage.isThanksForOrderMessageDisplayed();
-        String orderNumber=successPage.getOrdrerNumber();
+        String orderNumber=successPage.getOrderNumber();
         logger.info("The order was completed");
 
         logStep(12);

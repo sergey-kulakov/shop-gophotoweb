@@ -13,22 +13,19 @@ public class ST2_004 extends BaseTest {
     @BeforeMethod
     public void setPreconditions() {
 
-        logStep();
+        logStep(1);
         browser.navigate(Browser.getAdminPageUrl());
         LoginPage loginPage = new LoginPage();
         loginPage.login();
 
-        logStep();
+        logStep(2);
         AdminMainPage adminMainPage = new AdminMainPage();
         adminMainPage.goToShop();
-        logStep();
-        Utilites.goToMenuName("МАГАЗИН");
-        AdminProductsPage adminProductsPage = new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
 
-        logStep();
-        SettingsPage settingsPage = new SettingsPage();
-        Utilites.goToSidebarItem("Методы оплаты");
+        logStep(3);
+        AdminProductsPage adminProductsPage = new AdminProductsPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
 
         logStep();
         PaymetsMethodsPage paymetsMethodsPage = new PaymetsMethodsPage();
@@ -36,7 +33,7 @@ public class ST2_004 extends BaseTest {
 
 
         logStep();
-        Utilites.goToSidebarItem("Методы доставки");
+        Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage = new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckAllMethods();
         deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
@@ -73,7 +70,7 @@ public class ST2_004 extends BaseTest {
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
-        String orderNumber=successPage.getOrdrerNumber();
+        String orderNumber=successPage.getOrderNumber();
         logger.info("The order was completed");
 
         logStep();
@@ -83,7 +80,8 @@ public class ST2_004 extends BaseTest {
         logStep();
         Utilites.goToMenuName("МАГАЗИН");
         AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToOrdersPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
         assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"10 000 p.");
     }
