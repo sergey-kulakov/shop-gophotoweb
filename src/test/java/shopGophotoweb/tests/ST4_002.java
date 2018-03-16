@@ -22,10 +22,7 @@ public class ST4_002 extends BaseTest {
         adminMainPage.goToShop();
 
         AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
-
-        logStep();
-        SettingsPage settingsPage=new SettingsPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
 
         logStep();
@@ -83,8 +80,8 @@ public class ST4_002 extends BaseTest {
         browser.navigate(Browser.getAdminPageUrl());
         AdminMainPage adminMainPage=new AdminMainPage();
         adminMainPage.goToShop();
-        AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
+
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
         PaymetsMethodsPage paymentMethods= new PaymetsMethodsPage();
         paymentMethods.unCheckPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3);
@@ -130,7 +127,8 @@ public class ST4_002 extends BaseTest {
         adminMainPage.goToShop();
         logStep(13);
         Utilites.goToMenuName("МАГАЗИН");
-        adminProductsPage.goToOrdersPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
         assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 000 p.");
 

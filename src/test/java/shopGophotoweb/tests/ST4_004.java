@@ -22,10 +22,7 @@ public class ST4_004 extends BaseTest {
         adminMainPage.goToShop();
 
         AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
-
-        logStep();
-        SettingsPage settingsPage=new SettingsPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
 
         logStep();
@@ -71,9 +68,7 @@ public class ST4_004 extends BaseTest {
         browser.navigate(Browser.getAdminPageUrl());
         AdminMainPage adminMainPage=new AdminMainPage();
         adminMainPage.goToShop();
-        AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
-
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.goToDeliveryMethod(DeliveryMethodsPage.DeliveryMethods.Курьер);
@@ -103,7 +98,8 @@ public class ST4_004 extends BaseTest {
         browser.navigate(Browser.getAdminPageUrl());
         adminMainPage.goToShop();
         Utilites.goToMenuName("МАГАЗИН");
-        adminProductsPage.goToOrdersPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
         assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"2 000 p.");
 

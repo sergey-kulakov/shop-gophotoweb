@@ -12,35 +12,32 @@ public class ST4_006 extends BaseTest {
     @BeforeMethod
     public void setPreconditions() throws InterruptedException {
 
-        logStep();
+        logStep(1);
         browser.navigate(Browser.getAdminPageUrl());
         LoginPage loginPage=new LoginPage();
         loginPage.login();
 
-        logStep();
+        logStep(2);
         AdminMainPage adminMainPage = new AdminMainPage();
         adminMainPage.goToShop();
 
         AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
-
-        logStep();
-        SettingsPage settingsPage=new SettingsPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
 
-        logStep();
+        logStep(3);
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
         paymetsMethodsPage.unCheckAllMethods();
         paymetsMethodsPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
         paymetsMethodsPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3);
 
-        logStep();
+        logStep(4);
         Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckAllMethods();
         deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
 
-        logStep();
+        logStep(5);
         adminMainPage.goToSite();
         Browser.switchWindow();
 
@@ -78,9 +75,7 @@ public class ST4_006 extends BaseTest {
         browser.navigate(Browser.getAdminPageUrl());
         AdminMainPage adminMainPage=new AdminMainPage();
         adminMainPage.goToShop();
-        AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
-
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.goToDeliveryMethod(DeliveryMethodsPage.DeliveryMethods.Курьер);
@@ -110,7 +105,8 @@ public class ST4_006 extends BaseTest {
         browser.navigate(Browser.getAdminPageUrl());
         adminMainPage.goToShop();
         Utilites.goToMenuName("МАГАЗИН");
-        adminProductsPage.goToOrdersPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
         assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"4 050.10 p.");
 

@@ -12,34 +12,31 @@ public class ST4_001 extends BaseTest {
     @BeforeMethod
     public void setPreconditions() throws InterruptedException {
 
-        logStep();
+        logStep(1);
         browser.navigate(Browser.getAdminPageUrl());
         LoginPage loginPage=new LoginPage();
         loginPage.login();
 
-        logStep();
+        logStep(2);
         AdminMainPage adminMainPage = new AdminMainPage();
         adminMainPage.goToShop();
 
         AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
-
-        logStep();
-        SettingsPage settingsPage=new SettingsPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
 
-        logStep();
+        logStep(3);
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
         paymetsMethodsPage.unCheckAllMethods();
 
-        logStep();
+        logStep(4);
         Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckAllMethods();
         deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
         deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Самовывоз);
 
-        logStep();
+        logStep(5);
         adminMainPage.goToSite();
         Browser.switchWindow();
 
@@ -50,14 +47,14 @@ public class ST4_001 extends BaseTest {
     @Override
     public void runTest() throws InterruptedException {
 
-        logStep();
+        logStep(1);
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product1");
         ProductPage productPage=new ProductPage();
         productPage.addProductToCart();
         Menu.goToCart();
 
-        logStep();
+        logStep(2);
         CartPage cartPage=new CartPage();
         cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
         cartPage.fillInFields("test", "test", "tt@tt.tt");
@@ -66,29 +63,29 @@ public class ST4_001 extends BaseTest {
         assertEquals(cartPage.getTotalPrice(),"2 000 p.");
 
         //переключаемся в админку и скрываем метод доставки
-        logStep();
+        logStep(3);
         Browser.switchWindow();
         browser.navigate(Browser.getAdminPageUrl());
         AdminMainPage adminMainPage=new AdminMainPage();
         adminMainPage.goToShop();
         AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
 
-        logStep();
+        logStep(4);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
 
         //переключаемся на сайт
-        logStep();
+        logStep(5);
         Browser.switchWindow();
         cartPage.clickSubmit();
 
-        logStep();
+        logStep(6);
         assertTrue(cartPage.isErrorDeliveryMethodUnavailableDislayed());
         assertTrue(cartPage.isErrorTotalOrderSumChangedDisplayed());
 
-        logStep();
+        logStep(7);
         cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Самовывоз);
 
         logStep();
@@ -123,7 +120,8 @@ public class ST4_001 extends BaseTest {
         adminMainPage.goToShop();
         logStep();
         Utilites.goToMenuName("МАГАЗИН");
-        adminProductsPage.goToOrdersPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
         assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 000 p.");
 

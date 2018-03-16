@@ -22,10 +22,7 @@ public class ST5_002 extends BaseTest {
         adminMainPage.goToShop();
 
         AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
-
-        logStep();
-        SettingsPage settingsPage=new SettingsPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
         logStep();
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
@@ -97,7 +94,8 @@ public class ST5_002 extends BaseTest {
         browser.navigate(Browser.getAdminPageUrl());
         adminMainPage.goToShop();
         Utilites.goToMenuName("МАГАЗИН");
-        adminProductsPage.goToOrdersPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
         assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 919 p.");
 

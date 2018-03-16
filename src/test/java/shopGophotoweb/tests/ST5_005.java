@@ -22,10 +22,7 @@ public class ST5_005 extends BaseTest {
         adminMainPage.goToShop();
 
         AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
-
-        logStep();
-        SettingsPage settingsPage=new SettingsPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
 
         logStep();
@@ -73,14 +70,14 @@ public class ST5_005 extends BaseTest {
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"6 615.50 p.");
 
-        //переключаемся в админку и меняем стоимость доставки
+        //переключаемся в админку и меняем скидку промокода
         logStep(5);
         Browser.switchWindow();
         browser.navigate(Browser.getAdminPageUrl());
         AdminMainPage adminMainPage=new AdminMainPage();
         adminMainPage.goToShop();
-        AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToPromocodes();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Промо);
         PromocodesPage promocodesPage=new PromocodesPage();
         promocodesPage.goToPromocodeSettings("2");
         PromocodeSettingsPage promocodeSettingsPage=new PromocodeSettingsPage();
@@ -107,7 +104,8 @@ public class ST5_005 extends BaseTest {
         adminMainPage.goToShop();
         logStep();
         Utilites.goToMenuName("МАГАЗИН");
-        adminProductsPage.goToOrdersPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
         assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"6 110.50 p.");
 
