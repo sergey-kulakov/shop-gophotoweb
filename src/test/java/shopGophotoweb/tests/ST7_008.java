@@ -19,23 +19,20 @@ public class ST7_008 extends BaseTest {
         LoginPage loginPage=new LoginPage();
         loginPage.login();
 
-        logStep();
+        logStep(2);
         AdminMainPage adminMainPage = new AdminMainPage();
         adminMainPage.goToShop();
 
         AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
-
-        logStep();
-        SettingsPage settingsPage=new SettingsPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
 
-        logStep();
+        logStep(3);
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
         paymetsMethodsPage.unCheckAllMethods();
         paymetsMethodsPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
 
-        logStep();
+        logStep(4);
         Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckAllMethods();
@@ -49,7 +46,7 @@ public class ST7_008 extends BaseTest {
     @Override
     public void runTest() throws InterruptedException {
 
-        logStep();
+        logStep(1);
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product1");
 
@@ -57,42 +54,43 @@ public class ST7_008 extends BaseTest {
         product1Page.addProductToCart();
         Menu.goToCart();
 
-        logStep();
+        logStep(2);
         CartPage cartPage=new CartPage();
         cartPage.fillInFields("test", "test", "tt@tt.tt");
 
-        logStep();
+        logStep(3);
         logger.info("Expected result: total price = 2 020 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"2 020 p.");
 
-        logStep();
+        logStep(4);
         cartPage.applyPromoCode("8");
         logger.info("Expected result: total price = 1 989.70 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"1 989.70 p.");
 
-        logStep();
+        logStep(5);
         cartPage.setProductCount("product1","5");
         logger.info("Expected result: total price = 5 948.90 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"5 948.90 p.");
 
-        logStep();
+        logStep(6);
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
         String orderNumber=successPage.getOrderNumber();
         logger.info("The order was completed");
 
-        logStep();
+        logStep(7);
         browser.navigate(Browser.getAdminPageUrl());
         AdminMainPage adminMainPage = new AdminMainPage();
         adminMainPage.goToShop();
-        logStep();
+
+        logStep(8);
         Utilites.goToMenuName("МАГАЗИН");
-        AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToOrdersPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
         assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"5 948.90 p.");
     }

@@ -23,16 +23,13 @@ public class ST8_001 extends BaseTest {
         adminMainPage.goToShop();
 
         AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
-
-
-        logStep();
-        SettingsPage settingsPage=new SettingsPage();
-        settingsPage.goToPreorder();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Оформление);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.предзаказа);
         PreOrderSettingsPage preOrderPage=new PreOrderSettingsPage();
         preOrderPage.activatePreOrder();
 
         logStep();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
         paymetsMethodsPage.unCheckAllMethods();
@@ -113,8 +110,8 @@ public class ST8_001 extends BaseTest {
         adminMainPage.goToShop();
         logStep();
         Utilites.goToMenuName("МАГАЗИН");
-        AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToOrdersPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
         assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"3 605.70 p.");
     }

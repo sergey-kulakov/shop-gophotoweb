@@ -6,7 +6,7 @@
 			<listener class-name="webdriver.RetryListener"/>
 		</listeners>
 		<classes>
-			<class name="shopGophotoweb.tests.ST1_003" />
+			<class name="shopGophotoweb.tests.ST1_004" />
 			<class name="shopGophotoweb.tests.ST2_003" />
 			<class name="shopGophotoweb.tests.ST5_002" />
 		</classes>

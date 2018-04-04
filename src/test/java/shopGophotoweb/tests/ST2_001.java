@@ -25,18 +25,14 @@ public class ST2_001 extends BaseTest {
         logStep(3);
         Utilites.goToMenuName("МАГАЗИН");
         AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToSettingsPage();
-
-        logStep(4);
-        SettingsPage settingsPage=new SettingsPage();
-        Utilites.goToSidebarItem(Utilites.SidebarItems.Каталог);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
 
-        logStep();
+        logStep(4);
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
         paymetsMethodsPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
 
-        logStep();
+        logStep(5);
         Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
@@ -45,41 +41,43 @@ public class ST2_001 extends BaseTest {
 
     @Override
     public void runTest() throws InterruptedException {
-        logStep();
+        logStep(1);
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product1");
 
-        logStep();
+        logStep(2);
         ProductPage productPage=new ProductPage();
         productPage.addProductToCart();
         Menu.goToCart();
 
-        logStep();
+        logStep(3);
         CartPage cartPage=new CartPage();
         cartPage.fillInFields("name","lastName","123@123.123");
 
-        logStep();
+        logStep(4);
         cartPage.clickSubmit();
         assertTrue(cartPage.isPaymentErrorDisplayed());
 
-        logStep();
+        logStep(5);
         cartPage.selectPaymentMethod(CartPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
         assertEquals(cartPage.getTotalPrice(),"1 010 p.");
 
-        logStep();
+        logStep(6);
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
         String orderNumber=successPage.getOrderNumber();
 
-        logStep();
+        logStep(7);
         browser.navigate(Browser.getAdminPageUrl());
         AdminMainPage adminMainPage = new AdminMainPage();
         adminMainPage.goToShop();
-        logStep();
+
+        logStep(8);
         Utilites.goToMenuName("МАГАЗИН");
         AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToOrdersPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);;
         OrdersPage ordersPage=new OrdersPage();
         assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 010 p.");
     }

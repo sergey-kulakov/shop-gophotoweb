@@ -78,8 +78,8 @@ public class ST7_017 extends BaseTest {
         adminMainPage.goToShop();
         logStep();
         Utilites.goToMenuName("МАГАЗИН");
-        AdminProductsPage adminProductsPage=new AdminProductsPage();
-        adminProductsPage.goToOrdersPage();
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
         assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"8 080 p.");
     }

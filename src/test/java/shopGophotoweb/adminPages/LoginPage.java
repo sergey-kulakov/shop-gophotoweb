@@ -16,6 +16,7 @@ public class LoginPage extends BaseForm {
     public void login(){
         txbLogin.setText("test@test-gophotoweb.ru");
         txbPassword.setText("4o9rYVr8ov");
+        btnSubmit.waitForIsElementPresent();
         btnSubmit.click();
     }
 }
