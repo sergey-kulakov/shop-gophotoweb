@@ -151,6 +151,16 @@
             <class name="shopGophotoweb.tests.ST6_002" />
         </classes>
     </test>
+    <test name="ST6_003">
+        <classes>
+            <class name="shopGophotoweb.tests.ST6_002" />
+        </classes>
+    </test>
+    <test name="ST6_005">
+        <classes>
+            <class name="shopGophotoweb.tests.ST6_002" />
+        </classes>
+    </test>
     <test name="ST7_001">
         <classes>
             <class name="shopGophotoweb.tests.ST7_001" />
