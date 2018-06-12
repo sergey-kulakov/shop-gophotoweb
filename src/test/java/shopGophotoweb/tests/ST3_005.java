@@ -6,7 +6,6 @@ import shopGophotoweb.pages.*;
 import webdriver.BaseTest;
 import webdriver.Browser;
 
-import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 
@@ -62,11 +61,9 @@ public class ST3_005 extends BaseTest {
         logStep(3);
         CartPage cartPage=new CartPage();
         cartPage.fillInFields("test", "test", "tt@tt.tt");
-        logger.info("Expected result: total price = 1 000 p.");
-        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertTrue(cartPage.isDeliveryMethodDisplayed(CartPage.DeliveryMethods.Самовывоз));
         assertTrue(cartPage.isDeliveryMethodDisplayed(CartPage.DeliveryMethods.Почта));
-        assertFalse(cartPage.isDeliveryMethodDisplayed(CartPage.DeliveryMethods.Курьер));
+        assertTrue(cartPage.isDeliveryMethodDisplayed(CartPage.DeliveryMethods.Курьер));
 
         logStep(4);
         cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Самовывоз);
