@@ -54,7 +54,7 @@ public class ST4_004 extends BaseTest {
 
         logStep(2);
         CartPage cartPage=new CartPage();
-        cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
+        //cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
         cartPage.fillInFields("test", "test", "tt@tt.tt");
 
         logStep(3);

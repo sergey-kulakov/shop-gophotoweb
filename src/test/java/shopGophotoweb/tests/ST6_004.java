@@ -9,7 +9,7 @@ import webdriver.Browser;
 import static org.testng.Assert.*;
 
 
-public class ST6_003 extends BaseTest {
+public class ST6_004 extends BaseTest {
     @BeforeMethod
     public void setPreconditions(){
 
@@ -30,13 +30,21 @@ public class ST6_003 extends BaseTest {
         logStep(4);
         PaymetsMethodsPage paymetsMethodsPage=new PaymetsMethodsPage();
         paymetsMethodsPage.unCheckAllMethods();
-        paymetsMethodsPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
+        paymetsMethodsPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3);
 
         logStep(5);
         Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckAllMethods();
         deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Самовывоз);
+
+        logStep(6);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Настройки);
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Общие);
+        SettingsMainPage settingsMainPage = new SettingsMainPage();
+        settingsMainPage.selectOfCurrency("Российский рубль");
+        settingsMainPage.clickSave();
+
     }
 
     @Override
@@ -44,23 +52,20 @@ public class ST6_003 extends BaseTest {
         logStep(1);
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product1");
-
-        logStep(2);
         ProductPage productPage=new ProductPage();
         productPage.addProductToCart();
         Menu.goToCart();
 
-        logStep(3);
+        logStep(2);
         CartPage cartPage = new CartPage();
         logger.info("Cart page appeared");
         cartPage.clickSubmit();
+        cartPage.fillInFields("test", "test", "tt@tt.tt");
+
+        logStep(3);
+        assertEquals(cartPage.getTotalPrice(),"0 p.");
 
         logStep(4);
-        cartPage.fillInFields("test", "test", "tt@tt.tt");
-        assertEquals(cartPage.getTotalPrice(),"0 p.");
-        cartPage.clickSubmit();
-
-        logStep(5);
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
         String orderNumber=successPage.getOrderNumber();

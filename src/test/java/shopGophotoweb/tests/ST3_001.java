@@ -74,9 +74,6 @@ public class ST3_001 extends BaseTest {
         assertEquals(cartPage.getTotalPrice(),"2 020 p.");
 
         logStep(5);
-        cartPage.clickSubmit();
-
-        logStep(6);
         cartPage.setProductCount("product1","10");
         logger.info("Expected result: total price = 10 100 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
@@ -84,18 +81,18 @@ public class ST3_001 extends BaseTest {
 
         cartPage.clickSubmit();
 
-        logStep(7);
+        logStep(6);
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
         String orderNumber=successPage.getOrderNumber();
         logger.info("The order was completed");
 
-        logStep(8);
+        logStep(7);
         browser.navigate(Browser.getAdminPageUrl());
         AdminMainPage adminMainPage = new AdminMainPage();
         adminMainPage.goToShop();
 
-        logStep(9);
+        logStep(8);
         Utilites.goToMenuName("МАГАЗИН");
         AdminProductsPage adminProductsPage=new AdminProductsPage();
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
