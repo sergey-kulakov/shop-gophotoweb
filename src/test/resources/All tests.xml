@@ -73,7 +73,7 @@
     </test>
     <test name="ST3_005">
         <classes>
-            <class name="shopGophotoweb.tests.ST3_004" />
+            <class name="shopGophotoweb.tests.ST3_005" />
         </classes>
     </test>
     <test name="ST4_001">
@@ -151,14 +151,14 @@
             <class name="shopGophotoweb.tests.ST6_002" />
         </classes>
     </test>
-    <test name="ST6_003">
+    <test name="ST6_004">
         <classes>
-            <class name="shopGophotoweb.tests.ST6_002" />
+            <class name="shopGophotoweb.tests.ST6_004" />
         </classes>
     </test>
     <test name="ST6_005">
         <classes>
-            <class name="shopGophotoweb.tests.ST6_002" />
+            <class name="shopGophotoweb.tests.ST6_005" />
         </classes>
     </test>
     <test name="ST7_001">
