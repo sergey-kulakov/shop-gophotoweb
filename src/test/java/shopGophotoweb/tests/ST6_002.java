@@ -35,6 +35,7 @@ public class ST6_002 extends BaseTest {
         logStep();
         Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
+        deliveryMethodsPage.unCheckAllMethods();
         deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Самовывоз);
 
 
