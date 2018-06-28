@@ -38,6 +38,7 @@ public class ST8_002 extends BaseTest {
         logStep();
         Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
+        deliveryMethodsPage.unCheckAllMethods();
         deliveryMethodsPage.checkDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
 
 
@@ -60,7 +61,7 @@ public class ST8_002 extends BaseTest {
 
         logStep(3);
         productPage.setSelectValueLocator("Белый");
-        assertEquals(productPage.getLblPrice(),"от  1 000 p.");
+        assertEquals(productPage.getLblPrice(),"1 000 p.");
 
         logStep(4);
         productPage.addProductToCart();
