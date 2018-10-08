@@ -56,7 +56,7 @@ public class ST4_007 extends BaseTest {
 
         logStep(2);
         CartPage cartPage=new CartPage();
-        cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
+       // cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
         cartPage.fillInFields("test", "test", "tt@tt.tt");
         logger.info("Expected result: total price = 2 000 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());

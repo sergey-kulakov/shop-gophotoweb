@@ -2,7 +2,6 @@ package shopGophotoweb.pages;
 
 import org.openqa.selenium.By;
 import webdriver.BaseForm;
-import webdriver.Browser;
 import webdriver.elements.Button;
 import webdriver.elements.Label;
 import webdriver.elements.TextBox;
@@ -31,6 +30,7 @@ public class CartPage extends BaseForm {
     private Label lblPaymentMethodUnavailable=new Label(By.xpath("//span[contains(text(),'Выбранный метод оплаты в данный момент не доступен')]"),"Error payment method unavailable");
     private Label lblDeliveryMethodUnavailable=new Label(By.xpath("//span[contains(text(),'Выбранный способ доставки в данный момент не доступен')]"),"Error payment method unavailable");
     private Label lblTotalOrderSumChanged=new Label(By.xpath("//span[contains(text(),'Стоимость заказа изменилась')]"),"Error total order sum was changed");
+    private Button btnSuccess=new Button(By.xpath("//a[@class='btn btn-success']"),"Sucess button");
 
     public CartPage(){
         super(By.xpath("//div[contains(@class,'shop-cart-title')]"),"Cart Page");
@@ -91,8 +91,7 @@ public class CartPage extends BaseForm {
     public void deleteSomeProduct(String productName){
         Button btnDeleteSomeProduct=new Button(By.xpath(String.format(locDeleteSomeProduct,productName)),"delete product button");
         btnDeleteSomeProduct.click();
-        Browser.checkAlert();
-
+        btnSuccess.click();
     }
     public boolean isPaymentErrorDisplayed(){
         lblPaymentError.waitForIsElementPresent();
