@@ -14,7 +14,7 @@ public class ProductPage extends BaseForm {
     private  Label lblUnselectedItemError=new Label(By.xpath("//div[@class='error'][@data-prefix='Выберите']"),"Unselected item error");
     //private  ElemetsList listOptions=new ElemetsList(By.xpath("//select[@class=\"options\"]"),"List options");
     private  String selectValueLocator="//select[@class='options']/option[.='%s'][not(@disabled)]";
-    private Button btnGoToCatalogBreadecrumbs=new Button(By.xpath("//nav[@class=\"shop-bread-crumbs\"]/a[contains(text(),'магазин')]"),"shop bread crumbs");
+    private Button btnGoToCatalogBreadecrumbs=new Button(By.xpath("//nav[contains(@class, 'shop-bread-crumbs')]/a[contains(text(),'магазин')]"),"shop bread crumbs");
 
     public ProductPage(){
         super(By.xpath("//div[contains(@class,'page shop-product')]"),"Product Page");
