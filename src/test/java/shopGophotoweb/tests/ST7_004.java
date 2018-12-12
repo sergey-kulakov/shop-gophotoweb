@@ -38,7 +38,6 @@ public class ST7_004 extends BaseTest {
         cartPage.fillInFields("test", "test", "tt@tt.tt");
 
         logStep(5);
-        cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
         logger.info("Expected result: total price = 8 100.20 р.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"8 100.20 p.");

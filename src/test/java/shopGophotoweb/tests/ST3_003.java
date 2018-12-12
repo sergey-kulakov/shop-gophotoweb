@@ -43,38 +43,34 @@ public class ST3_003 extends BaseTest {
     @Override
     public void runTest() throws InterruptedException {
 
-        logStep();
+        logStep(1);
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product1");
         ProductPage productPage=new ProductPage();
         productPage.addProductToCart();
         Menu.goToCart();
 
-        logStep();
+        logStep(2);
         CartPage cartPage=new CartPage();
         cartPage.fillInFields("test", "test", "tt@tt.tt");
-        logger.info("Expected result: total price = 1 000 p.");
+        logger.info("Expected result: total price = 2 020 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"1 000 p.");
+        assertEquals(cartPage.getTotalPrice(),"2 020 p.");
 
-        logStep();
-        cartPage.clickSubmit();
-        assertTrue(cartPage.isPaymentErrorDisplayed());
-
-        logStep();
+        logStep(3);
         cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Самовывоз);
         logger.info("Expected result: total price = 1 010 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"1 010 p.");
 
-        logStep();
+        logStep(4);
         cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
         logger.info("Expected result: total price = 2 020 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"2 020 p.");
         cartPage.clickSubmit();
 
-        logStep();
+        logStep(5);
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
         String orderNumber=successPage.getOrderNumber();
