@@ -59,27 +59,27 @@ public class ST1_005 extends BaseTest {
 
         logStep(4);
         CartPage cartPage = new CartPage();
-        logger.info("Expected result: total price = 3 500 p.");
+        logger.info("Expected result: total price = 3 500 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"3 500 p.");
+        assertEquals(cartPage.getTotalPrice(),"3 500 pуб.");
 
         logStep(5);
         cartPage.deleteSomeProduct("product2");
-        logger.info("Expected result: total price = 1 500 p.");
+        logger.info("Expected result: total price = 1 500 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"1 500 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 500 pуб.");
 
         logStep(6);
         cartPage.setProductCount("product1","5");
-        logger.info("Expected result: total price = 5 500 p.");
+        logger.info("Expected result: total price = 5 500 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"5 500 p.");
+        assertEquals(cartPage.getTotalPrice(),"5 500 pуб.");
 
         logStep(7);
         cartPage.setProductCount("product3","10");
-        logger.info("Expected result: total price = 10 000 p.");
+        logger.info("Expected result: total price = 10 000 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"10 000 p.");
+        assertEquals(cartPage.getTotalPrice(),"10 000 pуб.");
 
         logStep(8);
         cartPage.fillInFields("test", "test", "tt@tt.tt");
@@ -101,7 +101,7 @@ public class ST1_005 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"10 000 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"10 000 pуб.");
 
 
     }

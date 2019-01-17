@@ -36,15 +36,15 @@ public class ST7_011 extends BaseTest {
         CartPage cartPage=new CartPage();
         cartPage.fillInFields("test", "test", "tt@tt.tt");
 
-        logger.info("Expected result: total price = 4 565.20 p.");
+        logger.info("Expected result: total price = 4 565.20 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"4 565.20 p.");
+        assertEquals(cartPage.getTotalPrice(),"4 565.20 pуб.");
 
         logStep();
         cartPage.applyPromoCode("11");
-        logger.info("Expected result: total price = 4 307.65 p.");
+        logger.info("Expected result: total price = 4 307.65 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"4 307.65 p.");
+        assertEquals(cartPage.getTotalPrice(),"4 307.65 pуб.");
 
 
         logStep();
@@ -65,6 +65,6 @@ public class ST7_011 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"4 307.65 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"4 307.65 pуб.");
     }
 }

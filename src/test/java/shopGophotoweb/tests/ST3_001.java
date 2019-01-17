@@ -59,9 +59,9 @@ public class ST3_001 extends BaseTest {
         logStep(3);
         cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
         cartPage.selectPaymentMethod(CartPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
-        logger.info("Expected result: total price = 2 020 p.");
+        logger.info("Expected result: total price = 2 020 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"2 020 p.");
+        assertEquals(cartPage.getTotalPrice(),"2 020 pуб.");
 
         logStep(4);
         cartPage.setProductCount("product1","1000");
@@ -69,15 +69,15 @@ public class ST3_001 extends BaseTest {
 
         logStep(5);
         cartPage.setProductCount("product1","0");
-        logger.info("Expected result: total price = 2 020 p.");
+        logger.info("Expected result: total price = 2 020 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"2 020 p.");
+        assertEquals(cartPage.getTotalPrice(),"2 020 pуб.");
 
         logStep(5);
         cartPage.setProductCount("product1","10");
-        logger.info("Expected result: total price = 10 100 p.");
+        logger.info("Expected result: total price = 10 100 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"10 100 p.");
+        assertEquals(cartPage.getTotalPrice(),"10 100 pуб.");
 
         cartPage.clickSubmit();
 
@@ -98,7 +98,7 @@ public class ST3_001 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"10 100 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"10 100 pуб.");
 
 
     }

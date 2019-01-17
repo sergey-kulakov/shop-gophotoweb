@@ -60,9 +60,9 @@ public class ST4_008 extends BaseTest {
         CartPage cartPage=new CartPage();
         cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
         cartPage.fillInFields("test", "test", "tt@tt.tt");
-        logger.info("Expected result: total price = 2 020 p.");
+        logger.info("Expected result: total price = 2 020 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"2 020 p.");
+        assertEquals(cartPage.getTotalPrice(),"2 020 pуб.");
 
         //переключаемся в админку и скрываем метод доставки
         logStep(3);
@@ -83,15 +83,15 @@ public class ST4_008 extends BaseTest {
 
         assertTrue(cartPage.isErrorDeliveryMethodUnavailableDislayed());
         assertTrue(cartPage.isErrorTotalOrderSumChangedDisplayed());
-        logger.info("Expected result: total price = 1 000 p.");
+        logger.info("Expected result: total price = 1 000 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"1 000 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 000 pуб.");
 
         logStep(5);
         cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Самовывоз);
-        logger.info("Expected result: total price = 1 010 p.");
+        logger.info("Expected result: total price = 1 010 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"1 010 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 010 pуб.");
         cartPage.clickSubmit();
 
         logStep(6);
@@ -108,7 +108,7 @@ public class ST4_008 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 010 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 010 pуб.");
 
 
     }}

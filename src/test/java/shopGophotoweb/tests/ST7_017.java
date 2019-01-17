@@ -33,9 +33,9 @@ public class ST7_017 extends BaseTest {
         logStep();
         cartPage.setProductCount("product1","3");
         cartPage.setProductCount("product3","4");
-        logger.info("Expected result: total price = 6 120.60 p.");
+        logger.info("Expected result: total price = 6 120.60 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"6 120.60 p.");
+        assertEquals(cartPage.getTotalPrice(),"6 120.60 pуб.");
 
         logStep();
         cartPage.applyPromoCode("17");
@@ -43,9 +43,9 @@ public class ST7_017 extends BaseTest {
 
         logStep();
         cartPage.setProductCount("product1","4");
-        logger.info("Expected result: total price = 7 140.70 p.");
+        logger.info("Expected result: total price = 7 140.70 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"7 140.70 p.");
+        assertEquals(cartPage.getTotalPrice(),"7 140.70 pуб.");
 
         logStep();
         cartPage.applyPromoCode("17");
@@ -53,15 +53,15 @@ public class ST7_017 extends BaseTest {
 
         logStep();
         cartPage.setProductCount("product1","6");
-        logger.info("Expected result: total price = 9 180.90 p.");
+        logger.info("Expected result: total price = 9 180.90 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"9 180.90 p.");
+        assertEquals(cartPage.getTotalPrice(),"9 180.90 pуб.");
 
         logStep();
         cartPage.applyPromoCode("17");
-        logger.info("Expected result: total price = 8 080 p.");
+        logger.info("Expected result: total price = 8 080 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"8 080 p.");
+        assertEquals(cartPage.getTotalPrice(),"8 080 pуб.");
 
         logStep();
         cartPage.clickSubmit();
@@ -81,6 +81,6 @@ public class ST7_017 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"8 080 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"8 080 pуб.");
     }
 }

@@ -51,7 +51,7 @@ public class ST8_001 extends BaseTest {
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product8");
         ProductPage productPage=new ProductPage();
-        assertEquals(productPage.getLblPrice(),"от  0 p.");
+        assertEquals(productPage.getLblPrice(),"от  0 pуб.");
 
 
         logStep(2);
@@ -60,15 +60,15 @@ public class ST8_001 extends BaseTest {
 
         logStep(3);
         productPage.setSelectValueLocator("Синий");
-        assertEquals(productPage.getLblPrice(),"1 000 p.");
+        assertEquals(productPage.getLblPrice(),"1 000 pуб.");
 
         logStep(4);
         productPage.addProductToCart();
 
         logStep(5);
         productPage.setSelectValueLocator("Красный");
-        assertEquals(productPage.getLblOldPrice(),"2 000 p.");
-        assertEquals(productPage.getLblDiscount(),"1 550 p.");
+        assertEquals(productPage.getLblOldPrice(),"2 000 pуб.");
+        assertEquals(productPage.getLblDiscount(),"1 550 pуб.");
 
         logStep(6);
         productPage.addProductToCart();
@@ -79,7 +79,7 @@ public class ST8_001 extends BaseTest {
 
         logStep(8);
         productPage.setSelectValueLocator("Оранжевый");
-        assertEquals(productPage.getLblPrice(),"0 p.");
+        assertEquals(productPage.getLblPrice(),"0 pуб.");
 
         logStep(9);
         productPage.addProductToCart();
@@ -89,9 +89,9 @@ public class ST8_001 extends BaseTest {
         Menu.goToCart();
         CartPage cartPage=new CartPage();
    //     cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
-        logger.info("Expected result: total price = 3 605.70 p.");
+        logger.info("Expected result: total price = 3 605.70 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"3 605.70 p.");
+        assertEquals(cartPage.getTotalPrice(),"3 605.70 pуб.");
 
         logStep(11);
         cartPage.fillInFields("test", "test", "tt@tt.tt");
@@ -113,6 +113,6 @@ public class ST8_001 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"3 605.70 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"3 605.70 pуб.");
     }
 }

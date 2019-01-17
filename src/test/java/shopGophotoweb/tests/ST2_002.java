@@ -59,7 +59,7 @@ public class ST2_002 extends BaseTest{
 
         logStep();
         cartPage.selectPaymentMethod(CartPage.PaymentMethods.ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3);
-        assertEquals(cartPage.getTotalPrice(),"1 030 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 030 pуб.");
 
         logStep();
         cartPage.clickSubmit();

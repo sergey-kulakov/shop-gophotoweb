@@ -26,9 +26,9 @@ public class ST7_018 extends BaseTest {
         cartPage.fillInFields("test", "test", "tt@tt.tt");
 
         logStep();
-        logger.info("Expected result: total price = 2 020 p.");
+        logger.info("Expected result: total price = 2 020 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"2 020 p.");
+        assertEquals(cartPage.getTotalPrice(),"2 020 pуб.");
 
         logStep();
         cartPage.applyPromoCode("18");

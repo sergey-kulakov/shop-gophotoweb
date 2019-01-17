@@ -60,7 +60,7 @@ public class ST1_001and1_002 extends BaseTest {
         logStep(4);
 
         cartPage.fillInFields("test", "test", "tt@tt.tt");
-        assertEquals(cartPage.getTotalPrice(),"1 000 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 000 pуб.");
         cartPage.clickSubmit();
 
         logStep(5);
@@ -79,7 +79,7 @@ public class ST1_001and1_002 extends BaseTest {
         Utilites.goToSidebarItem(SidebarItems.Продажи);
         Utilites.goToSidebarItem(SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 000 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 000 pуб.");
 
     }
 }

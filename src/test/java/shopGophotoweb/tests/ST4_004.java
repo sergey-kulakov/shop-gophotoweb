@@ -58,9 +58,9 @@ public class ST4_004 extends BaseTest {
         cartPage.fillInFields("test", "test", "tt@tt.tt");
 
         logStep(3);
-        logger.info("Expected result: total price = 2 020 p.");
+        logger.info("Expected result: total price = 2 020 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"2 020 p.");
+        assertEquals(cartPage.getTotalPrice(),"2 020 pуб.");
 
         //переключаемся в админку и скрываем метод доставки
         logStep(4);
@@ -84,9 +84,9 @@ public class ST4_004 extends BaseTest {
 
 
         logStep(6);
-        logger.info("Expected result: total price = 2 000 p.");
+        logger.info("Expected result: total price = 2 000 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"2 000 p.");
+        assertEquals(cartPage.getTotalPrice(),"2 000 pуб.");
         cartPage.clickSubmit();
 
         SuccessPage successPage=new SuccessPage();
@@ -101,7 +101,7 @@ public class ST4_004 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"2 000 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"2 000 pуб.");
 
         Browser.switchWindow();
         deliveryMethodPage.checkPaymentMethodVisible(PaymetsMethodsPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);

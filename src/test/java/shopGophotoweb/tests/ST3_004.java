@@ -55,9 +55,9 @@ public class ST3_004 extends BaseTest {
         logStep(2);
         CartPage cartPage=new CartPage();
         cartPage.fillInFields("test", "test", "tt@tt.tt");
-        logger.info("Expected result: total price = 1 000 p.");
+        logger.info("Expected result: total price = 1 000 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"1 000 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 000 pуб.");
         assertTrue(cartPage.isDeliveryMethodDisplayed(CartPage.DeliveryMethods.Самовывоз));
         assertTrue(cartPage.isDeliveryMethodDisplayed(CartPage.DeliveryMethods.Почта));
         assertFalse(cartPage.isDeliveryMethodDisplayed(CartPage.DeliveryMethods.Курьер));
@@ -68,15 +68,15 @@ public class ST3_004 extends BaseTest {
 
         logStep(4);
         cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Самовывоз);
-        logger.info("Expected result: total price = 1 010 p.");
+        logger.info("Expected result: total price = 1 010 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"1 010 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 010 pуб.");
 
         logStep(5);
         cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Почта);
-        logger.info("Expected result: total price = 1 500 p.");
+        logger.info("Expected result: total price = 1 500 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"1 500 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 500 pуб.");
         cartPage.clickSubmit();
 
         logStep(6);
@@ -96,6 +96,6 @@ public class ST3_004 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 500 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 500 pуб.");
     }
 }

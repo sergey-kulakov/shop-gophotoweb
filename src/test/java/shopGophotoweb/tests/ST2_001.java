@@ -60,7 +60,7 @@ public class ST2_001 extends BaseTest {
 
         logStep(5);
         cartPage.selectPaymentMethod(CartPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);
-        assertEquals(cartPage.getTotalPrice(),"1 010 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 010 pуб.");
 
         logStep(6);
         cartPage.clickSubmit();
@@ -77,8 +77,8 @@ public class ST2_001 extends BaseTest {
         Utilites.goToMenuName("МАГАЗИН");
         AdminProductsPage adminProductsPage=new AdminProductsPage();
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
-        Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);;
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 010 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 010 pуб.");
     }
 }

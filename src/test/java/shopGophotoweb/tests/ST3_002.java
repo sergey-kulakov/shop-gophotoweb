@@ -54,9 +54,9 @@ public class ST3_002 extends BaseTest {
         logStep();
         CartPage cartPage=new CartPage();
         cartPage.fillInFields("test", "test", "tt@tt.tt");
-        logger.info("Expected result: total price = 1 000 p.");
+        logger.info("Expected result: total price = 1 000 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"1 000 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 000 pуб.");
 
         logStep();
         cartPage.clickSubmit();
@@ -64,28 +64,28 @@ public class ST3_002 extends BaseTest {
 
         logStep();
         cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Самовывоз);
-        logger.info("Expected result: total price = 1 100 p.");
+        logger.info("Expected result: total price = 1 100 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"1 010 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 010 pуб.");
 
         logStep();
         cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
-        logger.info("Expected result: total price = 2 200 p.");
+        logger.info("Expected result: total price = 2 200 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"2 020 p.");
+        assertEquals(cartPage.getTotalPrice(),"2 020 pуб.");
 
         logStep();
         cartPage.setProductCount("product1","9");
-        logger.info("Expected result: total price = 10 180.80 p.");
+        logger.info("Expected result: total price = 10 180.80 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"10 180.80 p.");
+        assertEquals(cartPage.getTotalPrice(),"10 180.80 pуб.");
         cartPage.clickSubmit();
 
         logStep();
         cartPage.setProductCount("product1","10");
-        logger.info("Expected result: total price = 10 100 p.");
+        logger.info("Expected result: total price = 10 100 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"10 100 p.");
+        assertEquals(cartPage.getTotalPrice(),"10 100 pуб.");
         cartPage.clickSubmit();
 
         logStep();
@@ -104,6 +104,6 @@ public class ST3_002 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"10 100 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"10 100 pуб.");
     }
 }

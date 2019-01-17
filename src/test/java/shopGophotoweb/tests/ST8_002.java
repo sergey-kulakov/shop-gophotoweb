@@ -52,7 +52,7 @@ public class ST8_002 extends BaseTest {
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product9");
         ProductPage productPage=new ProductPage();
-        assertEquals(productPage.getLblPrice(),"от  1 000 p.");
+        assertEquals(productPage.getLblPrice(),"от  1 000 pуб.");
 
 
         logStep(2);
@@ -61,7 +61,7 @@ public class ST8_002 extends BaseTest {
 
         logStep(3);
         productPage.setSelectValueLocator("Белый");
-        assertEquals(productPage.getLblPrice(),"1 000 p.");
+        assertEquals(productPage.getLblPrice(),"1 000 pуб.");
 
         logStep(4);
         productPage.addProductToCart();
@@ -69,8 +69,8 @@ public class ST8_002 extends BaseTest {
 
         logStep(5);
         productPage.setSelectValueLocator("m");
-        assertEquals(productPage.getLblOldPrice(),"2 000 p.");
-        assertEquals(productPage.getLblDiscount(),"1 500 p.");
+        assertEquals(productPage.getLblOldPrice(),"2 000 pуб.");
+        assertEquals(productPage.getLblDiscount(),"1 500 pуб.");
 
         logStep(6);
         productPage.addProductToCart();
@@ -87,11 +87,11 @@ public class ST8_002 extends BaseTest {
 
         logStep(9);
         productPage.setSelectValueLocator("Выберите Размер");
-        assertEquals(productPage.getLblPrice(),"5 000 p.");
+        assertEquals(productPage.getLblPrice(),"5 000 pуб.");
 
         logStep(10);
         productPage.setSelectValueLocator("s");
-        assertEquals(productPage.getLblPrice(),"5 000 p.");
+        assertEquals(productPage.getLblPrice(),"5 000 pуб.");
 
         logStep(11);
         productPage.addProductToCart();
@@ -104,9 +104,9 @@ public class ST8_002 extends BaseTest {
         logStep(13);
         Menu.goToCart();
         CartPage cartPage=new CartPage();
-        logger.info("Expected result: total price = 7 585.10 p.");
+        logger.info("Expected result: total price = 7 585.10 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"7 585.10 p.");
+        assertEquals(cartPage.getTotalPrice(),"7 585.10 pуб.");
 
         logStep(14);
         cartPage.fillInFields("test", "test", "tt@tt.tt");
@@ -130,6 +130,6 @@ public class ST8_002 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"7 585.10 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"7 585.10 pуб.");
     }
 }

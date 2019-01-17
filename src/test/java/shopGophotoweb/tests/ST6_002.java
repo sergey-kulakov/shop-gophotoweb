@@ -59,15 +59,15 @@ public class ST6_002 extends BaseTest {
 
         logStep();
         cartPage.setProductCount("product1","6");
-        logger.info("Expected result: total price = 6 060 p.");
+        logger.info("Expected result: total price = 6 060 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"6 060 p.");
+        assertEquals(cartPage.getTotalPrice(),"6 060 pуб.");
 
         logStep();
         cartPage.applyPromoCode("21");
-        logger.info("Expected result: total price = 0 p.");
+        logger.info("Expected result: total price = 0 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"0 p.");
+        assertEquals(cartPage.getTotalPrice(),"0 pуб.");
         assertFalse(cartPage.isPaymentMethodDisplayed(CartPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1));
 
 
@@ -87,6 +87,6 @@ public class ST6_002 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"0 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"0 pуб.");
     }
 }

@@ -27,15 +27,15 @@ public class ST7_002 extends BaseTest {
 
         logStep(3);
         cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
-        logger.info("Expected result: total price = 2 020 p.");
+        logger.info("Expected result: total price = 2 020 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"2 020 p.");
+        assertEquals(cartPage.getTotalPrice(),"2 020 pуб.");
 
         logStep(4);
         cartPage.setProductCount("product1","5");
-        logger.info("Expected result: total price = 6 100.40 p.");
+        logger.info("Expected result: total price = 6 100.40 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"6 100.40 p.");
+        assertEquals(cartPage.getTotalPrice(),"6 100.40 pуб.");
 
         logStep(5);
         cartPage.applyPromoCode("2");
@@ -43,15 +43,15 @@ public class ST7_002 extends BaseTest {
 
         logStep(6);
         cartPage.setProductCount("product1","6");
-        logger.info("Expected result: total price = 7 120.50 p.");
+        logger.info("Expected result: total price = 7 120.50 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"7 120.50 p.");
+        assertEquals(cartPage.getTotalPrice(),"7 120.50 pуб.");
 
         logStep(7);
         cartPage.applyPromoCode("2");
-        logger.info("Expected result: total price = 6 615.50 p.");
+        logger.info("Expected result: total price = 6 615.50 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"6 615.50 p.");
+        assertEquals(cartPage.getTotalPrice(),"6 615.50 pуб.");
 
         logStep(8);
         cartPage.clickSubmit();
@@ -72,6 +72,6 @@ public class ST7_002 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"6 615.50 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"6 615.50 pуб.");
     }
 }

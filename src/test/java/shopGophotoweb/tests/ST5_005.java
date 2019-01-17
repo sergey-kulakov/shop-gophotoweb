@@ -60,15 +60,15 @@ public class ST5_005 extends BaseTest {
 
         logStep(3);
         cartPage.setProductCount("product1","6");
-        logger.info("Expected result: total price = 7 120.50 p.");
+        logger.info("Expected result: total price = 7 120.50 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"7 120.50 p.");
+        assertEquals(cartPage.getTotalPrice(),"7 120.50 pуб.");
 
         logStep(4);
         cartPage.applyPromoCode("2");
-        logger.info("Expected result: total price = 6 615.50 p.");
+        logger.info("Expected result: total price = 6 615.50 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"6 615.50 p.");
+        assertEquals(cartPage.getTotalPrice(),"6 615.50 pуб.");
 
         //переключаемся в админку и меняем скидку промокода
         logStep(5);
@@ -91,9 +91,9 @@ public class ST5_005 extends BaseTest {
         cartPage.clickSubmit();
 
         assertTrue(cartPage.isErrorTotalOrderSumChangedDisplayed());
-        logger.info("Expected result: total price = 6 110.50 p.");
+        logger.info("Expected result: total price = 6 110.50 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"6 110.50 p.");
+        assertEquals(cartPage.getTotalPrice(),"6 110.50 pуб.");
 
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
@@ -107,7 +107,7 @@ public class ST5_005 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"6 110.50 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"6 110.50 pуб.");
 
         logStep("Postconditions");
         Browser.switchWindow();

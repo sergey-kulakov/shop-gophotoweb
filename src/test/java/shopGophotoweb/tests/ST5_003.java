@@ -58,9 +58,9 @@ public class ST5_003 extends BaseTest {
         cartPage.fillInFields("test", "test", "tt@tt.tt");
 
         logStep(3);
-        logger.info("Expected result: total price = 2 020 p.");
+        logger.info("Expected result: total price = 2 020 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"2 020 p.");
+        assertEquals(cartPage.getTotalPrice(),"2 020 pуб.");
 
         //переключаемся в админку и меняем стоимость доставки
         logStep(4);
@@ -82,9 +82,9 @@ public class ST5_003 extends BaseTest {
         cartPage.clickSubmit();
 
         assertTrue(cartPage.isErrorTotalOrderSumChangedDisplayed());
-        logger.info("Expected result: total price = 2 040 p.");
+        logger.info("Expected result: total price = 2 040 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"2 040 p.");
+        assertEquals(cartPage.getTotalPrice(),"2 040 pуб.");
 
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
@@ -98,7 +98,7 @@ public class ST5_003 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"2 040 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"2 040 pуб.");
 
         logStep("Postconditions");
         Browser.switchWindow();

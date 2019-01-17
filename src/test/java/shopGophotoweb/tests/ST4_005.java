@@ -65,9 +65,9 @@ public class ST4_005 extends BaseTest {
 
         logStep(4);
         cartPage.selectPaymentMethod(CartPage.PaymentMethods.ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3);
-        logger.info("Expected result: total price = 4 130.30 p.");
+        logger.info("Expected result: total price = 4 130.30 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"4 130.30 p.");
+        assertEquals(cartPage.getTotalPrice(),"4 130.30 pуб.");
 
         //переключаемся в админку и скрываем метод оплаты
         logStep(5);
@@ -88,9 +88,9 @@ public class ST4_005 extends BaseTest {
         assertTrue(cartPage.isErrorTotalOrderSumChangedDisplayed());
 
         logStep(7);
-        logger.info("Expected result: total price = 4 050.10 p.");
+        logger.info("Expected result: total price = 4 050.10 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"4 050.10 p.");
+        assertEquals(cartPage.getTotalPrice(),"4 050.10 pуб.");
         cartPage.clickSubmit();
 
         SuccessPage successPage=new SuccessPage();
@@ -105,7 +105,7 @@ public class ST4_005 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"4 050.10 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"4 050.10 pуб.");
 
 
     }}

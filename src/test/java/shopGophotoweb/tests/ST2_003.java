@@ -56,11 +56,11 @@ public class ST2_003 extends BaseTest {
 
         logStep(3);
         cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Самовывоз);
-        assertEquals(cartPage.getTotalPrice(),"1 000 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 000 pуб.");
 
         logStep(4);
         cartPage.setProductCount("product1","10");
-        assertEquals(cartPage.getTotalPrice(),"10 000 p.");
+        assertEquals(cartPage.getTotalPrice(),"10 000 pуб.");
 
         logStep(5);
         cartPage.clickSubmit();
@@ -80,6 +80,6 @@ public class ST2_003 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"10 000 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"10 000 pуб.");
     }
 }
