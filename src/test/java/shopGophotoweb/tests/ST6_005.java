@@ -58,32 +58,26 @@ public class ST6_005 extends BaseTest {
 
         logStep(3);
         cartPage.setProductCount("product1","10");
-        logger.info("Expected result: total price = 10 000 pуб.");
+        logger.info("Expected result: total price = 10 300 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"10 000 pуб.");
+        assertEquals(cartPage.getTotalPrice(),"10 300 p.");
 
         logStep(4);
-        cartPage.selectPaymentMethod(CartPage.PaymentMethods.ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3);
-        logger.info("Expected result: total price = 10 300 pуб.");
-        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"10 300 pуб.");
-
-        logStep(5);
         cartPage.applyPromoCode("21");
-        logger.info("Expected result: total price = 0 pуб.");
+        logger.info("Expected result: total price = 0 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"0 pуб.");
+        assertEquals(cartPage.getTotalPrice(),"0 p.");
         assertFalse(cartPage.isPaymentMethodDisplayed(CartPage.PaymentMethods.ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3));
 
 
-        logStep();
+        logStep(5);
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
         String orderNumber=successPage.getOrderNumber();
         logger.info("The order was completed");
 
-        logStep();
+        logStep(6);
         browser.navigate(Browser.getAdminPageUrl());
         AdminMainPage adminMainPage = new AdminMainPage();
         adminMainPage.goToShop();
@@ -92,6 +86,6 @@ public class ST6_005 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"0 pуб.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"0 p.");
     }
 }

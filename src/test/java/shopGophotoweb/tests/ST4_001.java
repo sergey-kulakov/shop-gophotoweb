@@ -56,11 +56,10 @@ public class ST4_001 extends BaseTest {
 
         logStep(2);
         CartPage cartPage=new CartPage();
-        cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
         cartPage.fillInFields("test", "test", "tt@tt.tt");
-        logger.info("Expected result: total price = 2 000 pуб.");
+        logger.info("Expected result: total price = 2 000 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"2 000 pуб.");
+        assertEquals(cartPage.getTotalPrice(),"2 000 p.");
 
         //переключаемся в админку и скрываем метод доставки
         logStep(3);
@@ -76,31 +75,25 @@ public class ST4_001 extends BaseTest {
         DeliveryMethodsPage deliveryMethodsPage=new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Курьер);
 
+
         //переключаемся на сайт
-        logStep(5);
         Browser.switchWindow();
         cartPage.clickSubmit();
-
-        logStep(6);
         assertTrue(cartPage.isErrorDeliveryMethodUnavailableDislayed());
         assertTrue(cartPage.isErrorTotalOrderSumChangedDisplayed());
 
-        logStep(7);
-        cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Самовывоз);
-
-        logStep();
-        logger.info("Expected result: total price = 1 000 pуб.");
+        logger.info("Expected result: total price = 1 000 p.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"1 000 pуб.");
+        assertEquals(cartPage.getTotalPrice(),"1 000 p.");
 
 
+        logStep(5);
         //переключаемся в админку и скрываем метод доставки
-        logStep();
         Browser.switchWindow();
         deliveryMethodsPage.unCheckDeliveryMethodVisible(DeliveryMethodsPage.DeliveryMethods.Самовывоз);
 
         //переключаемся на сайт
-        logStep();
+        logStep(6);
         Browser.switchWindow();
         cartPage.clickSubmit();
 
@@ -123,7 +116,7 @@ public class ST4_001 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 000 pуб.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 000 p.");
 
 
     }}

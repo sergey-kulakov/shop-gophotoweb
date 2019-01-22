@@ -23,7 +23,7 @@
     </test>
     <test name="ST3_005">
         <classes>
-            <class name="shopGophotoweb.tests.ST3_004" />
+            <class name="shopGophotoweb.tests.ST3_005" />
         </classes>
     </test>
 

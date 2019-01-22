@@ -12,14 +12,10 @@
             <class name="shopGophotoweb.tests.ST6_002" />
         </classes>
     </test>
-    <test name="ST6_003">
-        <classes>
-            <class name="shopGophotoweb.tests.ST6_002" />
-        </classes>
-    </test>
+
     <test name="ST6_005">
         <classes>
-            <class name="shopGophotoweb.tests.ST6_002" />
+            <class name="shopGophotoweb.tests.ST6_005" />
         </classes>
     </test>
 
