@@ -80,20 +80,15 @@ public class ST4_008 extends BaseTest {
         Browser.switchWindow();
         cartPage.clickSubmit();
 
-        assertTrue(cartPage.isErrorDeliveryMethodUnavailableDislayed());
+      //  assertTrue(cartPage.isErrorDeliveryMethodUnavailableDislayed());
         assertTrue(cartPage.isErrorTotalOrderSumChangedDisplayed());
-        logger.info("Expected result: total price = 1 000 pуб.");
-        logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"1 000 pуб.");
-
-        logStep(5);
-        cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Самовывоз);
         logger.info("Expected result: total price = 1 010 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
         assertEquals(cartPage.getTotalPrice(),"1 010 pуб.");
-        cartPage.clickSubmit();
 
-        logStep(6);
+
+        logStep(5);
+        cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         successPage.isThanksForOrderMessageDisplayed();
         String orderNumber=successPage.getOrderNumber();

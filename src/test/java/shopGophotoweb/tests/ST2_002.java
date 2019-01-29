@@ -53,12 +53,12 @@ public class ST2_002 extends BaseTest{
         CartPage cartPage=new CartPage();
         cartPage.fillInFields("name","lastName","123@123.123");
 
-        logStep();
+       /* logStep();
         cartPage.clickSubmit();
         assertTrue(cartPage.isPaymentErrorDisplayed());
 
         logStep();
-        cartPage.selectPaymentMethod(CartPage.PaymentMethods.ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3);
+        cartPage.selectPaymentMethod(CartPage.PaymentMethods.ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3);*/
         assertEquals(cartPage.getTotalPrice(),"1 030 pуб.");
 
         logStep();

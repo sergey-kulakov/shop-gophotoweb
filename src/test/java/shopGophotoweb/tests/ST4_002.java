@@ -60,14 +60,14 @@ public class ST4_002 extends BaseTest {
         cartPage.fillInFields("test", "test", "tt@tt.tt");
 
         logStep(3);
-        logger.info("Expected result: total price = 1 010 p.");
+        logger.info("Expected result: total price = 1 010 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"1 010 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 010 pуб.");
 
 
         logStep(4);
         cartPage.selectPaymentMethod(CartPage.PaymentMethods.ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3);
-        assertEquals(cartPage.getTotalPrice(),"1 030 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 030 pуб.");
 
         //Uncheck payment method
         logStep(5);
@@ -106,9 +106,9 @@ public class ST4_002 extends BaseTest {
         cartPage.clickSubmit();
         assertTrue(cartPage.isErrorPaymentMethodUnavailableDislayed());
         assertTrue(cartPage.isErrorTotalOrderSumChangedDisplayed());
-        logger.info("Expected result: total price = 1 000 p.");
+        logger.info("Expected result: total price = 1 000 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());
-        assertEquals(cartPage.getTotalPrice(),"1 000 p.");
+        assertEquals(cartPage.getTotalPrice(),"1 000 pуб.");
 
         logStep(10);
         cartPage.clickSubmit();
@@ -124,7 +124,7 @@ public class ST4_002 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 000 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 000 pуб.");
 
 
     }}

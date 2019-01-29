@@ -53,32 +53,25 @@ public class ST2_001 extends BaseTest {
         logStep(3);
         CartPage cartPage=new CartPage();
         cartPage.fillInFields("name","lastName","123@123.123");
+        assertEquals(cartPage.getTotalPrice(),"1 010 pуб.");
 
-       /* logStep(4);
-        cartPage.clickSubmit();
-        assertTrue(cartPage.isPaymentErrorDisplayed());
-
-        logStep(5);
-        cartPage.selectPaymentMethod(CartPage.PaymentMethods.МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1);*/
-        assertEquals(cartPage.getTotalPrice(),"1 010 p.");
-
-        logStep(6);
+        logStep(4);
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
         String orderNumber=successPage.getOrderNumber();
 
-        logStep(7);
+        logStep(5);
         browser.navigate(Browser.getAdminPageUrl());
         AdminMainPage adminMainPage = new AdminMainPage();
         adminMainPage.goToShop();
 
-        logStep(8);
+        logStep(6);
         Utilites.goToMenuName("МАГАЗИН");
         AdminProductsPage adminProductsPage=new AdminProductsPage();
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
-        Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);;
+        Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 010 p.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"1 010 pуб.");
     }
 }

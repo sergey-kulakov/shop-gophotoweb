@@ -8,7 +8,8 @@
 		<classes>
 
 
-			<class name="shopGophotoweb.tests.ST3_002" />
+
+			<class name="shopGophotoweb.tests.ST6_001" />
 			<class name="shopGophotoweb.tests.ST6_005" />
 
 		</classes>
