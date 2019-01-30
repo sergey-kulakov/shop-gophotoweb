@@ -7,10 +7,10 @@ import webdriver.elements.Button;
 import webdriver.elements.CheckBox;
 
 public class PreOrderSettingsPage extends BaseForm{
-    private CheckBox chkAcrivatePreOrder=new CheckBox(By.xpath("//span[@class='fl b-active']"),"Activate preorder checkbox");
+    private CheckBox chkAcrivatePreOrder=new CheckBox(By.xpath("//div[@class=\"mb20 input-block w560\"]"),"Activate preorder checkbox");
     private Button btnSubmit=new Button(By.xpath("//input[@value='Сохранить']"),"Submit button");
     public PreOrderSettingsPage(){
-        super(By.xpath("//span[contains(text(),'Активировать возможность продавать товары под заказ')]"),"PreOrder page");
+        super(By.xpath("//label[@for='on_pre_order']"),"PreOrder page");
     }
     public void activatePreOrder(){
         chkAcrivatePreOrder.check();
@@ -20,7 +20,7 @@ public class PreOrderSettingsPage extends BaseForm{
         chkAcrivatePreOrder.uncheck();
         submit();
     }
-    public void submit(){
+    private void submit(){
         btnSubmit.click();
     }
 }

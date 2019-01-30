@@ -42,14 +42,14 @@ public class ST2_002 extends BaseTest{
 
     @Override
     public void runTest() throws InterruptedException {
-        logStep();
+        logStep(1);
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product1");
         ProductPage productPage=new ProductPage();
         productPage.addProductToCart();
         Menu.goToCart();
 
-        logStep();
+        logStep(2);
         CartPage cartPage=new CartPage();
         cartPage.fillInFields("name","lastName","123@123.123");
 
@@ -61,14 +61,14 @@ public class ST2_002 extends BaseTest{
         cartPage.selectPaymentMethod(CartPage.PaymentMethods.ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3);*/
         assertEquals(cartPage.getTotalPrice(),"1 030 pуб.");
 
-        logStep();
+        logStep(3);
         cartPage.clickSubmit();
         YandexMoneyPage yandexMoneyPage=new YandexMoneyPage();
 
-        logStep();
+        logStep(4);
         Browser.getInstance().getDriver().navigate().back();
 
-        logStep();
+        logStep(5);
         cartPage.deleteSomeProduct("product1");
         assertTrue(cartPage.isEmptyCartMessageDisplayed());
 

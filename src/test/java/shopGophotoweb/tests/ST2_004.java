@@ -27,12 +27,12 @@ public class ST2_004 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.оплаты);
 
-        logStep();
+        logStep(4);
         PaymetsMethodsPage paymetsMethodsPage = new PaymetsMethodsPage();
         paymetsMethodsPage.unCheckAllMethods();
 
 
-        logStep();
+        logStep(5);
         Utilites.goToSidebarItem(Utilites.SidebarItems.доставки);
         DeliveryMethodsPage deliveryMethodsPage = new DeliveryMethodsPage();
         deliveryMethodsPage.unCheckAllMethods();
@@ -42,42 +42,42 @@ public class ST2_004 extends BaseTest {
     @Override
     public void runTest() throws InterruptedException {
 
-        logStep();
+        logStep(1);
         CatalogPage catalogPage=new CatalogPage();
         catalogPage.goToProductPage("product1");
         ProductPage productPage=new ProductPage();
         productPage.addProductToCart();
         Menu.goToCart();
 
-        logStep();
+        logStep(2);
         CartPage cartPage=new CartPage();
         cartPage.fillInFields("name","lastName","123@123.123");
 
 
-        logStep();
+        logStep(3);
         cartPage.selectDeliveryMethod(CartPage.DeliveryMethods.Курьер);
         assertEquals(cartPage.getTotalPrice(),"2 000 pуб.");
 
-        logStep();
+        logStep(4);
         cartPage.setProductCount("product1","9");
         assertEquals(cartPage.getTotalPrice(),"10 080 pуб.");
 
-        logStep();
+        logStep(5);
         cartPage.setProductCount("product1","10");
         assertEquals(cartPage.getTotalPrice(),"10 000 pуб.");
 
-        logStep();
+        logStep(6);
         cartPage.clickSubmit();
         SuccessPage successPage=new SuccessPage();
         assertTrue(successPage.isThanksForOrderMessageDisplayed());
         String orderNumber=successPage.getOrderNumber();
         logger.info("The order was completed");
 
-        logStep();
+        logStep(7);
         browser.navigate(Browser.getAdminPageUrl());
         AdminMainPage adminMainPage = new AdminMainPage();
         adminMainPage.goToShop();
-        logStep();
+        logStep(8);
         Utilites.goToMenuName("МАГАЗИН");
         AdminProductsPage adminProductsPage=new AdminProductsPage();
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);

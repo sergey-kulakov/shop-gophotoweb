@@ -8,7 +8,7 @@ import webdriver.elements.TextBox;
 
 
 public class DeliveryMethodPage extends BaseForm {
-    private String locCheckboxPaymetnMethod="//span[contains(text(),'%S')]/preceding-sibling::span";
+    private String locCheckboxPaymetnMethod="//label[contains(text(),'%S')]/..";
     private Button btnSubmit=new Button(By.xpath("//input[@value='Сохранить']"),"Submit button");
     private TextBox txbDeliveryTax=new TextBox(By.xpath("//input[@id='delivery-method-tax_per_order']"), "Delivery method tax textbox");
     private TextBox txbAdditionalDeliveryTax=new TextBox(By.id("delivery-method-tax_per_order_item"),"Delivery method additional tax textbox");
@@ -24,7 +24,7 @@ public class DeliveryMethodPage extends BaseForm {
         String x=String.format(locCheckboxPaymetnMethod,paymentMethodName);
         System.out.println(x);
         CheckBox chkPaymentMethodVisibility=new CheckBox(By.xpath(x),"Payment method visibility checkbox");
-        System.out.println("test");
+       // System.out.println("test");
         chkPaymentMethodVisibility.waitForIsElementPresent();
         chkPaymentMethodVisibility.uncheck();
         btnSubmit.click();
