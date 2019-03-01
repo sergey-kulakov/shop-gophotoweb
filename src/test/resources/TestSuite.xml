@@ -7,8 +7,8 @@
 		</listeners>
 		<classes>
 
-
-			<class name="shopGophotoweb.tests.ST6_005" />
+			<class name="shopGophotoweb.tests.ST2_002" />
+			<class name="shopGophotoweb.tests.ST6_001" />
 
 		</classes>
 	</test>

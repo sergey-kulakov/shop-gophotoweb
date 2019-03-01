@@ -9,7 +9,7 @@ import webdriver.elements.Label;
 public class AdminMainPage extends BaseForm {
 
     private Button btnShop=new Button(By.xpath("//span[contains (text(),\"МАГАЗИН\")]/.."),"Shop button");
-    private Label lblGoToSite=new Label(By.xpath("//a[@class='site-name__link']"),"Go to site link");
+    private Label lblGoToSite=new Label(By.xpath("//a[@class='site-name__link js--bodymovin-link']"),"Go to site link");
 
     public AdminMainPage(){super(By.id("btnAddPage"),"Main site admin page");}
 
